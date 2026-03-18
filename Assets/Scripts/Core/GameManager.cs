@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // <summary>
-// The central manager for the entire game, handling game state, level transitions, and persistent data.
+// This is the central manager for the entire game, handling game state, level transitions, and persistent data.
 // It follows the Singleton design pattern to ensure only one instance exists.
 // </summary>
 //NOte: I forgot to save it and shutdown my pc, didnt do a pull request either cuz we tryna figure out the order of pushing
