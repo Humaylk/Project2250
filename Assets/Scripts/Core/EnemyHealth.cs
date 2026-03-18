@@ -17,7 +17,11 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        
+
         Debug.Log("Enemy Died!");
-        Destroy(gameObject);
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        Destroy(gameObject, 0.1f);
     }
 }
