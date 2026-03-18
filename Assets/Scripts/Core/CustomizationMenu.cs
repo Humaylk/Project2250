@@ -27,7 +27,7 @@ public class CustomizationMenu : MonoBehaviour
     private PlayerAppearance appearance;
     private bool menuOpen = false;
 
- // standard unity lifecycle method for initialization, runs once on startup.
+// standard unity lifecycle method for initialization, runs once on startup.
 void Start()
 {
     // create/initialize a new player appearance data object.
@@ -60,7 +60,6 @@ void Start()
     // call RefreshUI to update all UI elements with their initial values/states.
     RefreshUI();
 }
-    }
 // Every frame, check if the Tab key is pressed to open or close the menu.
     void Update()
     {
