@@ -29,7 +29,7 @@ public class InteractionSystem : MonoBehaviour
     void Start()
     {
         // Cache the reference to the UIManager present in the scene.
-        uiManager = FindObjectOfType<UIManager>();
+        uiManager = FindFirstObjectByType<UIManager>();
     }
 
     void Update()
