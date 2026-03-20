@@ -4,15 +4,21 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health = 100;
 
+    void Start()
+    {
+        GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
         Debug.Log("Player Health: " + health);
+        GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
 
         if (health <= 0)
         {
             Debug.Log("Player Died!");
-            gameObject.SetActive(false);
+            GameManager.Instance?.ResetOnDeath();
         }
     }
 }
