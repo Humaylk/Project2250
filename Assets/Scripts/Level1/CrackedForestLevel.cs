@@ -25,7 +25,7 @@ public class CrackedForestLevel : LevelBase
         Debug.Log("=== Cracked Forest - Level 1 Initialized ===");
 
         if (player != null)
-            player.transform.position = Vector3.zero;
+            player.transform.position = new Vector3(-6f, 0f, 0f);
 
         puzzle?.ResetPuzzle();
         gate?.ResetGate();
