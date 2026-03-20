@@ -25,7 +25,7 @@ public class CrackedForestLevel : LevelBase
         Debug.Log("=== Cracked Forest - Level 1 Initialized ===");
 
         if (player != null)
-            player.transform.position = Vector3.zero;
+            player.transform.position = new Vector3(-6f, 0f, 0f);
 
         puzzle?.ResetPuzzle();
         gate?.ResetGate();
@@ -60,7 +60,11 @@ public class CrackedForestLevel : LevelBase
         isComplete = true;
         Debug.Log("Level 1 - Cracked Forest COMPLETE!");
         GameManager.Instance?.progressionSystem?.AddPuzzleXP(30);
-        uiManager?.DisplayObjective("Earth island restored!");
+    
+        // Munadir: Show level complete message to player
+        uiManager?.DisplayObjective("LEVEL COMPLETE! Earth island restored!");
+        uiManager?.ShowHint("You obtained the Metal Sword! Press H at the gate to advance.");
+    
         GameManager.Instance?.AdvanceLevel();
     }
 
