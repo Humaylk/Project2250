@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         Debug.Log("Player Health: " + health);
         GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
+       //Humayl testing:// Debug.Log("PlayerHealth Start Running");
 
         if (health <= 0)
         {
@@ -21,4 +22,5 @@ public class PlayerHealth : MonoBehaviour
             GameManager.Instance?.ResetOnDeath();
         }
     }
+    
 }
