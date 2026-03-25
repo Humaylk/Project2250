@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
         Debug.Log("Enemy Health: " + health);
-        GameManager.Instance?.uiManager?.ShowHint("Golem HP: " + health);
+        GameManager.Instance?.uiManager?.ShowHint("Enemy HP: " + health);
         if (health <= 0)
             Die();
     }
@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
         if (ai != null) ai.enabled = false;
         
         GameManager.Instance?.progressionSystem?.AddCombatXP();
-        GameManager.Instance?.uiManager?.ShowHint("Golem defeated! +10 XP");
+        GameManager.Instance?.uiManager?.ShowHint("Enemy defeated! +10 XP");
         Collider2D col = GetComponent<Collider2D>();
         
         if (col != null) col.enabled = false;
