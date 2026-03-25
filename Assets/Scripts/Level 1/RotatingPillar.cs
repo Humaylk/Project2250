@@ -70,7 +70,7 @@ public class RotatingPillar : MonoBehaviour
     public void ResetPillar()
     {
         _currentAngle = 0f;
-        _targetVisualAngle = 0f;
+      //Humayl: Removed for smoother gameplay  //_targetVisualAngle = 0f;
         _isSpinning = false;
         transform.rotation = Quaternion.identity;
         Debug.Log("[" + pillarID + "] Reset to 0 degrees.");
