@@ -19,11 +19,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        // Initial HP display
-        if (hpText != null)
-            hpText.text = "HP: 100";
-
-        // FORCE dialogue style (this fixes your issue)
         if (dialogueText != null)
         {
             dialogueText.enableAutoSizing = false;
