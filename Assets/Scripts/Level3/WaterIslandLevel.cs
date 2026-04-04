@@ -30,7 +30,6 @@ public class WaterIslandLevel : LevelBase
 
     private PlayerController player;
     private PlayerHealth playerHealth;
-    private float lastTimerDisplayTime = -1f;
     private bool isDrowning = false;
 
     void Awake()

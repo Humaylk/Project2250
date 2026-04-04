@@ -9,7 +9,7 @@ public class Level3PlayerHealth : MonoBehaviour
 
     [Header("Health Bar UI")]
     public Image healthBarFill;       // The red/green fill image
-    public TextMeshProUGUI hpText;    // Shows "100 / 100" next to the bar
+    public TextMeshProUGUI hpText;    // Shows "110 / 110" next to the bar
 
     private PlayerHealth coreHealth;
 

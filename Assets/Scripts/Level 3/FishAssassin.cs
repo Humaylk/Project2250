@@ -20,11 +20,19 @@ public class FishAssassin : MonoBehaviour
     private bool isDead = false;
 
     private Animator animator;
+    private bool hasIsWalking = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+
+        // Check once if this animator has the isWalking parameter
+        if (animator != null)
+        {
+            foreach (AnimatorControllerParameter p in animator.parameters)
+                if (p.name == "isWalking") { hasIsWalking = true; break; }
+        }
 
         // Auto-find player if not assigned in Inspector
         if (player == null)
@@ -57,11 +65,11 @@ public class FishAssassin : MonoBehaviour
                 speed * Time.deltaTime
             );
 
-            if (animator != null) animator.SetBool("isWalking", true);
+            if (animator != null && hasIsWalking) animator.SetBool("isWalking", true);
         }
         else
         {
-            if (animator != null) animator.SetBool("isWalking", false);
+            if (animator != null && hasIsWalking) animator.SetBool("isWalking", false);
 
             if (Time.time >= lastAttackTime + attackCooldown)
             {
