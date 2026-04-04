@@ -20,7 +20,7 @@ public class WaterIslandLevel : LevelBase
     public UIManager uiManager;
 
     [Header("Oxygen Timer Settings")]
-    public float timerDuration = 45f;
+    public float timerDuration = 20f;
 
     [Header("HUD")]
     public TextMeshProUGUI oxygenText;
@@ -67,6 +67,9 @@ public class WaterIslandLevel : LevelBase
 
     protected override void Update()
     {
+        // Always keep the oxygen HUD ticking, even after win
+        UpdateOxygenDisplay();
+
         if (!isActive || isComplete) return;
 
         UpdateLevel();
@@ -79,11 +82,27 @@ public class WaterIslandLevel : LevelBase
         // Death is handled immediately via PlayerHealth.OnDeath event → HandlePlayerDeath()
     }
 
+    private void UpdateOxygenDisplay()
+    {
+        if (oxygenTimer == null || oxygenText == null) return;
+        int secondsLeft = Mathf.CeilToInt(oxygenTimer.timeRemaining);
+        oxygenText.text = "Oxygen Left: " + secondsLeft + "s";
+        if (secondsLeft <= 10)
+        {
+            float alpha = Mathf.Abs(Mathf.Sin(Time.time * 4f));
+            oxygenText.color = new Color(1f, 0.2f, 0.2f, alpha);
+        }
+        else
+        {
+            oxygenText.color = new Color(0f, 0.9f, 1f, 1f);
+        }
+    }
+
     public override void InitializeLevel()
     {
         isActive = true;
         isComplete = false;
-        Debug.Log("=== Drowned Vault - Level 3 Initialized ===");
+        Debug.Log("Level 3 - Drowned Vault");
 
         if (player != null)
             player.transform.position = spawnPosition;
@@ -100,31 +119,13 @@ public class WaterIslandLevel : LevelBase
             oxygenTimer.StartTimer(timerDuration);
         }
 
-        uiManager?.DisplayObjective("Clear the rocks to open the exit before you run out of oxygen!");
-        uiManager?.ShowHint("Watch out for fish assassins! You have 45 seconds of oxygen.");
+        uiManager?.DisplayObjective("Diffuse the mines to open the exit before you run out of oxygen!");
+        uiManager?.ShowHint("Watch out for the killer fish! You have 20 seconds of oxygen. Open the chest and pick up the item for more time.");
     }
 
     public override void UpdateLevel()
     {
         if (player == null) return;
-
-        // Display the remaining oxygen countdown every frame directly on HUD
-        if (oxygenTimer != null && oxygenText != null)
-        {
-            int secondsLeft = Mathf.CeilToInt(oxygenTimer.timeRemaining);
-            oxygenText.text = "O2: " + secondsLeft + "s";
-
-            // Turn text red and flash when below 10 seconds
-            if (secondsLeft <= 10)
-            {
-                float alpha = Mathf.Abs(Mathf.Sin(Time.time * 4f));
-                oxygenText.color = new Color(1f, 0.2f, 0.2f, alpha);
-            }
-            else
-            {
-                oxygenText.color = new Color(0f, 0.9f, 1f, 1f);
-            }
-        }
 
         // Once ALL mines are defused, open the exit doorway
         if (AllMinesCleared() && exitDoor != null && !exitDoor.isOpen)
