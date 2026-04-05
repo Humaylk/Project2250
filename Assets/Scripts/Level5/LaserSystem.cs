@@ -72,8 +72,10 @@ public class LaserSystem : MonoBehaviour
             // Add sprite renderer — bright magenta beam
             SpriteRenderer sr = laser.AddComponent<SpriteRenderer>();
             sr.sprite = GetDefaultSprite();
-            sr.color = new Color(1f, 0f, 1f, 0.85f); // bright magenta
+            sr.color = new Color(1f, 0f, 1f, 0.85f);
             sr.sortingOrder = 5;
+// Munadir: Fix for URP - override material to use unlit so laser is always visible
+            sr.material = new Material(Shader.Find("Sprites/Default"));
 
             // Scale: thin and long — this is the beam shape
             laser.transform.localScale = new Vector3(laserWidth, laserLength, 1f);
@@ -98,10 +100,11 @@ public class LaserSystem : MonoBehaviour
 
     private Sprite GetDefaultSprite()
     {
-        // Creates a plain white pixel sprite in code — no asset needed
-        Texture2D tex = new Texture2D(1, 1);
-        tex.SetPixel(0, 0, Color.white);
+        // Munadir: Fixed for URP - use a proper readable texture
+        Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+        tex.SetPixels(new Color[] { Color.white, Color.white, Color.white, Color.white });
         tex.Apply();
-        return Sprite.Create(tex, new Rect(0, 0, 1, 1), new Vector2(0.5f, 0.5f));
+        tex.filterMode = FilterMode.Point;
+        return Sprite.Create(tex, new Rect(0, 0, 2, 2), new Vector2(0.5f, 0.5f), 1f);
     }
 }
