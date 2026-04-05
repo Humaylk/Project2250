@@ -1,0 +1,673 @@
+fileFormatVersion: 2
+guid: acb03d4a4b122ff4b9736648781b2065
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1183550799193305193
+    second: fireability_0
+  - first:
+      213: -6104106429951241886
+    second: fireability_1
+  - first:
+      213: -831081454799042096
+    second: fireability_2
+  - first:
+      213: 8372253818001469252
+    second: fireability_3
+  - first:
+      213: 2911222764251928075
+    second: fireability_4
+  - first:
+      213: -525466275379866789
+    second: fireability_5
+  - first:
+      213: 4873925292659282114
+    second: fireability_6
+  - first:
+      213: -8422892557043439858
+    second: fireability_7
+  - first:
+      213: 6197532770442926933
+    second: fireability_8
+  - first:
+      213: 3769846552024971894
+    second: fireability_9
+  - first:
+      213: 3087523646986938986
+    second: fireability_10
+  - first:
+      213: 4938736283283277849
+    second: fireability_11
+  - first:
+      213: -1544633901670076667
+    second: fireability_12
+  - first:
+      213: 6937867240290479298
+    second: fireability_13
+  - first:
+      213: 6273948993102735242
+    second: fireability_14
+  - first:
+      213: 6842608277212982709
+    second: fireability_15
+  - first:
+      213: 3623065476970884687
+    second: fireability_16
+  - first:
+      213: 1870947446551249261
+    second: fireability_17
+  - first:
+      213: -6421406870195460101
+    second: fireability_18
+  - first:
+      213: 6554388719239140765
+    second: fireability_19
+  - first:
+      213: -6153698182242423508
+    second: fireability_20
+  - first:
+      213: 8565636711631710099
+    second: fireability_21
+  - first:
+      213: 7152659426529927701
+    second: fireability_22
+  - first:
+      213: -7302696945972202551
+    second: fireability_23
+  - first:
+      213: -8100344818665260086
+    second: fireability_24
+  - first:
+      213: 690431895512040357
+    second: fireability_25
+  - first:
+      213: -2506266239840732954
+    second: fireability_26
+  - first:
+      213: 8361571793549930488
+    second: fireability_27
+  - first:
+      213: -7540853540647666121
+    second: fireability_28
+  - first:
+      213: -9051517826476152362
+    second: fireability_29
+  - first:
+      213: 4635583322730423269
+    second: fireability_30
+  - first:
+      213: 7233784830411166583
+    second: fireability_31
+  - first:
+      213: -4258270403858827229
+    second: fireability_32
+  - first:
+      213: 6652789429111997182
+    second: fireability_33
+  - first:
+      213: -2001832741128757761
+    second: fireability_34
+  - first:
+      213: -6244706824953093962
+    second: fireability_35
+  - first:
+      213: 5512226487615831208
+    second: fireability_36
+  - first:
+      213: -6114640256259174159
+    second: fireability_37
+  - first:
+      213: -2260668289305851558
+    second: fireability_38
+  - first:
+      213: 3431258373014345351
+    second: fireability_39
+  - first:
+      213: 5168603050825625997
+    second: fireability_40
+  - first:
+      213: -5630964793568607573
+    second: fireability_41
+  - first:
+      213: 5100300035240104956
+    second: fireability_42
+  - first:
+      213: -5503213040576206367
+    second: fireability_43
+  - first:
+      213: 2528684238871615918
+    second: fireability_44
+  - first:
+      213: -2435432288769132940
+    second: fireability_45
+  - first:
+      213: -4834257945145305416
+    second: fireability_46
+  - first:
+      213: 5420264407430916593
+    second: fireability_47
+  - first:
+      213: -8088533948511192495
+    second: fireability_48
+  - first:
+      213: 569728166669463399
+    second: fireability_49
+  - first:
+      213: -3105028667506524740
+    second: fireability_50
+  - first:
+      213: 4313322793945338843
+    second: fireability_51
+  - first:
+      213: 1215414919856482198
+    second: fireability_52
+  - first:
+      213: 8008987112054270816
+    second: fireability_53
+  - first:
+      213: -2134491169828755373
+    second: fireability_54
+  - first:
+      213: 5205493082696672336
+    second: fireability_55
+  - first:
+      213: -5864496350389228380
+    second: fireability_56
+  - first:
+      213: 5310213046334090070
+    second: fireability_57
+  - first:
+      213: 3773548912619268995
+    second: fireability_58
+  - first:
+      213: 919729913320149396
+    second: fireability_59
+  - first:
+      213: -7154803643951608729
+    second: fireability_60
+  - first:
+      213: 1427757007224214611
+    second: fireability_61
+  - first:
+      213: 7462187554573460589
+    second: fireability_62
+  - first:
+      213: -904513987317870932
+    second: fireability_63
+  - first:
+      213: -4765856087033396526
+    second: fireability_64
+  - first:
+      213: -8577325984764539634
+    second: fireability_65
+  - first:
+      213: 3685489558139194165
+    second: fireability_66
+  - first:
+      213: -6714927418306028166
+    second: fireability_67
+  - first:
+      213: 2648282492916086024
+    second: fireability_68
+  - first:
+      213: -167417347379469693
+    second: fireability_69
+  - first:
+      213: -3081176202787399385
+    second: fireability_70
+  - first:
+      213: -475375952644950436
+    second: fireability_71
+  - first:
+      213: 8769394836657468175
+    second: fireability_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fireability_40
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 603
+        width: 260
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d81367d17119ab740800000000000000
+      internalID: 5168603050825625997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_41
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 605
+        width: 331
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2cc98ba5bcad1b0800000000000000
+      internalID: -5630964793568607573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_42
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 595
+        width: 488
+        height: 451
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf316680cd7e7c640800000000000000
+      internalID: 5100300035240104956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_43
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 611
+        width: 461
+        height: 432
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9682995e8a0a3b0800000000000000
+      internalID: -5503213040576206367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_45
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 611
+        width: 489
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4763661ac3b933ed0800000000000000
+      internalID: -2435432288769132940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_46
+      rect:
+        serializedVersion: 2
+        x: 3255
+        y: 614
+        width: 240
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6110b030449ecb0800000000000000
+      internalID: -4834257945145305416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_54
+      rect:
+        serializedVersion: 2
+        x: 2708
+        y: 605
+        width: 464
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 358262e0793c062e0800000000000000
+      internalID: -2134491169828755373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_55
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 45
+        width: 229
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05463eaf060ad3840800000000000000
+      internalID: 5205493082696672336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_56
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 43
+        width: 275
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aca97804af1d9ea0800000000000000
+      internalID: -5864496350389228380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_57
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 269
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b636481aaa1b940800000000000000
+      internalID: 5310213046334090070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_58
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 43
+        width: 222
+        height: 460
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38bab3f2eb65e5430800000000000000
+      internalID: 3773548912619268995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fireability_59
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 43
+        width: 250
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4919fb4bb7983cc00800000000000000
+      internalID: 919729913320149396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ed6e0262740135340956e0d2e13c5c77
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fireability_0: 1183550799193305193
+      fireability_1: -6104106429951241886
+      fireability_10: 3087523646986938986
+      fireability_11: 4938736283283277849
+      fireability_12: -1544633901670076667
+      fireability_13: 6937867240290479298
+      fireability_14: 6273948993102735242
+      fireability_15: 6842608277212982709
+      fireability_16: 3623065476970884687
+      fireability_17: 1870947446551249261
+      fireability_18: -6421406870195460101
+      fireability_19: 6554388719239140765
+      fireability_2: -831081454799042096
+      fireability_20: -6153698182242423508
+      fireability_21: 8565636711631710099
+      fireability_22: 7152659426529927701
+      fireability_23: -7302696945972202551
+      fireability_24: -8100344818665260086
+      fireability_25: 690431895512040357
+      fireability_26: -2506266239840732954
+      fireability_27: 8361571793549930488
+      fireability_28: -7540853540647666121
+      fireability_29: -9051517826476152362
+      fireability_3: 8372253818001469252
+      fireability_30: 4635583322730423269
+      fireability_31: 7233784830411166583
+      fireability_32: -4258270403858827229
+      fireability_33: 6652789429111997182
+      fireability_34: -2001832741128757761
+      fireability_35: -6244706824953093962
+      fireability_36: 5512226487615831208
+      fireability_37: -6114640256259174159
+      fireability_38: -2260668289305851558
+      fireability_39: 3431258373014345351
+      fireability_4: 2911222764251928075
+      fireability_40: 5168603050825625997
+      fireability_41: -5630964793568607573
+      fireability_42: 5100300035240104956
+      fireability_43: -5503213040576206367
+      fireability_44: 2528684238871615918
+      fireability_45: -2435432288769132940
+      fireability_46: -4834257945145305416
+      fireability_47: 5420264407430916593
+      fireability_48: -8088533948511192495
+      fireability_49: 569728166669463399
+      fireability_5: -525466275379866789
+      fireability_50: -3105028667506524740
+      fireability_51: 4313322793945338843
+      fireability_52: 1215414919856482198
+      fireability_53: 8008987112054270816
+      fireability_54: -2134491169828755373
+      fireability_55: 5205493082696672336
+      fireability_56: -5864496350389228380
+      fireability_57: 5310213046334090070
+      fireability_58: 3773548912619268995
+      fireability_59: 919729913320149396
+      fireability_6: 4873925292659282114
+      fireability_60: -7154803643951608729
+      fireability_61: 1427757007224214611
+      fireability_62: 7462187554573460589
+      fireability_63: -904513987317870932
+      fireability_64: -4765856087033396526
+      fireability_65: -8577325984764539634
+      fireability_66: 3685489558139194165
+      fireability_67: -6714927418306028166
+      fireability_68: 2648282492916086024
+      fireability_69: -167417347379469693
+      fireability_7: -8422892557043439858
+      fireability_70: -3081176202787399385
+      fireability_71: -475375952644950436
+      fireability_72: 8769394836657468175
+      fireability_8: 6197532770442926933
+      fireability_9: 3769846552024971894
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
