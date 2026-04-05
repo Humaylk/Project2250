@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
 
     public int currentLevelIndex = 0;
+    public int currentMaxHealth = 100;
 
     void Awake()
     {
@@ -33,17 +34,38 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("=== Game Started ===");
+
+        currentLevelIndex = 1;
+        currentMaxHealth = 105;
+
         if (progressionSystem != null)
-            progressionSystem.completedLevels = 0;
+            progressionSystem.completedLevels = 1;
+
         LoadLevel();
     }
 
     public void LoadLevel()
     {
-        if (currentLevel != null)
-            currentLevel.InitializeLevel();
-        uiManager?.DisplayObjective("Find your way through the corrupted island.");
-        Debug.Log("Level " + currentLevelIndex + " loaded.");
+            if (currentLevel != null)
+                currentLevel.InitializeLevel();
+
+            switch (currentLevelIndex)
+            {
+                case 0:
+                    uiManager?.DisplayObjective("Activate all pillars and escape the forest.");
+                    break;
+                case 1:
+                    uiManager?.DisplayObjective("Talk to the Dragon");
+                    break;
+                case 2:
+                    uiManager?.DisplayObjective("Clear the underwater path before time runs out.");
+                    break;
+                default:
+                    uiManager?.DisplayObjective("Find your way through the corrupted island.");
+                    break;
+            }
+
+            Debug.Log("Level " + currentLevelIndex + " loaded.");
     }
 
     public void AdvanceLevel()
@@ -56,43 +78,49 @@ public class GameManager : MonoBehaviour
 
     public void ResetOnDeath()
     {
-        Debug.Log("Player died - resetting level.");
-        if (player != null)
-            player.transform.position = Vector3.zero;
+        
+        Debug.Log("Player died - reloading level.");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
 
-        PlayerHealth ph = player?.GetComponent<PlayerHealth>();
-        if (ph != null) ph.health = 100;
-
-        currentLevel?.InitializeLevel();
-        uiManager?.DisplayObjective("You died. Try again!");
-        uiManager?.UpdateHPDisplay(100);
     }
 
     public void ApplyCompletionRewards()
     {
         if (player == null) return;
+
         switch (currentLevelIndex)
         {
             case 1:
                 PlayerWeapon pw = player.GetComponent<PlayerWeapon>();
                 if (pw != null) pw.UpgradeWeapon();
-                uiManager?.ShowHint("Reward: Metal Sword obtained!");
+
+                currentMaxHealth += 5;
+                uiManager?.ShowHint("Reward: Metal Sword obtained! Max HP is now " + currentMaxHealth);
                 progressionSystem?.GrantReward("Metal Sword");
                 break;
+
             case 2:
-                uiManager?.ShowHint("Reward: +5 Max Health!");
+                currentMaxHealth += 5;
+                uiManager?.ShowHint("Reward: +5 Max Health! Max HP is now " + currentMaxHealth);
                 progressionSystem?.GrantReward("+5 Health");
                 break;
+
             case 3:
-                uiManager?.ShowHint("Reward: New Armor equipped!");
+                currentMaxHealth += 5;
+                uiManager?.ShowHint("Reward: New Armor equipped! Max HP is now " + currentMaxHealth);
                 progressionSystem?.GrantReward("New Armor");
                 break;
+
             case 4:
-                progressionSystem?.UnlockAbility("Punch");
-                uiManager?.ShowHint("Reward: Punch ability unlocked!");
+                currentMaxHealth += 5;
+                progressionSystem?.UnlockAbility("HeavyAttack");
+                uiManager?.ShowHint("Reward: HeavyAttack ability unlocked! Max HP is now " + currentMaxHealth);
                 break;
+
             case 5:
-                uiManager?.ShowHint("You have restored balance to the realm!");
+                currentMaxHealth += 5;
+                uiManager?.ShowHint("You have restored balance to the realm! Max HP is now " + currentMaxHealth);
                 progressionSystem?.GrantReward("Elemental Armor");
                 break;
         }
