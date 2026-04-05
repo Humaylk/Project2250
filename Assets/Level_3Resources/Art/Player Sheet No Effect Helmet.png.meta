@@ -1,0 +1,3057 @@
+fileFormatVersion: 2
+guid: b7c2c74c98acfc849859fb08c26c0f47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1810065126640854398
+    second: Player Sheet No Effect Helmet_0
+  - first:
+      213: -1953000560884615797
+    second: Player Sheet No Effect Helmet_1
+  - first:
+      213: 602975039925076957
+    second: Player Sheet No Effect Helmet_2
+  - first:
+      213: -4864890480419992778
+    second: Player Sheet No Effect Helmet_3
+  - first:
+      213: -502173807684322588
+    second: Player Sheet No Effect Helmet_4
+  - first:
+      213: -223348960775360076
+    second: Player Sheet No Effect Helmet_5
+  - first:
+      213: 8981490015432686875
+    second: Player Sheet No Effect Helmet_6
+  - first:
+      213: 3793296423752072502
+    second: Player Sheet No Effect Helmet_7
+  - first:
+      213: 77108755213759320
+    second: Player Sheet No Effect Helmet_8
+  - first:
+      213: 1678366611777356080
+    second: Player Sheet No Effect Helmet_9
+  - first:
+      213: 2077598871336518738
+    second: Player Sheet No Effect Helmet_10
+  - first:
+      213: 3027980592192561405
+    second: Player Sheet No Effect Helmet_11
+  - first:
+      213: -2937258108597266561
+    second: Player Sheet No Effect Helmet_12
+  - first:
+      213: -1264665934177539720
+    second: Player Sheet No Effect Helmet_13
+  - first:
+      213: 2286810556906449931
+    second: Player Sheet No Effect Helmet_14
+  - first:
+      213: 6851126675183414019
+    second: Player Sheet No Effect Helmet_15
+  - first:
+      213: 1643880437446756464
+    second: Player Sheet No Effect Helmet_16
+  - first:
+      213: -7394506868233610582
+    second: Player Sheet No Effect Helmet_17
+  - first:
+      213: 4121143341594616768
+    second: Player Sheet No Effect Helmet_18
+  - first:
+      213: 7746017956567958890
+    second: Player Sheet No Effect Helmet_19
+  - first:
+      213: 3319138806540502262
+    second: Player Sheet No Effect Helmet_20
+  - first:
+      213: -8791632416439491938
+    second: Player Sheet No Effect Helmet_21
+  - first:
+      213: 6928779518558128869
+    second: Player Sheet No Effect Helmet_22
+  - first:
+      213: 7344921355710095413
+    second: Player Sheet No Effect Helmet_23
+  - first:
+      213: 3705982398852710436
+    second: Player Sheet No Effect Helmet_24
+  - first:
+      213: 3570700349807058987
+    second: Player Sheet No Effect Helmet_25
+  - first:
+      213: -666129760543009903
+    second: Player Sheet No Effect Helmet_26
+  - first:
+      213: 4500848870287457889
+    second: Player Sheet No Effect Helmet_27
+  - first:
+      213: -3856515019557087691
+    second: Player Sheet No Effect Helmet_28
+  - first:
+      213: -2102100439215268971
+    second: Player Sheet No Effect Helmet_29
+  - first:
+      213: -5011648440836651614
+    second: Player Sheet No Effect Helmet_30
+  - first:
+      213: -4376000437446302339
+    second: Player Sheet No Effect Helmet_31
+  - first:
+      213: -381175445045151699
+    second: Player Sheet No Effect Helmet_32
+  - first:
+      213: 3355067334359591256
+    second: Player Sheet No Effect Helmet_33
+  - first:
+      213: 7892481184673215677
+    second: Player Sheet No Effect Helmet_34
+  - first:
+      213: 4392040031805401753
+    second: Player Sheet No Effect Helmet_35
+  - first:
+      213: 3320418420174067711
+    second: Player Sheet No Effect Helmet_36
+  - first:
+      213: -1636975611882081085
+    second: Player Sheet No Effect Helmet_37
+  - first:
+      213: 5975921503396593170
+    second: Player Sheet No Effect Helmet_38
+  - first:
+      213: 6798015914254440314
+    second: Player Sheet No Effect Helmet_39
+  - first:
+      213: -7575567779722506388
+    second: Player Sheet No Effect Helmet_40
+  - first:
+      213: 3354887602331692329
+    second: Player Sheet No Effect Helmet_41
+  - first:
+      213: 92845932025999200
+    second: Player Sheet No Effect Helmet_42
+  - first:
+      213: 2814608224705254052
+    second: Player Sheet No Effect Helmet_43
+  - first:
+      213: 6805229631601031617
+    second: Player Sheet No Effect Helmet_44
+  - first:
+      213: 4216407457844172677
+    second: Player Sheet No Effect Helmet_45
+  - first:
+      213: -7104832094661906551
+    second: Player Sheet No Effect Helmet_46
+  - first:
+      213: -4674825986814329989
+    second: Player Sheet No Effect Helmet_47
+  - first:
+      213: 4163025172265243451
+    second: Player Sheet No Effect Helmet_48
+  - first:
+      213: 6867517168259238913
+    second: Player Sheet No Effect Helmet_49
+  - first:
+      213: -1316398013453256282
+    second: Player Sheet No Effect Helmet_50
+  - first:
+      213: -1998430197069573081
+    second: Player Sheet No Effect Helmet_51
+  - first:
+      213: -5881744988458479298
+    second: Player Sheet No Effect Helmet_52
+  - first:
+      213: -5316181003666634874
+    second: Player Sheet No Effect Helmet_53
+  - first:
+      213: 3502980682511973520
+    second: Player Sheet No Effect Helmet_54
+  - first:
+      213: 4028763953783812784
+    second: Player Sheet No Effect Helmet_55
+  - first:
+      213: 4376092220051154520
+    second: Player Sheet No Effect Helmet_56
+  - first:
+      213: 4491004799775016131
+    second: Player Sheet No Effect Helmet_57
+  - first:
+      213: -7756224141235087065
+    second: Player Sheet No Effect Helmet_58
+  - first:
+      213: 6809614977125941057
+    second: Player Sheet No Effect Helmet_59
+  - first:
+      213: -6113669706545544201
+    second: Player Sheet No Effect Helmet_60
+  - first:
+      213: -15198240379638646
+    second: Player Sheet No Effect Helmet_61
+  - first:
+      213: 8335163902467221613
+    second: Player Sheet No Effect Helmet_62
+  - first:
+      213: -7327916559471281155
+    second: Player Sheet No Effect Helmet_63
+  - first:
+      213: -4344696726607027052
+    second: Player Sheet No Effect Helmet_64
+  - first:
+      213: -641973050668965011
+    second: Player Sheet No Effect Helmet_65
+  - first:
+      213: -3586780594449220955
+    second: Player Sheet No Effect Helmet_66
+  - first:
+      213: 2392411836132559282
+    second: Player Sheet No Effect Helmet_67
+  - first:
+      213: 6776762590421799204
+    second: Player Sheet No Effect Helmet_68
+  - first:
+      213: 6818751878496223105
+    second: Player Sheet No Effect Helmet_69
+  - first:
+      213: 2782618143986961667
+    second: Player Sheet No Effect Helmet_70
+  - first:
+      213: -3210827530064069714
+    second: Player Sheet No Effect Helmet_71
+  - first:
+      213: 8731105261373389698
+    second: Player Sheet No Effect Helmet_72
+  - first:
+      213: 4280687595078869938
+    second: Player Sheet No Effect Helmet_73
+  - first:
+      213: 1111996684935506193
+    second: Player Sheet No Effect Helmet_74
+  - first:
+      213: 592333727672041550
+    second: Player Sheet No Effect Helmet_75
+  - first:
+      213: -7836103112380412358
+    second: Player Sheet No Effect Helmet_76
+  - first:
+      213: -4357013270918351576
+    second: Player Sheet No Effect Helmet_77
+  - first:
+      213: -6899654260657204223
+    second: Player Sheet No Effect Helmet_78
+  - first:
+      213: 6378752517499755661
+    second: Player Sheet No Effect Helmet_79
+  - first:
+      213: 1852720396452976552
+    second: Player Sheet No Effect Helmet_80
+  - first:
+      213: -1704150441879150315
+    second: Player Sheet No Effect Helmet_81
+  - first:
+      213: 4462756818419602630
+    second: Player Sheet No Effect Helmet_82
+  - first:
+      213: 181807110353615807
+    second: Player Sheet No Effect Helmet_83
+  - first:
+      213: 5908026439390035193
+    second: Player Sheet No Effect Helmet_84
+  - first:
+      213: -6818491509478392722
+    second: Player Sheet No Effect Helmet_85
+  - first:
+      213: -567696861154018868
+    second: Player Sheet No Effect Helmet_86
+  - first:
+      213: -8248611709118220471
+    second: Player Sheet No Effect Helmet_87
+  - first:
+      213: 8949114104665013826
+    second: Player Sheet No Effect Helmet_88
+  - first:
+      213: -8353865575152375114
+    second: Player Sheet No Effect Helmet_89
+  - first:
+      213: 3280382012522829243
+    second: Player Sheet No Effect Helmet_90
+  - first:
+      213: -2150351584767070214
+    second: Player Sheet No Effect Helmet_91
+  - first:
+      213: 2428772081568755590
+    second: Player Sheet No Effect Helmet_92
+  - first:
+      213: -4120229667136160873
+    second: Player Sheet No Effect Helmet_93
+  - first:
+      213: 7102830706774582116
+    second: Player Sheet No Effect Helmet_94
+  - first:
+      213: 1481929179937156172
+    second: Player Sheet No Effect Helmet_95
+  - first:
+      213: 1466661422950208042
+    second: Player Sheet No Effect Helmet_96
+  - first:
+      213: 4765922682207197049
+    second: Player Sheet No Effect Helmet_97
+  - first:
+      213: 4825602229397389271
+    second: Player Sheet No Effect Helmet_98
+  - first:
+      213: 1673837772846683318
+    second: Player Sheet No Effect Helmet_99
+  - first:
+      213: -4928420663362528922
+    second: Player Sheet No Effect Helmet_100
+  - first:
+      213: 6409362598867404980
+    second: Player Sheet No Effect Helmet_101
+  - first:
+      213: 4308033806809560131
+    second: Player Sheet No Effect Helmet_102
+  - first:
+      213: 9037152673278684901
+    second: Player Sheet No Effect Helmet_103
+  - first:
+      213: -5938162216702693182
+    second: Player Sheet No Effect Helmet_104
+  - first:
+      213: 4003087207073618537
+    second: Player Sheet No Effect Helmet_105
+  - first:
+      213: -5039183355795871449
+    second: Player Sheet No Effect Helmet_106
+  - first:
+      213: -8766488813051285824
+    second: Player Sheet No Effect Helmet_107
+  - first:
+      213: 8153689494088325854
+    second: Player Sheet No Effect Helmet_108
+  - first:
+      213: -4979910360053163696
+    second: Player Sheet No Effect Helmet_109
+  - first:
+      213: -8684989084896171787
+    second: Player Sheet No Effect Helmet_110
+  - first:
+      213: -7329415529432323913
+    second: Player Sheet No Effect Helmet_111
+  - first:
+      213: 4460524427399361193
+    second: Player Sheet No Effect Helmet_112
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 705
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7520cd74a4ae1910800000000000000
+      internalID: 1810065126640854398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 705
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85755a565c85e4e0800000000000000
+      internalID: -1953000560884615797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 705
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd34927aa923e5800800000000000000
+      internalID: 602975039925076957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 705
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b036322ef6c7cb0800000000000000
+      internalID: -4864890480419992778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_4
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 705
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea7871259be709f0800000000000000
+      internalID: -502173807684322588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_5
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 705
+        width: 18
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b13804bd4186ecf0800000000000000
+      internalID: -223348960775360076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 661
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d35934599a4ac70800000000000000
+      internalID: 8981490015432686875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 664
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d7089effe74a430800000000000000
+      internalID: 3793296423752072502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 663
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853b69b1102f11100800000000000000
+      internalID: 77108755213759320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_9
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 661
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0318dd18a81ca4710800000000000000
+      internalID: 1678366611777356080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 661
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25404c77a2d15dc10800000000000000
+      internalID: 2077598871336518738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_11
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 664
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df02a604e4c850a20800000000000000
+      internalID: 3027980592192561405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 619
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f779c6fff43cc37d0800000000000000
+      internalID: -2937258108597266561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 617
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8796fc98801037ee0800000000000000
+      internalID: -1264665934177539720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 617
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ca501e5126cbf10800000000000000
+      internalID: 2286810556906449931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_15
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 608
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ba2898967141f50800000000000000
+      internalID: 6851126675183414019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_16
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 617
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0784a375c8c30d610800000000000000
+      internalID: 1643880437446756464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_17
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 617
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaadfbd5e2f616990800000000000000
+      internalID: -7394506868233610582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 573
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3a630d80e313930800000000000000
+      internalID: 4121143341594616768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_19
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 573
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65c7059a426f7b60800000000000000
+      internalID: 7746017956567958890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_20
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 573
+        width: 50
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f48f04b823ff0e20800000000000000
+      internalID: 3319138806540502262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 573
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92a056b5e8ddf580800000000000000
+      internalID: -8791632416439491938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_22
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 597
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eac8aa0348f72060800000000000000
+      internalID: 6928779518558128869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_23
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 573
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530e746de076ee560800000000000000
+      internalID: 7344921355710095413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_24
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 570
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420477b4b5b4e6330800000000000000
+      internalID: 3705982398852710436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 529
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20ec9dbc0dad8130800000000000000
+      internalID: 3570700349807058987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_26
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 529
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1939488138e61c6f0800000000000000
+      internalID: -666129760543009903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_27
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 531
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16eb335733a367e30800000000000000
+      internalID: 4500848870287457889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_28
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 564
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 536575cb508ea7ac0800000000000000
+      internalID: -3856515019557087691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_29
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 557
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b9166b9c6d3d2e0800000000000000
+      internalID: -2102100439215268971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_30
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 558
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a58ac0cb4c037ab0800000000000000
+      internalID: -5011648440836651614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_31
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 551
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d752f0589c25543c0800000000000000
+      internalID: -4376000437446302339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_32
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 548
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d287bf8c3fac5baf0800000000000000
+      internalID: -381175445045151699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_33
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 538
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8592506f6f79f8e20800000000000000
+      internalID: 3355067334359591256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_34
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 544
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4b6e042d9b78d60800000000000000
+      internalID: 7892481184673215677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_35
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 529
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a6e0f8329a3fc30800000000000000
+      internalID: 4392040031805401753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_36
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 530
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff79328f5fe741e20800000000000000
+      internalID: 3320418420174067711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_37
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 533
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c47ac3aa5b4849e0800000000000000
+      internalID: -1636975611882081085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_38
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 484
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e729f02fcbee250800000000000000
+      internalID: 5975921503396593170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_39
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 504
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a779692e477675e50800000000000000
+      internalID: 6798015914254440314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_40
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 514
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6fcebdcd3d2ed690800000000000000
+      internalID: -7575567779722506388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 507
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92da756df74fe8e20800000000000000
+      internalID: 3354887602331692329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_42
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 502
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fef3d12ead94100800000000000000
+      internalID: 92845932025999200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_43
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 492
+        width: 4
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a21377944f7f0720800000000000000
+      internalID: 2814608224705254052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_44
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 482
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c9ba865b48017e50800000000000000
+      internalID: 6805229631601031617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_45
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 484
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5871c115e30b38a30800000000000000
+      internalID: 4216407457844172677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_46
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 504
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fe1e85ad0966d90800000000000000
+      internalID: -7104832094661906551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_47
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 483
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7bba25888eaf1fb0800000000000000
+      internalID: -4674825986814329989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_48
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 483
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3311e7665906c930800000000000000
+      internalID: 4163025172265243451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_49
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 483
+        width: 39
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c0df69a725e4f50800000000000000
+      internalID: 6867517168259238913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_50
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 439
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9b6193bf63bbde0800000000000000
+      internalID: -1316398013453256282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_51
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 441
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724114be2562444e0800000000000000
+      internalID: -1998430197069573081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_52
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 441
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e319f778818df5ea0800000000000000
+      internalID: -5881744988458479298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_53
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 441
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68745c22b812936b0800000000000000
+      internalID: -5316181003666634874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_54
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 441
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c7e240f561d9030800000000000000
+      internalID: 3502980682511973520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_55
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 443
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2be2d787b09e730800000000000000
+      internalID: 4028763953783812784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_56
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 399
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856ef7840b00bbc30800000000000000
+      internalID: 4376092220051154520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_57
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 399
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c40a2f2211435e30800000000000000
+      internalID: 4491004799775016131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_58
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 400
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7299f5fdc3b5c5490800000000000000
+      internalID: -7756224141235087065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_59
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 400
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f75c82ebc908e50800000000000000
+      internalID: 6809614977125941057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_60
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 397
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f349432bc1e72ba0800000000000000
+      internalID: -6113669706545544201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_61
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 397
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8ce5f8e7410acff0800000000000000
+      internalID: -15198240379638646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_62
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 353
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68a73f58637ca370800000000000000
+      internalID: 8335163902467221613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_63
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 361
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfbf201d6b20e4a90800000000000000
+      internalID: -7327916559471281155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_64
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 354
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49429c9a85984b3c0800000000000000
+      internalID: -4344696726607027052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_65
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 354
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d63a08769e04717f0800000000000000
+      internalID: -641973050668965011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_66
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 354
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aaf69c8d02393ec0800000000000000
+      internalID: -3586780594449220955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_67
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 354
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b90f11b3ed833120800000000000000
+      internalID: 2392411836132559282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_68
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 310
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4215f31dba5eb0e50800000000000000
+      internalID: 6776762590421799204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_69
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 310
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f7b49c4b211ae50800000000000000
+      internalID: 6818751878496223105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_70
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 310
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d46e18578dd9620800000000000000
+      internalID: 2782618143986961667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_71
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 310
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab7c738f59d073d0800000000000000
+      internalID: -3210827530064069714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_72
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 310
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b74b0d9fd1b2970800000000000000
+      internalID: 8731105261373389698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_73
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 310
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3e81b00be086b30800000000000000
+      internalID: 4280687595078869938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 266
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1192ef4e71b9e6f00800000000000000
+      internalID: 1111996684935506193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_75
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 266
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4000621364683800800000000000000
+      internalID: 592333727672041550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_76
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 266
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e8b3b9cb1904390800000000000000
+      internalID: -7836103112380412358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_77
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 265
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825bf39b387c883c0800000000000000
+      internalID: -4357013270918351576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_78
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 265
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104548081018f30a0800000000000000
+      internalID: -6899654260657204223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_79
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 265
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c93bb5e91e58850800000000000000
+      internalID: 6378752517499755661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_80
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 221
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a753ba626f26b910800000000000000
+      internalID: 1852720396452976552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_81
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 221
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511e7fbb334a958e0800000000000000
+      internalID: -1704150441879150315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_82
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 221
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c45ad08ea5eeed30800000000000000
+      internalID: 4462756818419602630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_83
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 221
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb74468a98e58200800000000000000
+      internalID: 181807110353615807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_84
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 221
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc757b9eb68df150800000000000000
+      internalID: 5908026439390035193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_85
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 221
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6cf589191adf51a0800000000000000
+      internalID: -6818491509478392722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_86
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 177
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc97fca66b22f18f0800000000000000
+      internalID: -567696861154018868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_87
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 177
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94771e38a5b078d80800000000000000
+      internalID: -8248611709118220471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_88
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 177
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24efefe1dd3a13c70800000000000000
+      internalID: 8949114104665013826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_89
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 177
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6baada3258b111c80800000000000000
+      internalID: -8353865575152375114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_90
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 177
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb511086f02468d20800000000000000
+      internalID: 3280382012522829243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_91
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 177
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: affa2cf60aa6822e0800000000000000
+      internalID: -2150351584767070214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_92
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 133
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68faa4a075bb4b120800000000000000
+      internalID: 2428772081568755590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_93
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 133
+        width: 58
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bb25992f002d6c0800000000000000
+      internalID: -4120229667136160873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_94
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 133
+        width: 54
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463290935e2529260800000000000000
+      internalID: 7102830706774582116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_95
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 133
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ca070dcbed09410800000000000000
+      internalID: 1481929179937156172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_96
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 133
+        width: 43
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2257b02bc0aa5410800000000000000
+      internalID: 1466661422950208042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_97
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 133
+        width: 42
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977dfe3bd65f32240800000000000000
+      internalID: 4765922682207197049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_98
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 89
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df709619abf7f240800000000000000
+      internalID: 4825602229397389271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_99
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 89
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b45826069aaa3710800000000000000
+      internalID: 1673837772846683318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_100
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 89
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669d490c48bba9bb0800000000000000
+      internalID: -4928420663362528922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_101
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 89
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b88a2e4351a2f850800000000000000
+      internalID: 6409362598867404980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_102
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 89
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344f14f1ce539cb30800000000000000
+      internalID: 4308033806809560131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_103
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 89
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee6fb7b97a6a6d70800000000000000
+      internalID: 9037152673278684901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_104
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 45
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c03ac6fce8679da0800000000000000
+      internalID: -5938162216702693182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_105
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 51
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a98860b92dd8730800000000000000
+      internalID: 4003087207073618537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_106
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 48
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 729e9b7cf69311ab0800000000000000
+      internalID: -5039183355795871449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_107
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 47
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce64a21fdc275680800000000000000
+      internalID: -8766488813051285824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_108
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 49
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda18ff0569b72170800000000000000
+      internalID: 8153689494088325854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_109
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 51
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0595eb789edc3eab0800000000000000
+      internalID: -4979910360053163696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_110
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 4
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f86e9c3178b87780800000000000000
+      internalID: -8684989084896171787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_111
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 3
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b864fca86fa84a90800000000000000
+      internalID: -7329415529432323913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Sheet No Effect Helmet_112
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 5
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a277177557f6ed30800000000000000
+      internalID: 4460524427399361193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ce940e5b087822948b853e8fcaea9293
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Player Sheet No Effect Helmet_0: 1810065126640854398
+      Player Sheet No Effect Helmet_1: -1953000560884615797
+      Player Sheet No Effect Helmet_10: 2077598871336518738
+      Player Sheet No Effect Helmet_100: -4928420663362528922
+      Player Sheet No Effect Helmet_101: 6409362598867404980
+      Player Sheet No Effect Helmet_102: 4308033806809560131
+      Player Sheet No Effect Helmet_103: 9037152673278684901
+      Player Sheet No Effect Helmet_104: -5938162216702693182
+      Player Sheet No Effect Helmet_105: 4003087207073618537
+      Player Sheet No Effect Helmet_106: -5039183355795871449
+      Player Sheet No Effect Helmet_107: -8766488813051285824
+      Player Sheet No Effect Helmet_108: 8153689494088325854
+      Player Sheet No Effect Helmet_109: -4979910360053163696
+      Player Sheet No Effect Helmet_11: 3027980592192561405
+      Player Sheet No Effect Helmet_110: -8684989084896171787
+      Player Sheet No Effect Helmet_111: -7329415529432323913
+      Player Sheet No Effect Helmet_112: 4460524427399361193
+      Player Sheet No Effect Helmet_12: -2937258108597266561
+      Player Sheet No Effect Helmet_13: -1264665934177539720
+      Player Sheet No Effect Helmet_14: 2286810556906449931
+      Player Sheet No Effect Helmet_15: 6851126675183414019
+      Player Sheet No Effect Helmet_16: 1643880437446756464
+      Player Sheet No Effect Helmet_17: -7394506868233610582
+      Player Sheet No Effect Helmet_18: 4121143341594616768
+      Player Sheet No Effect Helmet_19: 7746017956567958890
+      Player Sheet No Effect Helmet_2: 602975039925076957
+      Player Sheet No Effect Helmet_20: 3319138806540502262
+      Player Sheet No Effect Helmet_21: -8791632416439491938
+      Player Sheet No Effect Helmet_22: 6928779518558128869
+      Player Sheet No Effect Helmet_23: 7344921355710095413
+      Player Sheet No Effect Helmet_24: 3705982398852710436
+      Player Sheet No Effect Helmet_25: 3570700349807058987
+      Player Sheet No Effect Helmet_26: -666129760543009903
+      Player Sheet No Effect Helmet_27: 4500848870287457889
+      Player Sheet No Effect Helmet_28: -3856515019557087691
+      Player Sheet No Effect Helmet_29: -2102100439215268971
+      Player Sheet No Effect Helmet_3: -4864890480419992778
+      Player Sheet No Effect Helmet_30: -5011648440836651614
+      Player Sheet No Effect Helmet_31: -4376000437446302339
+      Player Sheet No Effect Helmet_32: -381175445045151699
+      Player Sheet No Effect Helmet_33: 3355067334359591256
+      Player Sheet No Effect Helmet_34: 7892481184673215677
+      Player Sheet No Effect Helmet_35: 4392040031805401753
+      Player Sheet No Effect Helmet_36: 3320418420174067711
+      Player Sheet No Effect Helmet_37: -1636975611882081085
+      Player Sheet No Effect Helmet_38: 5975921503396593170
+      Player Sheet No Effect Helmet_39: 6798015914254440314
+      Player Sheet No Effect Helmet_4: -502173807684322588
+      Player Sheet No Effect Helmet_40: -7575567779722506388
+      Player Sheet No Effect Helmet_41: 3354887602331692329
+      Player Sheet No Effect Helmet_42: 92845932025999200
+      Player Sheet No Effect Helmet_43: 2814608224705254052
+      Player Sheet No Effect Helmet_44: 6805229631601031617
+      Player Sheet No Effect Helmet_45: 4216407457844172677
+      Player Sheet No Effect Helmet_46: -7104832094661906551
+      Player Sheet No Effect Helmet_47: -4674825986814329989
+      Player Sheet No Effect Helmet_48: 4163025172265243451
+      Player Sheet No Effect Helmet_49: 6867517168259238913
+      Player Sheet No Effect Helmet_5: -223348960775360076
+      Player Sheet No Effect Helmet_50: -1316398013453256282
+      Player Sheet No Effect Helmet_51: -1998430197069573081
+      Player Sheet No Effect Helmet_52: -5881744988458479298
+      Player Sheet No Effect Helmet_53: -5316181003666634874
+      Player Sheet No Effect Helmet_54: 3502980682511973520
+      Player Sheet No Effect Helmet_55: 4028763953783812784
+      Player Sheet No Effect Helmet_56: 4376092220051154520
+      Player Sheet No Effect Helmet_57: 4491004799775016131
+      Player Sheet No Effect Helmet_58: -7756224141235087065
+      Player Sheet No Effect Helmet_59: 6809614977125941057
+      Player Sheet No Effect Helmet_6: 8981490015432686875
+      Player Sheet No Effect Helmet_60: -6113669706545544201
+      Player Sheet No Effect Helmet_61: -15198240379638646
+      Player Sheet No Effect Helmet_62: 8335163902467221613
+      Player Sheet No Effect Helmet_63: -7327916559471281155
+      Player Sheet No Effect Helmet_64: -4344696726607027052
+      Player Sheet No Effect Helmet_65: -641973050668965011
+      Player Sheet No Effect Helmet_66: -3586780594449220955
+      Player Sheet No Effect Helmet_67: 2392411836132559282
+      Player Sheet No Effect Helmet_68: 6776762590421799204
+      Player Sheet No Effect Helmet_69: 6818751878496223105
+      Player Sheet No Effect Helmet_7: 3793296423752072502
+      Player Sheet No Effect Helmet_70: 2782618143986961667
+      Player Sheet No Effect Helmet_71: -3210827530064069714
+      Player Sheet No Effect Helmet_72: 8731105261373389698
+      Player Sheet No Effect Helmet_73: 4280687595078869938
+      Player Sheet No Effect Helmet_74: 1111996684935506193
+      Player Sheet No Effect Helmet_75: 592333727672041550
+      Player Sheet No Effect Helmet_76: -7836103112380412358
+      Player Sheet No Effect Helmet_77: -4357013270918351576
+      Player Sheet No Effect Helmet_78: -6899654260657204223
+      Player Sheet No Effect Helmet_79: 6378752517499755661
+      Player Sheet No Effect Helmet_8: 77108755213759320
+      Player Sheet No Effect Helmet_80: 1852720396452976552
+      Player Sheet No Effect Helmet_81: -1704150441879150315
+      Player Sheet No Effect Helmet_82: 4462756818419602630
+      Player Sheet No Effect Helmet_83: 181807110353615807
+      Player Sheet No Effect Helmet_84: 5908026439390035193
+      Player Sheet No Effect Helmet_85: -6818491509478392722
+      Player Sheet No Effect Helmet_86: -567696861154018868
+      Player Sheet No Effect Helmet_87: -8248611709118220471
+      Player Sheet No Effect Helmet_88: 8949114104665013826
+      Player Sheet No Effect Helmet_89: -8353865575152375114
+      Player Sheet No Effect Helmet_9: 1678366611777356080
+      Player Sheet No Effect Helmet_90: 3280382012522829243
+      Player Sheet No Effect Helmet_91: -2150351584767070214
+      Player Sheet No Effect Helmet_92: 2428772081568755590
+      Player Sheet No Effect Helmet_93: -4120229667136160873
+      Player Sheet No Effect Helmet_94: 7102830706774582116
+      Player Sheet No Effect Helmet_95: 1481929179937156172
+      Player Sheet No Effect Helmet_96: 1466661422950208042
+      Player Sheet No Effect Helmet_97: 4765922682207197049
+      Player Sheet No Effect Helmet_98: 4825602229397389271
+      Player Sheet No Effect Helmet_99: 1673837772846683318
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

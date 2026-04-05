@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class Timer : MonoBehaviour
+public class CountdownTimer : MonoBehaviour
 {
     public float timeRemaining;
     public bool isRunning = false;

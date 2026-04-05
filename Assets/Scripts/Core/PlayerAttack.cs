@@ -1,79 +1,89 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack Settings")]
-    public float attackRange             = 2f;
-    public float heavyAttackRange        = 2.5f;
-    public string attackTriggerName      = "Attack";
-    public string heavyAttackTriggerName = "HeavyAttack";
-    public int    heavyAttackDamage      = 20;
+    public float attackRange = 2f;
+    public string attackTriggerName = "Attack";
+    public string attackStateName = "Attack";
 
-    [Header("Heavy Attack Cooldown")]
-    public float heavyAttackCooldown = 2.1f;
-    private float lastHeavyAttackTime = -99f;
+    [Header("Audio")]
+    public AudioClip hitSound;
 
-    private Animator     animator;
+    private Animator animator;
     private PlayerWeapon weapon;
-
-    private bool HeavyAttackUnlocked => SceneManager.GetActiveScene().buildIndex >= 1;
+    private AudioSource audioSource;
+    private bool gHeld = false;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        weapon   = GetComponent<PlayerWeapon>();
+        weapon = GetComponent<PlayerWeapon>();
 
         if (animator == null)
+        {
             Debug.LogWarning("No Animator found on Player or its children.");
+        }
+
         if (weapon == null)
+        {
             Debug.LogWarning("No PlayerWeapon found on Player.");
+        }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
     }
 
     private void Update()
     {
-        // G key — normal attack
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKey(KeyCode.G) && !gHeld)
         {
-            animator?.SetTrigger(attackTriggerName);
-            DealDamage(weapon != null ? weapon.GetDamage() : 1, attackRange);
+            gHeld = true;
+            PlayAttackAnimationWithoutReset();
+            DealDamage();
         }
-
-        // B key — heavy attack ability with cooldown
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyUp(KeyCode.G))
         {
-            if (!HeavyAttackUnlocked)
-            {
-                Debug.Log("[PlayerAttack] Heavy Attack not unlocked yet!");
-                return;
-            }
-
-            float timeSinceLastHeavy = Time.time - lastHeavyAttackTime;
-            if (timeSinceLastHeavy < heavyAttackCooldown)
-            {
-                float remaining = heavyAttackCooldown - timeSinceLastHeavy;
-                Debug.Log("[PlayerAttack] Heavy Attack on cooldown! " + remaining.ToString("F1") + "s remaining");
-                return;
-            }
-
-            lastHeavyAttackTime = Time.time;
-            animator?.ResetTrigger(heavyAttackTriggerName);
-            animator?.SetTrigger(heavyAttackTriggerName);
-            DealDamage(heavyAttackDamage, heavyAttackRange);
+            gHeld = false;
         }
     }
 
-    private void DealDamage(int damage, float range)
+    private void PlayAttackAnimationWithoutReset()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range);
+        if (animator == null) return;
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // Only trigger the animation if we are NOT already in the Attack state
+        if (!stateInfo.IsName(attackStateName))
+        {
+            animator.SetTrigger(attackTriggerName);
+            if (hitSound != null)
+                audioSource.PlayOneShot(hitSound);
+        }
+    }
+
+    private void DealDamage()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
 
         foreach (Collider2D hit in hits)
         {
             if (hit.CompareTag("Enemy"))
             {
+                int damage = 1;
+
+                if (weapon != null)
+                {
+                    damage = weapon.GetDamage();
+                }
+
                 EnemyHealth enemyHealth = hit.GetComponent<EnemyHealth>();
                 if (enemyHealth != null)
+                {
                     enemyHealth.TakeDamage(damage);
+                }
 
                 GameManager.Instance?.progressionSystem?.AddCombatXP();
             }
@@ -84,7 +94,5 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, heavyAttackRange);
     }
 }
