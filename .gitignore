@@ -1,18 +1,26 @@
+# Unity generated
 [Ll]ibrary/
 [Tt]emp/
+[Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-UserSettings/
+[Uu]ser[Ss]ettings/
 MemoryCaptures/
 
-.vscode/
-.idea/
+# OS
+.DS_Store
+Thumbs.db
 
-*.csproj
-*.unityproj
-*.sln
+# IDE
+.idea/
+.vscode/
+*.suo
 *.user
-*.tmp
-*.pidb
-*.booproj
+*.userprefs
+
+# Visual Studio generated
+*.csproj
+*.sln
+*.unityproj
+ExportedObj/
