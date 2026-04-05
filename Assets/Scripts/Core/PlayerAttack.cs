@@ -7,8 +7,13 @@ public class PlayerAttack : MonoBehaviour
     public string attackTriggerName = "Attack";
     public string attackStateName = "Attack";
 
+    [Header("Audio")]
+    public AudioClip hitSound;
+
     private Animator animator;
     private PlayerWeapon weapon;
+    private AudioSource audioSource;
+    private bool gHeld = false;
 
     private void Start()
     {
@@ -24,14 +29,23 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.LogWarning("No PlayerWeapon found on Player.");
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKey(KeyCode.G) && !gHeld)
         {
+            gHeld = true;
             PlayAttackAnimationWithoutReset();
             DealDamage();
+        }
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            gHeld = false;
         }
     }
 
@@ -45,6 +59,8 @@ public class PlayerAttack : MonoBehaviour
         if (!stateInfo.IsName(attackStateName))
         {
             animator.SetTrigger(attackTriggerName);
+            if (hitSound != null)
+                audioSource.PlayOneShot(hitSound);
         }
     }
 
