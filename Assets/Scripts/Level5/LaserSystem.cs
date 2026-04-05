@@ -4,10 +4,10 @@ using System.Collections.Generic;
 public class LaserSystem : MonoBehaviour
 {
     [Header("Settings")]
-    public float fireInterval = 2f;
+    public float fireInterval = 3.5f;
     public float rotationSpeed = 40f;
-    public float bulletSpeed = 7f;
-    public int bulletDamage = 15;
+    public float bulletSpeed = 5f;
+    public int bulletDamage = 5;
     public float cannonSize = 0.4f;
 
     private List<LaserCannon> cannons = new List<LaserCannon>();
