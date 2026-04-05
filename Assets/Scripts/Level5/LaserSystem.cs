@@ -57,10 +57,10 @@ public class LaserSystem : MonoBehaviour
     {
         // 4 cannon positions: top-left, top-right, bottom-left, bottom-right
         Vector3[] positions = {
-            new Vector3(-3f,  5f, 0f),  // top left
-            new Vector3( 3f,  5f, 0f),  // top right
-            new Vector3(-3f, -5f, 0f),  // bottom left
-            new Vector3( 3f, -5f, 0f)   // bottom right
+            new Vector3(-6f,  3.5f, 0f),  // top left
+            new Vector3( 6f,  3.5f, 0f),  // top right
+            new Vector3(-6f, -3.5f, 0f),  // bottom left
+            new Vector3( 6f, -3.5f, 0f)   // bottom right
         };
 
         // Starting angles — top cannons aim down, bottom cannons aim up
