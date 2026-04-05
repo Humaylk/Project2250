@@ -6,28 +6,35 @@ public class SkyTriangle : MonoBehaviour
     public bool solved = false;
 
     public float interactDistance = 2f;
-    private Transform player;
 
+    public Transform player; // 👈 assign manually
     public SkyGameManager manager;
-
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
 
     void Update()
     {
-        if (!solved)
+        if (!solved && player != null)
         {
             transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
 
             float dist = Vector2.Distance(transform.position, player.position);
 
-            if (dist < interactDistance && Input.GetKeyDown(KeyCode.E))
+            Debug.Log("Distance to triangle: " + dist);
+
+            if (dist < interactDistance)
             {
-                solved = true;
-                manager.AddProgress();
-                Debug.Log("Triangle solved!");
+                Debug.Log("Player in range");
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("E pressed");
+
+                    solved = true;
+
+                    if (manager != null)
+                        manager.AddProgress();
+
+                    Debug.Log("Triangle solved!");
+                }
             }
         }
     }
