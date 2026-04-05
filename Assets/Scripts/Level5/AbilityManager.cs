@@ -76,6 +76,7 @@ public class AbilityManager : MonoBehaviour
             if (dist <= 8f) // fire has long range
             {
                 boss.TakeDamage((int)fireDamage);
+                boss.TriggerFireAnimation();
                 uiManager?.ShowHint("Fire ability hit boss for " + fireDamage + " damage!");
                 GameManager.Instance?.progressionSystem?.AddCombatXP(15);
             }
