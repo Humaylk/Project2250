@@ -1,17 +1,14 @@
 using UnityEngine;
 
-// Munadir: Projectile fired by LaserCannon - moves in straight line and damages player
 public class LaserBullet : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 6f;
+    public float speed = 7f;
     public int damage = 15;
-
-    private float lastHitTime = -999f;
 
     void Update()
     {
-        // Move in firing direction
+        // Munadir: Moves the bullet in the direction the cannon was facing when it fired
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
     }
 
@@ -20,11 +17,10 @@ public class LaserBullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
-            Debug.Log("Laser bullet hit player for " + damage);
             Destroy(gameObject);
         }
-
-        // Destroy on hitting walls
+        
+        // Munadir: Destroy bullet if it hits any object tagged "Wall"
         if (other.CompareTag("Wall"))
             Destroy(gameObject);
     }
