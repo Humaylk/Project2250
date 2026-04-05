@@ -1,9 +1,7 @@
 using UnityEngine;
 
 // Munadir: Full Level 5 boss with dragon animations, 3 phases, IDamageable
-// Munadir: Walk animation plays while chasing, attack animation on contact
-// Munadir: Fire animation triggers when player uses fire ability nearby
-// Munadir: Phase changes speed up boss and change color tint
+// Munadir: Uses Rigidbody2D.MovePosition in FixedUpdate for physics-safe movement
 public class ElementalBoss : MonoBehaviour, IDamageable
 {
     [Header("Boss Stats")]
@@ -35,6 +33,7 @@ public class ElementalBoss : MonoBehaviour, IDamageable
     private bool isDefeated = false;
     private int currentPhase = 1;
     private Animator animator;
+    private Rigidbody2D rb;
 
     public void Initialize()
     {
@@ -51,11 +50,17 @@ public class ElementalBoss : MonoBehaviour, IDamageable
 
         animator = GetComponent<Animator>();
         bossRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null) 
+        {
+            rb.gravityScale = 0;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate; // Munadir: Extra smoothness
+        }
 
         if (bossRenderer != null)
             bossRenderer.color = phase1Color;
 
-        // Start idle then wake up after 2 seconds
         if (animator != null)
         {
             animator.SetBool("isIdle", true);
@@ -63,74 +68,61 @@ public class ElementalBoss : MonoBehaviour, IDamageable
         }
 
         UpdateBossUI();
-        Debug.Log("Dragon Boss initialized - Phase 1");
     }
 
     void WakeUp()
     {
-        if (animator != null)
-            animator.SetBool("isIdle", false);
+        if (animator != null) animator.SetBool("isIdle", false);
         uiManager?.ShowHint("The Elemental Dragon awakens! Defeat it before time runs out!");
     }
 
     void Update()
     {
         if (isDefeated || playerTransform == null) return;
-        MoveTowardsPlayer();
+        
+        // Attack logic
+        float dist = Vector2.Distance(transform.position, playerTransform.position);
+        bool inRange = dist <= stopDistance;
+
+        if (animator != null) animator.SetBool("isAttacking", inRange);
+
+        if (inRange && Time.time - lastAttackTime >= attackCooldown)
+        {
+            playerHealth?.TakeDamage(contactDamage);
+            lastAttackTime = Time.time;
+        }
+
+        // Face player
+        if (bossRenderer != null)
+            bossRenderer.flipX = playerTransform.position.x > transform.position.x;
+
         CheckPhaseTransition();
     }
 
-    private void MoveTowardsPlayer()
+    // Munadir: Rigidbody movement happens here for physics consistency
+    void FixedUpdate()
     {
-        float dist = Vector2.Distance(transform.position, playerTransform.position);
+        if (isDefeated || playerTransform == null || rb == null) return;
+
+        float dist = Vector2.Distance(rb.position, playerTransform.position);
 
         if (dist > stopDistance)
         {
-            // Walking animation
-            if (animator != null)
-                animator.SetBool("isAttacking", false);
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                playerTransform.position,
-                moveSpeed * Time.deltaTime
-            );
-
-            // Flip sprite to face player
-            if (bossRenderer != null)
-                bossRenderer.flipX = playerTransform.position.x > transform.position.x;
-        }
-        else
-        {
-            // In attack range — trigger attack animation
-            if (animator != null)
-                animator.SetBool("isAttacking", true);
-
-            // Deal damage on cooldown
-            if (Time.time - lastAttackTime >= attackCooldown)
-            {
-                playerHealth?.TakeDamage(contactDamage);
-                lastAttackTime = Time.time;
-                Debug.Log("Dragon attacked player for " + contactDamage);
-            }
+            Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
+            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
     private void CheckPhaseTransition()
     {
         float hpPercent = (float)currentHP / maxHP;
-
-        if (hpPercent <= phase3Threshold && currentPhase < 3)
-            EnterPhase(3);
-        else if (hpPercent <= phase2Threshold && currentPhase < 2)
-            EnterPhase(2);
+        if (hpPercent <= phase3Threshold && currentPhase < 3) EnterPhase(3);
+        else if (hpPercent <= phase2Threshold && currentPhase < 2) EnterPhase(2);
     }
 
     private void EnterPhase(int phase)
     {
         currentPhase = phase;
-        Debug.Log("Dragon entering phase " + phase);
-
         switch (phase)
         {
             case 2:
@@ -145,27 +137,24 @@ public class ElementalBoss : MonoBehaviour, IDamageable
                 contactDamage = 35;
                 if (bossRenderer != null) bossRenderer.color = phase3Color;
                 laserSystem?.MaxIntensity();
-                uiManager?.ShowHint("FINAL PHASE - The Dragon is enraged! Use all abilities!");
+                uiManager?.ShowHint("FINAL PHASE - The Dragon is enraged!");
                 break;
         }
     }
 
-    // IDamageable
     public void TakeDamage(int amount)
     {
         if (isDefeated) return;
         currentHP -= amount;
         currentHP = Mathf.Max(currentHP, 0);
-        Debug.Log("Dragon HP: " + currentHP + "/" + maxHP);
         UpdateBossUI();
-        GameManager.Instance?.progressionSystem?.AddCombatXP(5);
         if (currentHP <= 0) Die();
     }
 
+    // Munadir: Helper methods for other scripts
     public bool IsAlive() => !isDefeated;
-    public bool IsDefeated() => isDefeated;
+    public bool IsDefeated() => isDefeated; // Munadir: Needed for AetherNexusLevel.cs
 
-    // Called by AbilityManager when fire ability hits
     public void TriggerFireAnimation()
     {
         if (animator != null)
@@ -175,17 +164,11 @@ public class ElementalBoss : MonoBehaviour, IDamageable
         }
     }
 
-    void StopFireAnim()
-    {
-        if (animator != null)
-            animator.SetBool("isFiring", false);
-    }
+    void StopFireAnim() => animator?.SetBool("isFiring", false);
 
     private void Die()
     {
         isDefeated = true;
-        if (animator != null) animator.SetBool("isAttacking", false);
-        Debug.Log("DRAGON DEFEATED!");
         gameObject.SetActive(false);
     }
 
