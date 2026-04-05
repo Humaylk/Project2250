@@ -1,68 +1,57 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
-using System.Collections;
 
 // Munadir: Updated Gate to implement IInteractable interface
 // Munadir: Added H key interaction for player to advance level when gate is open
 // Munadir: Added proximity detection so hints show when player is nearby
+// Munadir: Connected to GameManager and UIManager for level advancement and hints
 public class Gate : MonoBehaviour, IInteractable
 {
+    // Munadir: Changed to public so CrackedForestLevel can check gate.isOpen
     public bool isOpen = false;
     [SerializeField] protected bool blocksCollisionWhenClosed = true;
 
-    [Header("Level Transition")]
-    public GameObject gateWall;
-    public float levelCompleteDelay = 2f;
-
-    [Header("UI")]
-    public GameObject      dialoguePanel;
-    public TextMeshProUGUI dialogueText;
-    public GameObject      pressHPrompt;
-
     protected Collider2D gateCollider;
-    protected Animator   animator;
+    protected Animator animator;
 
-    private bool playerNearby  = false;
-    private bool levelComplete = false;
+    // Munadir: Track if player is nearby to enable H key interaction
+    private bool playerNearby = false;
 
     protected virtual void Awake()
     {
         gateCollider = GetComponent<Collider2D>();
-        animator     = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Start()
     {
         ResetGate();
-        SetPanel(false);
-        SetPrompt(false);
     }
 
     void Update()
     {
-        if (playerNearby && isOpen && !levelComplete && Input.GetKeyDown(KeyCode.H))
+        // Munadir: H key advances level if player is near an open gate
+        if (playerNearby && Input.GetKeyDown(KeyCode.H))
         {
-            levelComplete = true;
-            SetPrompt(false);
-            SetPanel(true);
-            ShowText("Level Complete!\n+5 HP Gained");
-            StartCoroutine(LoadNextLevel());
+            if (isOpen)
+            {
+                Debug.Log("Player entered gate - advancing level!");
+                // Munadir: Award puzzle XP when player completes the level
+                GameManager.Instance?.progressionSystem?.AddPuzzleXP(30);
+                GameManager.Instance?.AdvanceLevel();
+            }
+            else
+            {
+                // Munadir: Tell player what they need to do
+                GameManager.Instance?.uiManager?.ShowHint("Gate is sealed. Align all pillars first!");
+            }
         }
-    }
-
-    private IEnumerator LoadNextLevel()
-    {
-        yield return new WaitForSeconds(levelCompleteDelay);
-        GameManager.Instance?.progressionSystem?.AddPuzzleXP(30);
-        if (gateWall != null) gateWall.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public virtual void OpenGate()
     {
         isOpen = true;
 
+        // Munadir: Make collider a trigger so player can pass through
         if (gateCollider != null && blocksCollisionWhenClosed)
             gateCollider.isTrigger = true;
 
@@ -70,12 +59,16 @@ public class Gate : MonoBehaviour, IInteractable
             animator.SetBool("IsOpen", true);
 
         Debug.Log(gameObject.name + ": Gate is now OPEN.");
+
+        // Munadir: Notify player via UIManager that gate is open
+        GameManager.Instance?.uiManager?.ShowHint("Gate is open! Press H to advance!");
     }
 
     public virtual void CloseGate()
     {
         isOpen = false;
 
+        // Munadir: Block collision when gate is closed
         if (gateCollider != null && blocksCollisionWhenClosed)
             gateCollider.isTrigger = false;
 
@@ -86,39 +79,36 @@ public class Gate : MonoBehaviour, IInteractable
     }
 
     public virtual void ResetGate() => CloseGate();
-    public bool CanPassThrough()    => isOpen;
+    public bool CanPassThrough() => isOpen;
 
+    // Munadir: IInteractable implementation - called by InteractionSystem
     public void Interact()
     {
         if (!isOpen)
-            ShowText("Gate is sealed. Collect all items first!");
+            GameManager.Instance?.uiManager?.ShowHint("Gate is sealed. Align all pillars first!");
     }
 
+    // Munadir: IInteractable implementation - shows context hint to player
     public string GetInteractPrompt()
         => isOpen ? "Press H to advance" : "Gate is sealed";
 
+    // Munadir: Detect when player enters gate trigger zone
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
             if (isOpen)
-                SetPrompt(true);
+                GameManager.Instance?.uiManager?.ShowHint("Press H to advance to next island!");
+            else
+                GameManager.Instance?.uiManager?.ShowHint("Gate is sealed. Align all pillars first!");
         }
     }
 
+    // Munadir: Clear proximity flag when player leaves gate area
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerNearby = false;
-            SetPrompt(false);
-            SetPanel(false);
-            levelComplete = false;
-        }
     }
-
-    private void ShowText(string t)   { if (dialogueText  != null) dialogueText.text = t; }
-    private void SetPanel(bool show)  { if (dialoguePanel != null) dialoguePanel.SetActive(show); }
-    private void SetPrompt(bool show) { if (pressHPrompt  != null) pressHPrompt.SetActive(show); }
 }

@@ -23,8 +23,11 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Died!");
-        animator.SetBool("isDead", true);
-        animator.ResetTrigger("Attack");
+        if (animator != null)
+        {
+            animator.SetBool("isDead", true);
+            animator.ResetTrigger("Attack");
+        }
         GolemAI ai = GetComponent<GolemAI>();
         
         if (ai != null) ai.enabled = false;

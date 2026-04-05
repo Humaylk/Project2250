@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 // Coordinates all gameplay logic for the Water Island level (Drowned Vault).
 // The entire level takes place underwater — the oxygen timer starts immediately
@@ -9,27 +12,71 @@ using UnityEngine;
 public class WaterIslandLevel : LevelBase
 {
     [Header("Level 3 Specific References")]
-    public RockBarrier rockBarrier;
+    public RockBarrier[] rockBarriers;
     public Gate exitDoor;
     public EnemyHealth[] fishAssassins;
-    public Timer oxygenTimer;
+    public CountdownTimer oxygenTimer;
     public WaterIslandStatus islandStatus;
     public UIManager uiManager;
 
     [Header("Oxygen Timer Settings")]
     public float timerDuration = 45f;
 
+    [Header("HUD")]
+    public TextMeshProUGUI oxygenText;
+
     [Header("Player Spawn")]
     public Vector3 spawnPosition = new Vector3(-8f, 1f, 0f);
 
     private PlayerController player;
     private PlayerHealth playerHealth;
-    private float lastTimerDisplayTime = -1f;
+    private bool isDrowning = false;
 
     void Awake()
     {
         player = FindFirstObjectByType<PlayerController>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        PlayerHealth.OnDeath += HandlePlayerDeath;
+    }
+
+    void OnDestroy()
+    {
+        PlayerHealth.OnDeath -= HandlePlayerDeath;
+    }
+
+    void Start()
+    {
+        // Re-register with GameManager in case this scene was reloaded
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.currentLevel = this;
+            if (player != null) GameManager.Instance.player = player;
+        }
+        InitializeLevel();
+    }
+
+    private void HandlePlayerDeath()
+    {
+        if (!isActive || isComplete) return;
+        isActive = false;
+        StopAllCoroutines();
+        DeathScreen ds = FindFirstObjectByType<DeathScreen>();
+        if (ds != null) ds.Show();
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    protected override void Update()
+    {
+        if (!isActive || isComplete) return;
+
+        UpdateLevel();
+
+        if (CheckWinCondition())
+        {
+            isComplete = true;
+            FinishLevel();
+        }
+        // Death is handled immediately via PlayerHealth.OnDeath event → HandlePlayerDeath()
     }
 
     public override void InitializeLevel()
@@ -41,7 +88,7 @@ public class WaterIslandLevel : LevelBase
         if (player != null)
             player.transform.position = spawnPosition;
 
-        rockBarrier?.ResetBarrier();
+        foreach (var rb in rockBarriers) rb?.ResetBarrier();
         exitDoor?.ResetGate();
         SpawnAssassins();
 
@@ -61,30 +108,69 @@ public class WaterIslandLevel : LevelBase
     {
         if (player == null) return;
 
-        // Display the remaining oxygen countdown roughly once per second
-        if (oxygenTimer != null && oxygenTimer.isRunning)
+        // Display the remaining oxygen countdown every frame directly on HUD
+        if (oxygenTimer != null && oxygenText != null)
         {
-            if (Time.time >= lastTimerDisplayTime + 1f)
+            int secondsLeft = Mathf.CeilToInt(oxygenTimer.timeRemaining);
+            oxygenText.text = "O2: " + secondsLeft + "s";
+
+            // Turn text red and flash when below 10 seconds
+            if (secondsLeft <= 10)
             {
-                lastTimerDisplayTime = Time.time;
-                int secondsLeft = Mathf.CeilToInt(oxygenTimer.timeRemaining);
-                uiManager?.ShowHint("Oxygen: " + secondsLeft + "s remaining!");
+                float alpha = Mathf.Abs(Mathf.Sin(Time.time * 4f));
+                oxygenText.color = new Color(1f, 0.2f, 0.2f, alpha);
+            }
+            else
+            {
+                oxygenText.color = new Color(0f, 0.9f, 1f, 1f);
             }
         }
 
-        // Once rocks are cleared, open the exit doorway
-        if (rockBarrier != null && rockBarrier.IsCleared() && exitDoor != null && !exitDoor.isOpen)
+        // Once ALL mines are defused, open the exit doorway
+        if (AllMinesCleared() && exitDoor != null && !exitDoor.isOpen)
         {
             exitDoor.OpenGate();
             uiManager?.UpdateObjective("Exit opened! Escape through the doorway!");
         }
+
+        // Start drowning damage when O2 hits 0
+        if (oxygenTimer != null && oxygenTimer.IsTimeUp() && !isDrowning)
+        {
+            isDrowning = true;
+            StartCoroutine(DrowningDamage());
+        }
+
+        // Stop drowning only if timer was refilled (helmet picked up)
+        if (isDrowning && oxygenTimer != null && oxygenTimer.timeRemaining > 0f)
+        {
+            isDrowning = false;
+        }
     }
 
-    // Win condition: rocks cleared and exit door is open
+    IEnumerator DrowningDamage()
+    {
+        uiManager?.ShowHint("Out of oxygen! Find the helmet or reach the exit!");
+        while (isDrowning)
+        {
+            yield return new WaitForSeconds(1f);
+            if (!isDrowning) yield break;
+            playerHealth?.TakeDamage(5);
+            Debug.Log("Drowning! -5 HP");
+        }
+    }
+
+    bool AllMinesCleared()
+    {
+        if (rockBarriers == null || rockBarriers.Length == 0) return false;
+        foreach (var rb in rockBarriers)
+            if (rb != null && !rb.IsCleared()) return false;
+        return true;
+    }
+
+    // Win condition: all mines defused and exit door is open
     public override bool CheckWinCondition()
     {
-        return rockBarrier != null && rockBarrier.IsCleared() &&
-               exitDoor != null && exitDoor.isOpen;
+        return AllMinesCleared() && exitDoor != null && exitDoor.isOpen;
     }
 
     // Lose condition: player HP hits zero OR oxygen timer runs out
@@ -93,12 +179,6 @@ public class WaterIslandLevel : LevelBase
         if (playerHealth == null) return false;
 
         if (playerHealth.health <= 0) return true;
-
-        if (oxygenTimer != null && oxygenTimer.IsTimeUp())
-        {
-            uiManager?.ShowHint("You drowned! Out of oxygen.");
-            return true;
-        }
 
         return false;
     }
