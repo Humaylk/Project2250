@@ -3,23 +3,36 @@ using UnityEngine;
 // Enemy AI for Level 3 - Drowned Vault (Water Island).
 // Represents fish enemy units that actively hunt and attack the player underwater,
 // reducing HP during combat encounters. Supports multiple instances (two in this level).
-// Intended to extend from a reusable Enemy base class in future iterations so other
-// levels can introduce different enemy types (e.g., FireAssassin, EarthGuardian, AirSpirit).
 public class FishAssassin : MonoBehaviour
 {
     public Transform player;
     public float speed = 2.5f;
     public float attackRange = 1.2f;
     public int damage = 12;
+    public int maxHealth = 30;
 
+    [Header("Death Effect")]
+    public GameObject deathEffectPrefab; // Drag FishDeathEffect prefab here
+
+    private int currentHealth;
     private float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
+    private bool isDead = false;
 
     private Animator animator;
+    private bool hasIsWalking = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+
+        // Check once if this animator has the isWalking parameter
+        if (animator != null)
+        {
+            foreach (AnimatorControllerParameter p in animator.parameters)
+                if (p.name == "isWalking") { hasIsWalking = true; break; }
+        }
 
         // Auto-find player if not assigned in Inspector
         if (player == null)
@@ -31,7 +44,7 @@ public class FishAssassin : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || isDead) return;
 
         float distance = Vector2.Distance(transform.position, player.position);
 
@@ -52,11 +65,11 @@ public class FishAssassin : MonoBehaviour
                 speed * Time.deltaTime
             );
 
-            if (animator != null) animator.SetBool("isWalking", true);
+            if (animator != null && hasIsWalking) animator.SetBool("isWalking", true);
         }
         else
         {
-            if (animator != null) animator.SetBool("isWalking", false);
+            if (animator != null && hasIsWalking) animator.SetBool("isWalking", false);
 
             if (Time.time >= lastAttackTime + attackCooldown)
             {
@@ -69,5 +82,26 @@ public class FishAssassin : MonoBehaviour
                 lastAttackTime = Time.time;
             }
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+        isDead = true;
+
+        // Spawn the explosion/death effect at this position
+        if (deathEffectPrefab != null)
+            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

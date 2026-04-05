@@ -50,20 +50,22 @@ public class Level3IntroScreen : MonoBehaviour
 
     private void ApplyText()
     {
-        if (aboutHeaderText  != null) aboutHeaderText.text  = "ABOUT";
+        if (aboutHeaderText  != null) aboutHeaderText.text  = "Objective";
         if (controlsHeaderText != null) controlsHeaderText.text = "CONTROLS";
 
         if (aboutBodyText != null)
             aboutBodyText.text =
-                "You have been pulled into the Drowned Vault.\n" +
-                "Kill the KILLER FISH and DEFUSE THE BOMBS\n" +
-                "within 45 seconds to escape alive.";
+                "You are now in the drowned vault.\n" +
+                "Eliminate the killer fishes and defuse the bombs\n" +
+                "within the time to escape alive.\n" +
+                "Pick up the scuba helmet to help you.";
 
         if (controlsBodyText != null)
             controlsBodyText.text =
-                "WASD  TO  MOVE\n" +
-                "G  TO  ATTACK\n" +
-                "E  TO  DEFUSE  BOMB";
+                "Press G to attack\n" +
+                "Press E to open chest or pickup items\n" +
+                "Hold E to defuse a mine\n" +
+                "Press H to advance to next level";
 
         if (pressAnyKeyText != null)
             pressAnyKeyText.text = "PRESS ANY KEY TO DIVE IN";
