@@ -51,9 +51,7 @@ public class AetherNexusLevel : LevelBase
 
     public override void UpdateLevel()
     {
-        // Update UI timer display every frame
-        if (battleTimer != null)
-            uiManager?.ShowTimerDisplay(battleTimer.timeRemaining);
+        // Timer display handled by BattleTimer directly
     }
 
     public override bool CheckWinCondition()
