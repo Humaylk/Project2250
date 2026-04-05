@@ -1,65 +1,90 @@
 using UnityEngine;
 using TMPro;
-
 using UnityEngine.SceneManagement;
 
 public class SkyGameManager : MonoBehaviour
 {
     public int total = 3;
     private int current = 0;
+
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI progressText;
     public TextMeshProUGUI timerText;
+
     public float timeLeft = 20f;
+
+    public bool levelComplete = false;
 
     void Start()
     {
-        Time.timeScale = 1f; // reset in case previous run froze game
+        Time.timeScale = 1f;
         UpdateUI();
     }
 
     void Update()
     {
+        // ⛔ STOP TIMER AFTER WIN
+        if (levelComplete) return;
+
         timeLeft -= Time.deltaTime;
 
-        timerText.text = "Time: " + Mathf.Ceil(timeLeft);
+        if (timerText != null)
+            timerText.text = "Time: " + Mathf.Ceil(timeLeft);
 
         if (timeLeft <= 0)
         {
             Debug.Log("FAILED");
-            // restart scene
-            UnityEngine.SceneManagement.SceneManager.LoadScene(
-                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+
+            SceneManager.LoadScene(
+                SceneManager.GetActiveScene().name
             );
         }
     }
 
     public void AddProgress()
     {
+        if (levelComplete) return; // prevent double calls
+
         current++;
         UpdateUI();
+
+        Debug.Log("Progress: " + current + "/" + total);
 
         if (current >= total)
         {
             EndLevel();
         }
     }
+
     void EndLevel()
     {
-        Debug.Log("LEVEL COMPLETE");
+        levelComplete = true;
 
-        // stop time (freezes everything: player + golems)
-        Time.timeScale = 0f;
+        Debug.Log("LEVEL COMPLETE TRIGGERED");
 
-        // optional: show message
+        FreezeEnemies();
+
         if (titleText != null)
         {
             titleText.text = "YOU MASTERED THE SKY";
         }
     }
 
+    void FreezeEnemies()
+    {
+        GolemAI_Level4[] golems = FindObjectsOfType<GolemAI_Level4>();
+
+        foreach (var g in golems)
+        {
+            g.enabled = false;
+        }
+
+        Debug.Log("Enemies frozen");
+    }
+
     void UpdateUI()
     {
-        progressText.text = current + "/" + total;
+        if (progressText != null)
+            progressText.text = current + "/" + total;
     }
 }
