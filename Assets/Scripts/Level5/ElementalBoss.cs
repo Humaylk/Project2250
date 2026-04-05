@@ -98,7 +98,7 @@ public class ElementalBoss : MonoBehaviour, IDamageable
 
             // Flip sprite to face player
             if (bossRenderer != null)
-                bossRenderer.flipX = playerTransform.position.x < transform.position.x;
+                bossRenderer.flipX = playerTransform.position.x > transform.position.x;
         }
         else
         {
