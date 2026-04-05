@@ -1,110 +1,101 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// Munadir: Spawns rotating laser beams as colored rectangle sprites
-// Munadir: No prefab needed - creates visuals entirely in code
-// Munadir: Intensity increases with boss phases - more lasers, faster rotation
+// Munadir: Manages 4 laser cannons positioned around the arena
+// Munadir: 2 at top, 2 at bottom, all rotate and fire projectile bullets
+// Munadir: Phase 2 and 3 increase fire rate and rotation speed
 public class LaserSystem : MonoBehaviour
 {
-    [Header("Laser Settings")]
-    public int initialLaserCount = 3;
-    public float rotationSpeed = 40f;
-    public int damagePerHit = 15;
-    public float laserLength = 10f;
-    public float laserWidth = 0.2f;
+    [Header("Settings")]
+    public float fireInterval = 2f;
+    public float rotationSpeed = 30f;
+    public float bulletSpeed = 6f;
+    public int bulletDamage = 15;
+    public float cannonSize = 0.4f;
 
-    private List<GameObject> activeLasers = new List<GameObject>();
+    private List<LaserCannon> cannons = new List<LaserCannon>();
     private bool isRunning = false;
 
     public void StartLasers()
     {
         isRunning = true;
-        SpawnLasers(initialLaserCount);
-        Debug.Log("Laser system started with " + initialLaserCount + " lasers.");
+        SpawnCannons();
+        foreach (LaserCannon c in cannons)
+            c.StartFiring();
+        Debug.Log("4 laser cannons started.");
     }
 
     public void StopLasers()
     {
         isRunning = false;
-        foreach (GameObject laser in activeLasers)
-            if (laser != null) Destroy(laser);
-        activeLasers.Clear();
+        foreach (LaserCannon c in cannons)
+        {
+            if (c != null)
+            {
+                c.StopFiring();
+                Destroy(c.gameObject);
+            }
+        }
+        cannons.Clear();
     }
 
     public void IncreaseIntensity()
     {
-        rotationSpeed = 60f;
-        SpawnLasers(2);
-        Debug.Log("Phase 2 - Laser intensity increased.");
+        foreach (LaserCannon c in cannons)
+            if (c != null) c.SetSpeed(50f);
+        Debug.Log("Phase 2 - Cannons firing faster.");
     }
 
     public void MaxIntensity()
     {
-        rotationSpeed = 90f;
-        SpawnLasers(2);
-        Debug.Log("Phase 3 - Max laser intensity.");
+        foreach (LaserCannon c in cannons)
+            if (c != null) c.SetSpeed(80f);
+        Debug.Log("Phase 3 - Max cannon intensity.");
     }
 
-    void Update()
+    private void SpawnCannons()
     {
-        if (!isRunning) return;
-        // Rotate entire LaserSystem object — all child lasers rotate with it
-        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
-    }
+        // 4 cannon positions: top-left, top-right, bottom-left, bottom-right
+        Vector3[] positions = {
+            new Vector3(-3f,  5f, 0f),  // top left
+            new Vector3( 3f,  5f, 0f),  // top right
+            new Vector3(-3f, -5f, 0f),  // bottom left
+            new Vector3( 3f, -5f, 0f)   // bottom right
+        };
 
-    private void SpawnLasers(int count)
-    {
-        int existingCount = activeLasers.Count;
-        float angleStep = 360f / (existingCount + count);
+        // Starting angles — top cannons aim down, bottom cannons aim up
+        float[] startAngles = { 225f, 315f, 135f, 45f };
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < 4; i++)
         {
-            float angle = angleStep * (existingCount + i);
+            GameObject cannonObj = new GameObject("LaserCannon_" + i);
+            cannonObj.transform.position = positions[i];
+            cannonObj.transform.rotation = Quaternion.Euler(0, 0, startAngles[i]);
 
-            // Create laser as a child of LaserSystem so it rotates with it
-            GameObject laser = new GameObject("Laser_" + (existingCount + i));
-            laser.transform.SetParent(transform);
-            laser.transform.localPosition = Vector3.zero;
-
-            // Rotate this laser to its angle
-            laser.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
-
-            // Add sprite renderer — bright magenta beam
-            SpriteRenderer sr = laser.AddComponent<SpriteRenderer>();
-            sr.sprite = GetDefaultSprite();
-            sr.color = new Color(1f, 0f, 1f, 0.85f);
-            sr.sortingOrder = 5;
-// Munadir: Fix for URP - override material to use unlit so laser is always visible
+            // Visual for cannon body
+            SpriteRenderer sr = cannonObj.AddComponent<SpriteRenderer>();
+            sr.color = new Color(0.8f, 0f, 0.8f, 1f);
+            sr.sortingOrder = 6;
             sr.material = new Material(Shader.Find("Sprites/Default"));
+            sr.sprite = MakeSprite();
+            cannonObj.transform.localScale = new Vector3(cannonSize, cannonSize * 2f, 1f);
 
-            // Scale: thin and long — this is the beam shape
-            laser.transform.localScale = new Vector3(laserWidth, laserLength, 1f);
+            LaserCannon cannon = cannonObj.AddComponent<LaserCannon>();
+            cannon.rotationRange = 45f;
+            cannon.rotationSpeed = rotationSpeed;
+            cannon.fireInterval = fireInterval;
+            cannon.bulletSpeed = bulletSpeed;
+            cannon.damage = bulletDamage;
 
-            // Move it so it extends from center outward
-            laser.transform.localPosition = new Vector3(0f, laserLength * 0.5f, 0f);
-
-            // Add trigger collider for damage
-            BoxCollider2D col = laser.AddComponent<BoxCollider2D>();
-            col.isTrigger = true;
-            col.size = new Vector2(1f, 1f); // normalized — actual size from transform scale
-
-            // Add damage script
-            LaserDamage ld = laser.AddComponent<LaserDamage>();
-            ld.damage = damagePerHit;
-
-            activeLasers.Add(laser);
+            cannons.Add(cannon);
         }
-
-        Debug.Log("Total lasers: " + activeLasers.Count);
     }
 
-    private Sprite GetDefaultSprite()
+    private Sprite MakeSprite()
     {
-        // Munadir: Fixed for URP - use a proper readable texture
         Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
         tex.SetPixels(new Color[] { Color.white, Color.white, Color.white, Color.white });
         tex.Apply();
-        tex.filterMode = FilterMode.Point;
         return Sprite.Create(tex, new Rect(0, 0, 2, 2), new Vector2(0.5f, 0.5f), 1f);
     }
 }
