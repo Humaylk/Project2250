@@ -1,15 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// Munadir: Manages 4 laser cannons positioned around the arena
-// Munadir: 2 at top, 2 at bottom, all rotate and fire projectile bullets
-// Munadir: Phase 2 and 3 increase fire rate and rotation speed
 public class LaserSystem : MonoBehaviour
 {
     [Header("Settings")]
     public float fireInterval = 2f;
-    public float rotationSpeed = 30f;
-    public float bulletSpeed = 6f;
+    public float rotationSpeed = 40f;
+    public float bulletSpeed = 7f;
     public int bulletDamage = 15;
     public float cannonSize = 0.4f;
 
@@ -22,7 +19,6 @@ public class LaserSystem : MonoBehaviour
         SpawnCannons();
         foreach (LaserCannon c in cannons)
             c.StartFiring();
-        Debug.Log("4 laser cannons started.");
     }
 
     public void StopLasers()
@@ -42,37 +38,35 @@ public class LaserSystem : MonoBehaviour
     public void IncreaseIntensity()
     {
         foreach (LaserCannon c in cannons)
-            if (c != null) c.SetSpeed(50f);
-        Debug.Log("Phase 2 - Cannons firing faster.");
+            if (c != null) c.SetSpeed(60f, 1.2f);
     }
 
     public void MaxIntensity()
     {
         foreach (LaserCannon c in cannons)
-            if (c != null) c.SetSpeed(80f);
-        Debug.Log("Phase 3 - Max cannon intensity.");
+            if (c != null) c.SetSpeed(90f, 0.7f);
     }
 
     private void SpawnCannons()
     {
-        // 4 cannon positions: top-left, top-right, bottom-left, bottom-right
         Vector3[] positions = {
-            new Vector3(-6f,  3.5f, 0f),  // top left
-            new Vector3( 6f,  3.5f, 0f),  // top right
-            new Vector3(-6f, -3.5f, 0f),  // bottom left
-            new Vector3( 6f, -3.5f, 0f)   // bottom right
+            new Vector3(-8.4f,  4.6f, 0f),  // Top Left
+            new Vector3( 8.4f,  4.6f, 0f),  // Top Right
+            new Vector3(-8.4f, -4.6f, 0f),  // Bottom Left
+            new Vector3( 8.4f, -4.6f, 0f)   // Bottom Right
         };
-
-        // Starting angles — top cannons aim down, bottom cannons aim up
-        float[] startAngles = { 225f, 315f, 135f, 45f };
 
         for (int i = 0; i < 4; i++)
         {
             GameObject cannonObj = new GameObject("LaserCannon_" + i);
             cannonObj.transform.position = positions[i];
-            cannonObj.transform.rotation = Quaternion.Euler(0, 0, startAngles[i]);
 
-            // Visual for cannon body
+            // MUNADIR FIX: Force the cannon to face (0,0) immediately
+            Vector3 directionToCenter = Vector3.zero - positions[i];
+            float angle = Mathf.Atan2(directionToCenter.y, directionToCenter.x) * Mathf.Rad2Deg;
+            // Subtract 90 because Unity's "Up" is the Y axis
+            cannonObj.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+
             SpriteRenderer sr = cannonObj.AddComponent<SpriteRenderer>();
             sr.color = new Color(0.8f, 0f, 0.8f, 1f);
             sr.sortingOrder = 6;
@@ -81,7 +75,7 @@ public class LaserSystem : MonoBehaviour
             cannonObj.transform.localScale = new Vector3(cannonSize, cannonSize * 2f, 1f);
 
             LaserCannon cannon = cannonObj.AddComponent<LaserCannon>();
-            cannon.rotationRange = 45f;
+            cannon.rotationRange = 20f; 
             cannon.rotationSpeed = rotationSpeed;
             cannon.fireInterval = fireInterval;
             cannon.bulletSpeed = bulletSpeed;
