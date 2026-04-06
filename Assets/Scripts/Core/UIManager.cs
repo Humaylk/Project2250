@@ -60,12 +60,6 @@ public class UIManager : MonoBehaviour
             hpText.text = "HP: " + hp;
     }
 
-    public void ShowTimerDisplay(float timeRemaining)
-    {
-        if (hintText != null)
-            hintText.text = "Time: " + Mathf.CeilToInt(timeRemaining) + "s";
-    }
-
     // 🔥 UPDATED — forces bold + color using rich text
     public void QueueDialogue(string message)
     {
@@ -162,7 +156,9 @@ public class UIManager : MonoBehaviour
             dialogueText.text = "";
 
         isShowingDialogue = false;
-    } public void ShowTimerDisplay(float timeRemaining)
+    }
+
+    public void ShowTimerDisplay(float timeRemaining)
     {
         // Munadir: Display battle timer in HP text slot
         // (reuse hpText for timer in Level 5)
