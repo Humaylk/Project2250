@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 // Swaps the player's animations in Level 3 using AnimatorOverrideController.
@@ -24,6 +25,13 @@ public class Level3PlayerAppearance : MonoBehaviour
         if (animator == null) return;
 
         originalController = animator.runtimeAnimatorController;
+        // Delay by one frame to avoid Unity Editor Animator graph NullRef bug
+        StartCoroutine(ApplyOverridesNextFrame());
+    }
+
+    private IEnumerator ApplyOverridesNextFrame()
+    {
+        yield return null;
         ApplyOverrides(false);
     }
 
