@@ -28,14 +28,22 @@ public class WaterIslandLevel : LevelBase
     [Header("Player Spawn")]
     public Vector3 spawnPosition = new Vector3(-8f, 1f, 0f);
 
+    [Header("Swimming Animation")]
+    public RuntimeAnimatorController underwaterController;
+    private RuntimeAnimatorController originalController;
+
     private PlayerController player;
     private PlayerHealth playerHealth;
+    private Animator playerAnimator;
     private bool isDrowning = false;
 
     void Awake()
     {
         player = FindFirstObjectByType<PlayerController>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        playerAnimator = player?.GetComponentInChildren<Animator>();
+        if (playerAnimator != null)
+            originalController = playerAnimator.runtimeAnimatorController;
         PlayerHealth.OnDeath += HandlePlayerDeath;
     }
 
@@ -62,9 +70,16 @@ public class WaterIslandLevel : LevelBase
         if (!isActive || isComplete) return;
         isActive = false;
         StopAllCoroutines();
+        RestorePlayerController();
         DeathScreen ds = FindFirstObjectByType<DeathScreen>();
         if (ds != null) ds.Show();
         else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void RestorePlayerController()
+    {
+        if (playerAnimator != null && originalController != null)
+            playerAnimator.runtimeAnimatorController = originalController;
     }
 
     protected override void Update()
@@ -109,6 +124,10 @@ public class WaterIslandLevel : LevelBase
 
         if (player != null)
             player.transform.position = spawnPosition;
+
+        // Swap to swimming animation controller for Level 3
+        if (playerAnimator != null && underwaterController != null)
+            playerAnimator.runtimeAnimatorController = underwaterController;
 
         foreach (var rb in rockBarriers) rb?.ResetBarrier();
         exitDoor?.ResetGate();
@@ -204,6 +223,7 @@ public class WaterIslandLevel : LevelBase
     public override void FinishLevel()
     {
         isComplete = true;
+        RestorePlayerController();
         Debug.Log("Level 3 - Drowned Vault COMPLETE!");
 
         // Mark Water Island as restored in world state
