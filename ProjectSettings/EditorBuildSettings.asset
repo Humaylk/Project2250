@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/nemaycojohn/Scenes/Level1_CrackedForest.unity
     guid: d68e4671c7c1ff641a28d5d652ab39a7
   - enabled: 1
-    path: Assets/nemaycojohn/Scenes/Level3_DrownedVault.unity
+    path: Assets/Scenes/Level3_DrownedVault.unity
     guid: 663a7cb5c9883824e9d2aaf4cdda9038
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
