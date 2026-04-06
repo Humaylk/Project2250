@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,6 +53,24 @@ public class GameManager : MonoBehaviour
         Debug.Log("Advancing to level " + currentLevelIndex);
         progressionSystem?.TrackLevelCompletion();
         ApplyCompletionRewards();
+
+        string next = GetNextScene(SceneManager.GetActiveScene().name);
+        if (next != null)
+            SceneManager.LoadScene(next);
+        else
+            Debug.Log("No next scene defined for: " + SceneManager.GetActiveScene().name);
+    }
+
+    private string GetNextScene(string current)
+    {
+        switch (current)
+        {
+            case "Level1_CrackedForest": return "Level2_EmberDepths";
+            case "Level2_EmberDepths":  return "Level3_DrownedVault";
+            case "Level3_DrownedVault": return "Level4_Sky";
+            case "Level4_Sky":          return "Level5_AetherNexus";
+            default:                    return null;
+        }
     }
 
     public void ResetOnDeath()

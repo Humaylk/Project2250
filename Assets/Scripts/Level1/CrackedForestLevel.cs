@@ -64,8 +64,6 @@ public class CrackedForestLevel : LevelBase
         // Munadir: Show level complete message to player
         uiManager?.DisplayObjective("LEVEL COMPLETE! Earth island restored!");
         uiManager?.ShowHint("You obtained the Metal Sword! Press H at the gate to advance.");
-    
-        GameManager.Instance?.AdvanceLevel();
     }
 
     public void SpawnEnemies()

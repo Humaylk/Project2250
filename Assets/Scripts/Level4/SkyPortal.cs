@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SkyPortal : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class SkyPortal : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.H))
             {
                 Debug.Log("LOADING NEXT LEVEL");
-                SceneManager.LoadScene("Level5_Boss");
+                GameManager.Instance?.AdvanceLevel();
             }
         }
     }

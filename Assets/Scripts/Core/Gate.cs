@@ -29,6 +29,15 @@ public class Gate : MonoBehaviour, IInteractable
 
     void Update()
     {
+        // When the gate opens, the player may already be overlapping (was blocked by solid collider).
+        // OnTriggerEnter2D won't fire in that case, so do a direct overlap check as fallback.
+        if (isOpen && !playerNearby)
+        {
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, 2f);
+            if (hit != null && hit.CompareTag("Player"))
+                playerNearby = true;
+        }
+
         // Munadir: H key advances level if player is near an open gate
         if (playerNearby && Input.GetKeyDown(KeyCode.H))
         {
