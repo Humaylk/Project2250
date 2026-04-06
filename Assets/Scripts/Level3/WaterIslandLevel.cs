@@ -61,8 +61,9 @@ public class WaterIslandLevel : LevelBase
 
     private void HandlePlayerDeath()
     {
-        if (!isActive || isComplete) return;
+        if (!isActive) return;
         isActive = false;
+        isComplete = false;
         StopAllCoroutines();
         RestorePlayerController();
         DeathScreen ds = FindFirstObjectByType<DeathScreen>();
