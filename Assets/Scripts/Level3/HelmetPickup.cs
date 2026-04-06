@@ -45,15 +45,13 @@ public class HelmetPickup : MonoBehaviour
         pickedUp = true;
         gameObject.SetActive(false);
 
-        if (playerAnimator != null && helmetController != null)
-        {
-            playerAnimator.runtimeAnimatorController = helmetController;
-            Debug.Log("HelmetPickup: Helmet equipped!");
-        }
+        // Switch player to helmet sprites
+        Level3PlayerAppearance appearance = FindFirstObjectByType<Level3PlayerAppearance>();
+        if (appearance != null)
+            appearance.EquipHelmet();
         else
-        {
-            Debug.LogWarning("HelmetPickup: Missing animator or helmetController reference.");
-        }
+            Debug.LogWarning("HelmetPickup: Level3PlayerAppearance not found on player.");
+        Debug.Log("HelmetPickup: Helmet equipped!");
 
         WaterIslandLevel level = FindFirstObjectByType<WaterIslandLevel>();
         if (level != null && level.oxygenTimer != null)
