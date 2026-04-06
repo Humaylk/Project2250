@@ -14,12 +14,19 @@ public class Level3PlayerAppearance : MonoBehaviour
     public Sprite swimmingHelmetSprite; // Player Swimming Helmet.png
 
     private SpriteRenderer sr;
+    private Animator animator;
     private bool hasHelmet = false;
     private bool wasMoving = false;
 
     void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
+
+        // Disable animator so it doesn't override our sprite swapping
+        if (animator != null)
+            animator.enabled = false;
+
         ApplySprite(false);
     }
 
@@ -56,6 +63,7 @@ public class Level3PlayerAppearance : MonoBehaviour
     public void RestoreOriginal()
     {
         hasHelmet = false;
-        ApplySprite(false);
+        if (animator != null)
+            animator.enabled = true;
     }
 }
