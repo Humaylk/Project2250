@@ -42,6 +42,8 @@ public class WaterIslandLevel : LevelBase
     void OnDestroy()
     {
         PlayerHealth.OnDeath -= HandlePlayerDeath;
+        if (oxygenTimer != null)
+            oxygenTimer.OnTimeUp -= OnOxygenDepleted;
     }
 
     void Start()
@@ -102,6 +104,7 @@ public class WaterIslandLevel : LevelBase
     {
         isActive = true;
         isComplete = false;
+        isDrowning = false;
         Debug.Log("Level 3 - Drowned Vault");
 
         if (player != null)
@@ -114,6 +117,8 @@ public class WaterIslandLevel : LevelBase
         // Entire level is underwater — start the oxygen timer immediately
         if (oxygenTimer != null)
         {
+            oxygenTimer.OnTimeUp -= OnOxygenDepleted;
+            oxygenTimer.OnTimeUp += OnOxygenDepleted;
             oxygenTimer.StopTimer();
             oxygenTimer.ResetTimer();
             oxygenTimer.StartTimer(timerDuration);
@@ -134,29 +139,41 @@ public class WaterIslandLevel : LevelBase
             uiManager?.UpdateObjective("Exit opened! Escape through the doorway!");
         }
 
-        // Start drowning damage when O2 hits 0
-        if (oxygenTimer != null && oxygenTimer.IsTimeUp() && !isDrowning)
-        {
-            isDrowning = true;
-            StartCoroutine(DrowningDamage());
-        }
-
-        // Stop drowning only if timer was refilled (helmet picked up)
+        // Stop drowning if timer was refilled (helmet picked up)
         if (isDrowning && oxygenTimer != null && oxygenTimer.timeRemaining > 0f)
         {
             isDrowning = false;
         }
     }
 
+    private void OnOxygenDepleted()
+    {
+        if (!isActive || isComplete || isDrowning) return;
+        isDrowning = true;
+        StartCoroutine(DrowningDamage());
+    }
+
     IEnumerator DrowningDamage()
     {
         uiManager?.ShowHint("Out of oxygen! Find the helmet or reach the exit!");
+
+        // Re-fetch playerHealth in case it wasn't found at Awake
+        if (playerHealth == null)
+            playerHealth = FindFirstObjectByType<PlayerHealth>();
+
         while (isDrowning)
         {
             yield return new WaitForSeconds(1f);
             if (!isDrowning) yield break;
-            playerHealth?.TakeDamage(5);
-            Debug.Log("Drowning! -5 HP");
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(5);
+                Debug.Log("Drowning! -5 HP | HP remaining: " + playerHealth.health);
+            }
+            else
+            {
+                Debug.LogWarning("DrowningDamage: playerHealth is null, cannot deal damage.");
+            }
         }
     }
 
