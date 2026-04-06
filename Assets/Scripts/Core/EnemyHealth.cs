@@ -8,9 +8,18 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health = 50;
     Animator animator;
+    private bool hasIsDead = false;
+    private bool hasAttack = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (animator != null)
+            foreach (AnimatorControllerParameter p in animator.parameters)
+            {
+                if (p.name == "isDead") hasIsDead = true;
+                if (p.name == "Attack") hasAttack = true;
+            }
     }
     public void TakeDamage(int damage)
     {
@@ -25,8 +34,8 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy Died!");
         if (animator != null)
         {
-            animator.SetBool("isDead", true);
-            animator.ResetTrigger("Attack");
+            if (hasIsDead) animator.SetBool("isDead", true);
+            if (hasAttack) animator.ResetTrigger("Attack");
         }
         GolemAI ai = GetComponent<GolemAI>();
         

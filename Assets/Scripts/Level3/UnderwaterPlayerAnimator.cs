@@ -10,12 +10,17 @@ public class UnderwaterPlayerAnimator : MonoBehaviour
     private Animator animator;
     private PlayerHealth playerHealth;
     private int lastHealth;
+    private bool hasIsHurt = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
         lastHealth = playerHealth.health;
+
+        if (animator != null)
+            foreach (AnimatorControllerParameter p in animator.parameters)
+                if (p.name == "isHurt") { hasIsHurt = true; break; }
 
         // Flip sprite to face right by default
         Vector3 s = transform.localScale;
@@ -28,7 +33,7 @@ public class UnderwaterPlayerAnimator : MonoBehaviour
         // Detect when HP drops and trigger hurt animation
         if (playerHealth.health < lastHealth)
         {
-            animator.SetTrigger("isHurt");
+            if (hasIsHurt) animator.SetTrigger("isHurt");
         }
         lastHealth = playerHealth.health;
 

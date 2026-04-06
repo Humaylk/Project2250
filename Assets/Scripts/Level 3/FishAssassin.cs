@@ -21,17 +21,21 @@ public class FishAssassin : MonoBehaviour
 
     private Animator animator;
     private bool hasIsWalking = false;
+    private bool hasAttack = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
 
-        // Check once if this animator has the isWalking parameter
+        // Check once if this animator has the relevant parameters
         if (animator != null)
         {
             foreach (AnimatorControllerParameter p in animator.parameters)
-                if (p.name == "isWalking") { hasIsWalking = true; break; }
+            {
+                if (p.name == "isWalking") hasIsWalking = true;
+                if (p.name == "Attack") hasAttack = true;
+            }
         }
 
         // Auto-find player if not assigned in Inspector
@@ -73,7 +77,7 @@ public class FishAssassin : MonoBehaviour
 
             if (Time.time >= lastAttackTime + attackCooldown)
             {
-                if (animator != null) animator.SetTrigger("Attack");
+                if (animator != null && hasAttack) animator.SetTrigger("Attack");
 
                 PlayerHealth ph = player.GetComponent<PlayerHealth>();
                 if (ph != null)
