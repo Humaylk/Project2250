@@ -1,67 +1,102 @@
 using UnityEngine;
+using System.Collections;
 
 // Handles player sprite swapping in Level 3.
-// Moving = swimming sprite, Idle = normal sprite.
+// Moving = cycles through swimming frames, Idle = static sprite.
 // After helmet pickup: switches to helmet versions of both.
 public class Level3PlayerAppearance : MonoBehaviour
 {
-    [Header("No Helmet Sprites")]
-    public Sprite idleSprite;       // Player Sheet No Effect.png
-    public Sprite swimmingSprite;   // Player Swimming.png
-
-    [Header("Helmet Sprites")]
+    [Header("Idle Sprites (single frame)")]
+    public Sprite idleSprite;           // Player Sheet No Effect.png
     public Sprite idleHelmetSprite;     // Player Sheet No Effect Helmet.png
-    public Sprite swimmingHelmetSprite; // Player Swimming Helmet.png
+
+    [Header("Swimming Frames (slice Player Swimming.png as Multiple)")]
+    public Sprite[] swimmingFrames;         // all frames from Player Swimming.png
+    public Sprite[] swimmingHelmetFrames;   // all frames from Player Swimming Helmet.png
+
+    [Header("Animation Speed")]
+    public float frameRate = 0.1f;  // seconds per frame
 
     private SpriteRenderer sr;
     private Animator animator;
     private bool hasHelmet = false;
-    private bool wasMoving = false;
+    private bool isMoving = false;
+    private Coroutine swimCoroutine;
 
     void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
 
-        // Disable animator so it doesn't override our sprite swapping
         if (animator != null)
             animator.enabled = false;
 
-        ApplySprite(false);
+        SetIdle();
     }
 
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        bool isMoving = (moveX != 0 || moveY != 0);
+        bool moving = (moveX != 0 || moveY != 0);
 
-        if (isMoving != wasMoving)
+        if (moving != isMoving)
         {
-            wasMoving = isMoving;
-            ApplySprite(isMoving);
+            isMoving = moving;
+            if (isMoving)
+                StartSwimming();
+            else
+                SetIdle();
         }
     }
 
     public void EquipHelmet()
     {
         hasHelmet = true;
-        ApplySprite(wasMoving);
+        if (isMoving)
+            StartSwimming();
+        else
+            SetIdle();
     }
 
-    private void ApplySprite(bool isMoving)
+    private void SetIdle()
     {
-        if (sr == null) return;
+        if (swimCoroutine != null)
+        {
+            StopCoroutine(swimCoroutine);
+            swimCoroutine = null;
+        }
+        if (sr != null)
+            sr.sprite = hasHelmet ? idleHelmetSprite : idleSprite;
+    }
 
-        if (hasHelmet)
-            sr.sprite = isMoving ? swimmingHelmetSprite : idleHelmetSprite;
-        else
-            sr.sprite = isMoving ? swimmingSprite : idleSprite;
+    private void StartSwimming()
+    {
+        if (swimCoroutine != null)
+            StopCoroutine(swimCoroutine);
+
+        Sprite[] frames = hasHelmet ? swimmingHelmetFrames : swimmingFrames;
+        if (frames != null && frames.Length > 0)
+            swimCoroutine = StartCoroutine(AnimateSwimming(frames));
+    }
+
+    private IEnumerator AnimateSwimming(Sprite[] frames)
+    {
+        int index = 0;
+        while (true)
+        {
+            if (sr != null)
+                sr.sprite = frames[index];
+            index = (index + 1) % frames.Length;
+            yield return new WaitForSeconds(frameRate);
+        }
     }
 
     // Call this to restore the original appearance when leaving Level 3
     public void RestoreOriginal()
     {
+        if (swimCoroutine != null)
+            StopCoroutine(swimCoroutine);
         hasHelmet = false;
         if (animator != null)
             animator.enabled = true;
