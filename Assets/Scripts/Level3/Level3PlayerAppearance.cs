@@ -1,104 +1,70 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-// Handles player sprite swapping in Level 3.
-// Moving = cycles through swimming frames, Idle = static sprite.
-// After helmet pickup: switches to helmet versions of both.
+// Swaps the player's animations in Level 3 using AnimatorOverrideController.
+// Idle -> PlayerIdle.anim
+// Moving -> Player Swimming.anim (or Player Swimming Helmet.anim after pickup)
+// Attacking -> PlayerSlash.anim
 public class Level3PlayerAppearance : MonoBehaviour
 {
-    [Header("Idle Sprites (single frame)")]
-    public Sprite idleSprite;           // Player Sheet No Effect.png
-    public Sprite idleHelmetSprite;     // Player Sheet No Effect Helmet.png
+    [Header("Level 3 Animation Clips")]
+    public AnimationClip idleClip;          // PlayerIdle.anim
+    public AnimationClip swimmingClip;      // Player Swimming.anim
+    public AnimationClip swimmingHelmetClip;// Player Swimming Helmet.anim
+    public AnimationClip attackClip;        // PlayerSlash.anim
 
-    [Header("Swimming Frames (slice Player Swimming.png as Multiple)")]
-    public Sprite[] swimmingFrames;         // all frames from Player Swimming.png
-    public Sprite[] swimmingHelmetFrames;   // all frames from Player Swimming Helmet.png
-
-    [Header("Animation Speed")]
-    public float frameRate = 0.1f;  // seconds per frame
-
-    private SpriteRenderer sr;
     private Animator animator;
+    private AnimatorOverrideController overrideController;
+    private RuntimeAnimatorController originalController;
     private bool hasHelmet = false;
-    private bool isMoving = false;
-    private Coroutine swimCoroutine;
 
     void Start()
     {
-        sr = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
+        if (animator == null) return;
 
-        if (animator != null)
-            animator.enabled = false;
-
-        SetIdle();
-    }
-
-    void Update()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        bool moving = (moveX != 0 || moveY != 0);
-
-        if (moving != isMoving)
-        {
-            isMoving = moving;
-            if (isMoving)
-                StartSwimming();
-            else
-                SetIdle();
-        }
+        originalController = animator.runtimeAnimatorController;
+        ApplyOverrides(false);
     }
 
     public void EquipHelmet()
     {
         hasHelmet = true;
-        if (isMoving)
-            StartSwimming();
-        else
-            SetIdle();
+        ApplyOverrides(hasHelmet);
     }
 
-    private void SetIdle()
+    private void ApplyOverrides(bool helmet)
     {
-        if (swimCoroutine != null)
+        if (animator == null || originalController == null) return;
+
+        overrideController = new AnimatorOverrideController(originalController);
+
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>(overrideController.overridesCount);
+        overrideController.GetOverrides(overrides);
+
+        AnimationClip swimClip = helmet ? swimmingHelmetClip : swimmingClip;
+
+        for (int i = 0; i < overrides.Count; i++)
         {
-            StopCoroutine(swimCoroutine);
-            swimCoroutine = null;
+            string name = overrides[i].Key.name.ToLower();
+
+            if (idleClip != null && (name.Contains("idle") || name.Contains("stand")))
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, idleClip);
+            else if (swimClip != null && (name.Contains("run") || name.Contains("walk") || name.Contains("move")))
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, swimClip);
+            else if (attackClip != null && (name.Contains("attack") || name.Contains("slash") || name.Contains("hit")))
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, attackClip);
         }
-        if (sr != null)
-            sr.sprite = hasHelmet ? idleHelmetSprite : idleSprite;
+
+        overrideController.ApplyOverrides(overrides);
+        animator.runtimeAnimatorController = overrideController;
     }
 
-    private void StartSwimming()
-    {
-        if (swimCoroutine != null)
-            StopCoroutine(swimCoroutine);
-
-        Sprite[] frames = hasHelmet ? swimmingHelmetFrames : swimmingFrames;
-        if (frames != null && frames.Length > 0)
-            swimCoroutine = StartCoroutine(AnimateSwimming(frames));
-    }
-
-    private IEnumerator AnimateSwimming(Sprite[] frames)
-    {
-        int index = 0;
-        while (true)
-        {
-            if (sr != null)
-                sr.sprite = frames[index];
-            index = (index + 1) % frames.Length;
-            yield return new WaitForSeconds(frameRate);
-        }
-    }
-
-    // Call this to restore the original appearance when leaving Level 3
+    // Restore original animator when leaving Level 3
     public void RestoreOriginal()
     {
-        if (swimCoroutine != null)
-            StopCoroutine(swimCoroutine);
         hasHelmet = false;
-        if (animator != null)
-            animator.enabled = true;
+        if (animator != null && originalController != null)
+            animator.runtimeAnimatorController = originalController;
     }
 }
