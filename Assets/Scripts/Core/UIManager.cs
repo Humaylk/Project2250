@@ -60,6 +60,12 @@ public class UIManager : MonoBehaviour
             hpText.text = "HP: " + hp;
     }
 
+    public void ShowTimerDisplay(float timeRemaining)
+    {
+        if (hintText != null)
+            hintText.text = "Time: " + Mathf.CeilToInt(timeRemaining) + "s";
+    }
+
     // 🔥 UPDATED — forces bold + color using rich text
     public void QueueDialogue(string message)
     {
