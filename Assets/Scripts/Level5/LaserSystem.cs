@@ -11,11 +11,9 @@ public class LaserSystem : MonoBehaviour
     public float cannonSize = 0.4f;
 
     private List<LaserCannon> cannons = new List<LaserCannon>();
-    private bool isRunning = false;
 
     public void StartLasers()
     {
-        isRunning = true;
         SpawnCannons();
         foreach (LaserCannon c in cannons)
             c.StartFiring();
@@ -23,7 +21,6 @@ public class LaserSystem : MonoBehaviour
 
     public void StopLasers()
     {
-        isRunning = false;
         foreach (LaserCannon c in cannons)
         {
             if (c != null)
