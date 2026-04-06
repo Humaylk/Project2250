@@ -55,16 +55,25 @@ public class Level3PlayerAppearance : MonoBehaviour
         for (int i = 0; i < overrides.Count; i++)
         {
             if (overrides[i].Key == null) continue;
-            string name = overrides[i].Key.name.ToLower();
-            Debug.Log("[L3Appearance] Clip found: " + overrides[i].Key.name);
+            string name = overrides[i].Key.name;
 
-            if (idleClip != null && (name == "idle" || name.Contains("idle") || name.Contains("stand")))
+            if (name == "Idle" && idleClip != null)
+            {
                 overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, idleClip);
-            else if (swimClip != null && (name == "run" || name.Contains("run") || name.Contains("walk") || name.Contains("move")))
+                Debug.Log("[L3Appearance] Overriding Idle -> " + idleClip.name);
+            }
+            else if (name == "Run" && swimClip != null)
+            {
                 overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, swimClip);
-            else if (attackClip != null && (name == "attack" || name.Contains("attack") || name.Contains("slash")))
+                Debug.Log("[L3Appearance] Overriding Run -> " + swimClip.name);
+            }
+            else if (name == "Attack" && attackClip != null)
+            {
                 overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, attackClip);
+                Debug.Log("[L3Appearance] Overriding Attack -> " + attackClip.name);
+            }
         }
+        if (swimClip == null) Debug.LogWarning("[L3Appearance] swimClip is NULL — assign Swimming Clip in Inspector!");
 
         overrideController.ApplyOverrides(overrides);
         animator.runtimeAnimatorController = overrideController;
