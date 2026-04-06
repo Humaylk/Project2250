@@ -45,15 +45,15 @@ public class AetherNexusLevel : LevelBase
         if (boss != null)
             boss.Initialize();
 
-        uiManager?.DisplayObjective("Defeat the Elemental Boss before time runs out!");
-        uiManager?.ShowHint("Use G to attack. Press F for Fire ability. Press P for Punch ability.");
+        uiManager?.DisplayObjective("Defeat the Elemental Dragon before time runs out!");
+        uiManager?.QueueDialogue("The Dragon awakens... it will not let you leave alive.");
+        uiManager?.QueueDialogue("Use G to attack. F for Fire ability. P for Heavy Attack.");
+        uiManager?.QueueDialogue("Dodge the laser cannons in the corners!");
     }
 
     public override void UpdateLevel()
     {
-        // Update UI timer display every frame
-        if (battleTimer != null)
-            uiManager?.ShowTimerDisplay(battleTimer.timeRemaining);
+        // Timer display handled by BattleTimer directly
     }
 
     public override bool CheckWinCondition()

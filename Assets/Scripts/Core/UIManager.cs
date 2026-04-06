@@ -162,5 +162,15 @@ public class UIManager : MonoBehaviour
             dialogueText.text = "";
 
         isShowingDialogue = false;
+    } public void ShowTimerDisplay(float timeRemaining)
+    {
+        // Munadir: Display battle timer in HP text slot
+        // (reuse hpText for timer in Level 5)
+        if (hpText != null)
+        {
+            int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+            hpText.text = "TIME: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
 }

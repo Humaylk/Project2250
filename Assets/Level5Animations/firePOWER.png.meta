@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 0fa73ae6b52706c44a3e3756cfdf5300
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2177588240883794357
+    second: firePOWER_0
+  - first:
+      213: -8902180429988331325
+    second: firePOWER_1
+  - first:
+      213: -7869932793331068261
+    second: firePOWER_2
+  - first:
+      213: 462898887879483774
+    second: firePOWER_3
+  - first:
+      213: -9218970707179690001
+    second: firePOWER_4
+  - first:
+      213: -3087088736459092721
+    second: firePOWER_5
+  - first:
+      213: 2558757442392128137
+    second: firePOWER_6
+  - first:
+      213: -546084974688119837
+    second: firePOWER_7
+  - first:
+      213: 70149077242844100
+    second: firePOWER_8
+  - first:
+      213: 3460247522737414989
+    second: firePOWER_9
+  - first:
+      213: -2370709117719830263
+    second: firePOWER_10
+  - first:
+      213: 4243568527116009363
+    second: firePOWER_11
+  - first:
+      213: -6734037117618353271
+    second: firePOWER_12
+  - first:
+      213: -5569089855246925496
+    second: firePOWER_13
+  - first:
+      213: -7376439607603643277
+    second: firePOWER_14
+  - first:
+      213: 5496404472042617644
+    second: firePOWER_15
+  - first:
+      213: -2979282595212841460
+    second: firePOWER_16
+  - first:
+      213: -3718787752089233811
+    second: firePOWER_17
+  - first:
+      213: 7974825732010812601
+    second: firePOWER_18
+  - first:
+      213: 6452254592192848232
+    second: firePOWER_19
+  - first:
+      213: -3602446212425472825
+    second: firePOWER_20
+  - first:
+      213: 115779845870716460
+    second: firePOWER_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: firePOWER_12
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 0
+        width: 1888
+        height: 1190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b00148be4eb82a0800000000000000
+      internalID: -6734037117618353271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_14
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 607
+        width: 248
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37cb9a9424f91a990800000000000000
+      internalID: -7376439607603643277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_15
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 613
+        width: 320
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bf7f10fb6274c40800000000000000
+      internalID: 5496404472042617644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_16
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 612
+        width: 486
+        height: 431
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ea5dab34677a6d0800000000000000
+      internalID: -2979282595212841460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_17
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 243
+        height: 503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66d5a11e36346cc0800000000000000
+      internalID: -3718787752089233811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_18
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 0
+        width: 289
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4262630c54cae60800000000000000
+      internalID: 7974825732010812601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_19
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 0
+        width: 279
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861a908bd530b8950800000000000000
+      internalID: 6452254592192848232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firePOWER_21
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 8
+        width: 394
+        height: 503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26064908255b9100800000000000000
+      internalID: 115779845870716460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b3d9b53e11a294498acc6d60be93256
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      firePOWER_0: -2177588240883794357
+      firePOWER_1: -8902180429988331325
+      firePOWER_10: -2370709117719830263
+      firePOWER_11: 4243568527116009363
+      firePOWER_12: -6734037117618353271
+      firePOWER_13: -5569089855246925496
+      firePOWER_14: -7376439607603643277
+      firePOWER_15: 5496404472042617644
+      firePOWER_16: -2979282595212841460
+      firePOWER_17: -3718787752089233811
+      firePOWER_18: 7974825732010812601
+      firePOWER_19: 6452254592192848232
+      firePOWER_2: -7869932793331068261
+      firePOWER_20: -3602446212425472825
+      firePOWER_21: 115779845870716460
+      firePOWER_3: 462898887879483774
+      firePOWER_4: -9218970707179690001
+      firePOWER_5: -3087088736459092721
+      firePOWER_6: 2558757442392128137
+      firePOWER_7: -546084974688119837
+      firePOWER_8: 70149077242844100
+      firePOWER_9: 3460247522737414989
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

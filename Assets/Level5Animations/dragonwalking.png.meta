@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 4e2de8754fc7c0c47afc0fe970d9f2dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3741196387794502631
+    second: dragonwalking_0
+  - first:
+      213: -5932108823701129915
+    second: dragonwalking_1
+  - first:
+      213: -6091800594229013985
+    second: dragonwalking_2
+  - first:
+      213: -7967832516568575763
+    second: dragonwalking_3
+  - first:
+      213: 7439033306274105110
+    second: dragonwalking_4
+  - first:
+      213: -3880732373074795894
+    second: dragonwalking_5
+  - first:
+      213: 2332581729943368700
+    second: dragonwalking_6
+  - first:
+      213: 8806075829005067335
+    second: dragonwalking_7
+  - first:
+      213: 1178799172631142577
+    second: dragonwalking_8
+  - first:
+      213: -8964961917654612105
+    second: dragonwalking_9
+  - first:
+      213: -4503849439105038091
+    second: dragonwalking_10
+  - first:
+      213: -4664587550281278612
+    second: dragonwalking_11
+  - first:
+      213: -431942433630547712
+    second: dragonwalking_12
+  - first:
+      213: 6976398288951713977
+    second: dragonwalking_13
+  - first:
+      213: -2995417766992144814
+    second: dragonwalking_14
+  - first:
+      213: -3572493252097378365
+    second: dragonwalking_15
+  - first:
+      213: 4002947198557046640
+    second: dragonwalking_16
+  - first:
+      213: -6088061391025984698
+    second: dragonwalking_17
+  - first:
+      213: -5548274416661675236
+    second: dragonwalking_18
+  - first:
+      213: 6351960566640609411
+    second: dragonwalking_19
+  - first:
+      213: -1712001470026441739
+    second: dragonwalking_20
+  - first:
+      213: -1170052735029694003
+    second: dragonwalking_21
+  - first:
+      213: -7266917999515904001
+    second: dragonwalking_22
+  - first:
+      213: -2238110415577670385
+    second: dragonwalking_23
+  - first:
+      213: 5678041882177735518
+    second: dragonwalking_24
+  - first:
+      213: -9158284291332069115
+    second: dragonwalking_25
+  - first:
+      213: 2975093739033011874
+    second: dragonwalking_26
+  - first:
+      213: -5132276004462089937
+    second: dragonwalking_27
+  - first:
+      213: 3116185303555613417
+    second: dragonwalking_28
+  - first:
+      213: 4270309268257080797
+    second: dragonwalking_29
+  - first:
+      213: -9178547333692278077
+    second: dragonwalking_30
+  - first:
+      213: 5063572947733133735
+    second: dragonwalking_31
+  - first:
+      213: 6404648315689682764
+    second: dragonwalking_32
+  - first:
+      213: 4938346652134620597
+    second: dragonwalking_33
+  - first:
+      213: 2993622410108899494
+    second: dragonwalking_34
+  - first:
+      213: -3329787103663985159
+    second: dragonwalking_35
+  - first:
+      213: -6608496479019721461
+    second: dragonwalking_36
+  - first:
+      213: 1355009542341898811
+    second: dragonwalking_37
+  - first:
+      213: -4916440076949655984
+    second: dragonwalking_38
+  - first:
+      213: 3333340774187610188
+    second: dragonwalking_39
+  - first:
+      213: -3985747029510826585
+    second: dragonwalking_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dragonwalking_10
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 869
+        width: 514
+        height: 618
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f84d4c2ccc1f71c0800000000000000
+      internalID: -4503849439105038091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_16
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 933
+        width: 469
+        height: 441
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07743a0c4435d8730800000000000000
+      internalID: 4002947198557046640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_17
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 871
+        width: 514
+        height: 503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b2029bb6cd28ba0800000000000000
+      internalID: -6088061391025984698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_18
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 827
+        width: 548
+        height: 567
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c134e7660d19003b0800000000000000
+      internalID: -5548274416661675236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_24
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 9
+        width: 599
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b8efe12057cce40800000000000000
+      internalID: 5678041882177735518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_27
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 163
+        width: 538
+        height: 605
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29a6c87a2e76c8b0800000000000000
+      internalID: -5132276004462089937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_29
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 163
+        width: 540
+        height: 609
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd5858787af234b30800000000000000
+      internalID: 4270309268257080797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonwalking_30
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 8
+        width: 550
+        height: 658
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cab92d74df3f9080800000000000000
+      internalID: -9178547333692278077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 03e445c3c80073e428a1665259075c14
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dragonwalking_0: 3741196387794502631
+      dragonwalking_1: -5932108823701129915
+      dragonwalking_10: -4503849439105038091
+      dragonwalking_11: -4664587550281278612
+      dragonwalking_12: -431942433630547712
+      dragonwalking_13: 6976398288951713977
+      dragonwalking_14: -2995417766992144814
+      dragonwalking_15: -3572493252097378365
+      dragonwalking_16: 4002947198557046640
+      dragonwalking_17: -6088061391025984698
+      dragonwalking_18: -5548274416661675236
+      dragonwalking_19: 6351960566640609411
+      dragonwalking_2: -6091800594229013985
+      dragonwalking_20: -1712001470026441739
+      dragonwalking_21: -1170052735029694003
+      dragonwalking_22: -7266917999515904001
+      dragonwalking_23: -2238110415577670385
+      dragonwalking_24: 5678041882177735518
+      dragonwalking_25: -9158284291332069115
+      dragonwalking_26: 2975093739033011874
+      dragonwalking_27: -5132276004462089937
+      dragonwalking_28: 3116185303555613417
+      dragonwalking_29: 4270309268257080797
+      dragonwalking_3: -7967832516568575763
+      dragonwalking_30: -9178547333692278077
+      dragonwalking_31: 5063572947733133735
+      dragonwalking_32: 6404648315689682764
+      dragonwalking_33: 4938346652134620597
+      dragonwalking_34: 2993622410108899494
+      dragonwalking_35: -3329787103663985159
+      dragonwalking_36: -6608496479019721461
+      dragonwalking_37: 1355009542341898811
+      dragonwalking_38: -4916440076949655984
+      dragonwalking_39: 3333340774187610188
+      dragonwalking_4: 7439033306274105110
+      dragonwalking_40: -3985747029510826585
+      dragonwalking_5: -3880732373074795894
+      dragonwalking_6: 2332581729943368700
+      dragonwalking_7: 8806075829005067335
+      dragonwalking_8: 1178799172631142577
+      dragonwalking_9: -8964961917654612105
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

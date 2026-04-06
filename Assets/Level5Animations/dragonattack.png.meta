@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: b03a85bb65a269e4e89ea435d5c601ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2358896988774764171
+    second: dragonattack_0
+  - first:
+      213: 5687607987016328076
+    second: dragonattack_1
+  - first:
+      213: 9168235022163659568
+    second: dragonattack_2
+  - first:
+      213: -7237413998068734348
+    second: dragonattack_3
+  - first:
+      213: -2922770520229368239
+    second: dragonattack_4
+  - first:
+      213: 4214788717555021948
+    second: dragonattack_5
+  - first:
+      213: 7540416712041821389
+    second: dragonattack_6
+  - first:
+      213: 6936108836381809322
+    second: dragonattack_7
+  - first:
+      213: 2067107154857311049
+    second: dragonattack_8
+  - first:
+      213: -2833167080273355400
+    second: dragonattack_9
+  - first:
+      213: -842341240749824135
+    second: dragonattack_10
+  - first:
+      213: 9157935824052009384
+    second: dragonattack_11
+  - first:
+      213: 6711866637004570873
+    second: dragonattack_12
+  - first:
+      213: 1727410202908178599
+    second: dragonattack_13
+  - first:
+      213: 6055752103783283337
+    second: dragonattack_14
+  - first:
+      213: 3218618391955309587
+    second: dragonattack_15
+  - first:
+      213: 2158080726895526967
+    second: dragonattack_16
+  - first:
+      213: 7727772853545577521
+    second: dragonattack_17
+  - first:
+      213: 1470046763503168161
+    second: dragonattack_18
+  - first:
+      213: 4542577194856060417
+    second: dragonattack_19
+  - first:
+      213: 7202524975208032086
+    second: dragonattack_20
+  - first:
+      213: 700510269323474355
+    second: dragonattack_21
+  - first:
+      213: -1500989302106738946
+    second: dragonattack_22
+  - first:
+      213: -4346565731125204712
+    second: dragonattack_23
+  - first:
+      213: -9221641656602396361
+    second: dragonattack_24
+  - first:
+      213: 6008285967549521146
+    second: dragonattack_25
+  - first:
+      213: 3049656510480923959
+    second: dragonattack_26
+  - first:
+      213: 4723703205616999528
+    second: dragonattack_27
+  - first:
+      213: 4305647008800246226
+    second: dragonattack_28
+  - first:
+      213: -552736403035442442
+    second: dragonattack_29
+  - first:
+      213: 3517531125296167044
+    second: dragonattack_30
+  - first:
+      213: 7383504630433433405
+    second: dragonattack_31
+  - first:
+      213: 3354393212727582692
+    second: dragonattack_32
+  - first:
+      213: -2041509658944131882
+    second: dragonattack_33
+  - first:
+      213: -6170560796855652496
+    second: dragonattack_34
+  - first:
+      213: -4866395561534549786
+    second: dragonattack_35
+  - first:
+      213: 4981359764560886284
+    second: dragonattack_36
+  - first:
+      213: -3322368730718069439
+    second: dragonattack_37
+  - first:
+      213: 1788861619105047148
+    second: dragonattack_38
+  - first:
+      213: 535944468973499991
+    second: dragonattack_39
+  - first:
+      213: -18826289118062875
+    second: dragonattack_40
+  - first:
+      213: -5373563035773353887
+    second: dragonattack_41
+  - first:
+      213: -3380121378936301800
+    second: dragonattack_42
+  - first:
+      213: 7331306403441736726
+    second: dragonattack_43
+  - first:
+      213: 942560861027101056
+    second: dragonattack_44
+  - first:
+      213: 6516496556377096863
+    second: dragonattack_45
+  - first:
+      213: 5071337233036887099
+    second: dragonattack_46
+  - first:
+      213: -1542285652448602958
+    second: dragonattack_47
+  - first:
+      213: 1484463175535005227
+    second: dragonattack_48
+  - first:
+      213: 4750279037225376938
+    second: dragonattack_49
+  - first:
+      213: -4777680992220422319
+    second: dragonattack_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dragonattack_0
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 813
+        width: 575
+        height: 657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 571775acfa3834fd0800000000000000
+      internalID: -2358896988774764171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_18
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 870
+        width: 500
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aaa1d52eb7a66410800000000000000
+      internalID: 1470046763503168161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_21
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 848
+        width: 514
+        height: 528
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b5f984e066b8b900800000000000000
+      internalID: 700510269323474355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_22
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 857
+        width: 704
+        height: 597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe244cae2a6b2be0800000000000000
+      internalID: -1500989302106738946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_23
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 165
+        width: 552
+        height: 591
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81965632f75eda3c0800000000000000
+      internalID: -4346565731125204712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_27
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 91
+        width: 580
+        height: 719
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86cdc2bc907fd8140800000000000000
+      internalID: 4723703205616999528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_31
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 163
+        width: 612
+        height: 536
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37cf66875a777660800000000000000
+      internalID: 7383504630433433405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dragonattack_32
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 38
+        width: 675
+        height: 694
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efdb99cad23d8e20800000000000000
+      internalID: 3354393212727582692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0904b81c71f5221409c2b45962158ebf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dragonattack_0: -2358896988774764171
+      dragonattack_1: 5687607987016328076
+      dragonattack_10: -842341240749824135
+      dragonattack_11: 9157935824052009384
+      dragonattack_12: 6711866637004570873
+      dragonattack_13: 1727410202908178599
+      dragonattack_14: 6055752103783283337
+      dragonattack_15: 3218618391955309587
+      dragonattack_16: 2158080726895526967
+      dragonattack_17: 7727772853545577521
+      dragonattack_18: 1470046763503168161
+      dragonattack_19: 4542577194856060417
+      dragonattack_2: 9168235022163659568
+      dragonattack_20: 7202524975208032086
+      dragonattack_21: 700510269323474355
+      dragonattack_22: -1500989302106738946
+      dragonattack_23: -4346565731125204712
+      dragonattack_24: -9221641656602396361
+      dragonattack_25: 6008285967549521146
+      dragonattack_26: 3049656510480923959
+      dragonattack_27: 4723703205616999528
+      dragonattack_28: 4305647008800246226
+      dragonattack_29: -552736403035442442
+      dragonattack_3: -7237413998068734348
+      dragonattack_30: 3517531125296167044
+      dragonattack_31: 7383504630433433405
+      dragonattack_32: 3354393212727582692
+      dragonattack_33: -2041509658944131882
+      dragonattack_34: -6170560796855652496
+      dragonattack_35: -4866395561534549786
+      dragonattack_36: 4981359764560886284
+      dragonattack_37: -3322368730718069439
+      dragonattack_38: 1788861619105047148
+      dragonattack_39: 535944468973499991
+      dragonattack_4: -2922770520229368239
+      dragonattack_40: -18826289118062875
+      dragonattack_41: -5373563035773353887
+      dragonattack_42: -3380121378936301800
+      dragonattack_43: 7331306403441736726
+      dragonattack_44: 942560861027101056
+      dragonattack_45: 6516496556377096863
+      dragonattack_46: 5071337233036887099
+      dragonattack_47: -1542285652448602958
+      dragonattack_48: 1484463175535005227
+      dragonattack_49: 4750279037225376938
+      dragonattack_5: 4214788717555021948
+      dragonattack_50: -4777680992220422319
+      dragonattack_6: 7540416712041821389
+      dragonattack_7: 6936108836381809322
+      dragonattack_8: 2067107154857311049
+      dragonattack_9: -2833167080273355400
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
