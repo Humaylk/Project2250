@@ -56,7 +56,7 @@ public class Level3IntroScreen : MonoBehaviour
         if (aboutBodyText != null)
             aboutBodyText.text =
                 "You are now in the drowned vault.\n" +
-                "Eliminate the killer fishes and defuse the bombs\n" +
+                "Eliminate the killer fishes and defuse the mines\n" +
                 "within the time to escape alive.\n" +
                 "Pick up the scuba helmet to help you.";
 

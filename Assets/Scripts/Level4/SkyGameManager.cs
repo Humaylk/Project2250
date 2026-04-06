@@ -72,7 +72,7 @@ public class SkyGameManager : MonoBehaviour
 
     void FreezeEnemies()
     {
-        GolemAI_Level4[] golems = FindObjectsOfType<GolemAI_Level4>();
+        GolemAI_Level4[] golems = FindObjectsByType<GolemAI_Level4>(FindObjectsSortMode.None);
 
         foreach (var g in golems)
         {

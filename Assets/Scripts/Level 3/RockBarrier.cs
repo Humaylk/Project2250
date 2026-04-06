@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 // Represents the rocks at the ocean floor that block the exit doorway in Level 3.
 // Player must hold E for 3 seconds near a mine to defuse it.
@@ -7,6 +8,10 @@ public class RockBarrier : MonoBehaviour, IInteractable
 {
     public bool isCleared = false;
     public float interactionRange = 2f;
+
+    [Header("Explosion Effect")]
+    public GameObject explosionPrefab;
+    public float explosionDuration = 1f;
 
     private Collider2D barrierCollider;
     private SpriteRenderer spriteRenderer;
@@ -94,8 +99,20 @@ public class RockBarrier : MonoBehaviour, IInteractable
         if (barrierCollider != null) barrierCollider.enabled = false;
         if (spriteRenderer != null) spriteRenderer.enabled = false;
 
+        // Spawn explosion effect at mine position
+        if (explosionPrefab != null)
+            StartCoroutine(PlayExplosion());
+
         GameManager.Instance?.progressionSystem?.AddCollectionXP(20);
-        GameManager.Instance?.uiManager?.ShowHint("Bomb defused! Head for the exit doorway!");
+        GameManager.Instance?.uiManager?.ShowHint("Mine defused! Head for the exit doorway!");
+    }
+
+    private IEnumerator PlayExplosion()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(explosionDuration);
+        if (explosion != null)
+            Destroy(explosion);
     }
 
     // Called by InteractionSystem on single E press — hold is required, so no-op
