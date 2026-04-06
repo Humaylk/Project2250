@@ -156,7 +156,8 @@ public class WaterIslandLevel : LevelBase
 
     private void OnOxygenDepleted()
     {
-        if (!isActive || isComplete || isDrowning) return;
+        // Keep dealing damage even after mines are diffused — player must reach the exit
+        if (!isActive || isDrowning) return;
         isDrowning = true;
         StartCoroutine(DrowningDamage());
     }
@@ -212,7 +213,7 @@ public class WaterIslandLevel : LevelBase
     public override void FinishLevel()
     {
         isComplete = true;
-        RestorePlayerController();
+        // Do NOT restore player appearance here — keep helmet on until scene changes
         Debug.Log("Level 3 - Drowned Vault COMPLETE!");
 
         // Mark Water Island as restored in world state
