@@ -3,121 +3,154 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-// Displays a full-screen intro overlay at the start of Level 4.
-// Pauses the entire game (timeScale = 0) until the player dismisses it.
-// Text objects are found automatically by name — no manual wiring needed.
+// Builds and displays a full-screen intro overlay identical in layout to
+// the Level 3 intro screen. Attach this script to the Level4IntroCanvas
+// GameObject — it creates every UI element at runtime so no manual
+// Inspector wiring is needed.
 public class Level4IntroScreen : MonoBehaviour
 {
-    [Header("Panel")]
-    public GameObject overlayPanel;
+    // Colors matching Level 3 style over Level 4's deep-purple background
+    private static readonly Color PanelColor   = new Color(0.06f, 0.02f, 0.14f, 0.93f);
+    private static readonly Color HeaderColor  = new Color(1f,    0.75f, 0f,    1f);   // orange-yellow
+    private static readonly Color BodyColor    = new Color(0.4f,  0.85f, 0.9f,  1f);   // teal-cyan
+    private static readonly Color PromptColor  = new Color(1f,    1f,    1f,    1f);   // white
 
-    [Header("Text Elements (auto-found by name if left empty)")]
-    public TMP_Text aboutHeaderText;
-    public TMP_Text aboutBodyText;
-    public TMP_Text controlsHeaderText;
-    public TMP_Text controlsBodyText;
-    public TMP_Text pressAnyKeyText;
-
-    [Header("Colors")]
-    // Orange-yellow headers + cyan body to match Level 3 style,
-    // over the deep purple space background of Level 4.
-    public Color headerColor  = new Color(1f,    0.75f, 0f,   1f); // orange-yellow
-    public Color bodyColor    = new Color(0.4f,  0.85f, 0.9f, 1f); // teal-cyan
-    public Color promptColor  = new Color(1f,    1f,    1f,   1f); // white
-    // Deep purple panel background to match the Level 4 space theme
-    public Color panelColor   = new Color(0.08f, 0.03f, 0.18f, 0.92f);
+    private Canvas        canvas;
+    private GameObject    panel;
+    private TMP_Text      aboutHeaderText;
+    private TMP_Text      aboutBodyText;
+    private TMP_Text      controlsHeaderText;
+    private TMP_Text      controlsBodyText;
+    private TMP_Text      pressAnyKeyText;
 
     private bool dismissed = false;
 
     void Awake()
     {
-        // Auto-find TMP_Text children by GameObject name
-        TMP_Text[] all = GetComponentsInChildren<TMP_Text>(true);
-        foreach (TMP_Text t in all)
+        canvas = GetComponent<Canvas>();
+        if (canvas == null) canvas = gameObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 100;
+
+        if (GetComponent<CanvasScaler>() == null)
         {
-            string n = t.gameObject.name.ToLower();
-            if (aboutHeaderText    == null && n.Contains("aboutheader"))    aboutHeaderText    = t;
-            if (aboutBodyText      == null && n.Contains("aboutbody"))      aboutBodyText      = t;
-            if (controlsHeaderText == null && n.Contains("controlsheader")) controlsHeaderText = t;
-            if (controlsBodyText   == null && n.Contains("controlsbody"))   controlsBodyText   = t;
-            if (pressAnyKeyText    == null && n.Contains("pressanykey"))    pressAnyKeyText    = t;
+            CanvasScaler cs = gameObject.AddComponent<CanvasScaler>();
+            cs.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            cs.referenceResolution = new Vector2(1920, 1080);
+            cs.matchWidthOrHeight  = 0.5f;
         }
 
-        // Apply deep-purple background to the panel Image
-        if (overlayPanel != null)
-        {
-            Image img = overlayPanel.GetComponent<Image>();
-            if (img != null) img.color = panelColor;
-        }
+        if (GetComponent<GraphicRaycaster>() == null)
+            gameObject.AddComponent<GraphicRaycaster>();
+
+        BuildUI();
     }
 
     void Start()
     {
         Time.timeScale = 0f;
-
-        ApplyColors();
-        ApplyText();
-
-        if (overlayPanel != null)
-            overlayPanel.SetActive(true);
-
         StartCoroutine(BlinkPrompt());
     }
 
     void Update()
     {
-        if (dismissed) return;
-
-        if (Input.anyKeyDown)
+        if (!dismissed && Input.anyKeyDown)
             Dismiss();
     }
 
-    private void ApplyText()
+    // ---------------------------------------------------------------
+    // Build every UI element the same way Level 3's canvas is laid out
+    // ---------------------------------------------------------------
+    private void BuildUI()
     {
-        if (aboutHeaderText    != null) aboutHeaderText.text    = "OBJECTIVE";
-        if (controlsHeaderText != null) controlsHeaderText.text = "CONTROLS";
+        // --- Full-screen dark panel ---
+        panel = CreateObject("Panel", transform);
+        Image bg = panel.AddComponent<Image>();
+        bg.color = PanelColor;
+        StretchFull(panel.GetComponent<RectTransform>());
 
-        if (aboutBodyText != null)
-            aboutBodyText.text =
-                "You have entered the Sky Realm.\n" +
-                "Collect all 3 energy cores to unlock the portal.\n" +
-                "Watch out for the Golem guardians.\n" +
-                "Complete before the timer runs out!";
+        // --- OBJECTIVE header ---
+        aboutHeaderText = CreateText("AboutHeaderText", panel.transform,
+            "OBJECTIVE", HeaderColor, 72, FontStyles.Bold,
+            new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.84f));
 
-        if (controlsBodyText != null)
-            controlsBodyText.text =
-                "Press G to attack\n" +
-                "Collect glowing triangles for energy cores\n" +
-                "Press H to advance to next level";
+        // --- Objective body ---
+        aboutBodyText = CreateText("AboutBodyText", panel.transform,
+            "You have entered the Sky Realm.\n" +
+            "Collect all 3 energy cores to unlock the portal.\n" +
+            "Watch out for the Golem guardians.\n" +
+            "Complete before the timer runs out!",
+            BodyColor, 40, FontStyles.Normal,
+            new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f));
 
-        if (pressAnyKeyText != null)
-            pressAnyKeyText.text = "PRESS ANY KEY TO BEGIN";
+        // --- CONTROLS header ---
+        controlsHeaderText = CreateText("ControlsHeaderText", panel.transform,
+            "CONTROLS", HeaderColor, 72, FontStyles.Bold,
+            new Vector2(0.1f, 0.36f), new Vector2(0.9f, 0.50f));
+
+        // --- Controls body ---
+        controlsBodyText = CreateText("ControlsBodyText", panel.transform,
+            "Press G to attack\n" +
+            "Collect glowing triangles for energy cores\n" +
+            "Press H to advance to next level",
+            BodyColor, 40, FontStyles.Normal,
+            new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f));
+
+        // --- Press any key prompt ---
+        pressAnyKeyText = CreateText("PressAnyKeyText", panel.transform,
+            "PRESS ANY KEY TO BEGIN", PromptColor, 44, FontStyles.Bold,
+            new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.14f));
     }
 
-    private void ApplyColors()
+    // Creates a child GameObject
+    private static GameObject CreateObject(string name, Transform parent)
     {
-        if (aboutHeaderText    != null) aboutHeaderText.color    = headerColor;
-        if (controlsHeaderText != null) controlsHeaderText.color = headerColor;
-        if (aboutBodyText      != null) aboutBodyText.color      = bodyColor;
-        if (controlsBodyText   != null) controlsBodyText.color   = bodyColor;
-        if (pressAnyKeyText    != null) pressAnyKeyText.color    = promptColor;
+        GameObject go = new GameObject(name, typeof(RectTransform));
+        go.transform.SetParent(parent, false);
+        return go;
+    }
+
+    // Creates a TMP_Text anchored by min/max in 0-1 canvas space
+    private static TMP_Text CreateText(string name, Transform parent,
+        string content, Color color, float fontSize, FontStyles style,
+        Vector2 anchorMin, Vector2 anchorMax)
+    {
+        GameObject go = CreateObject(name, parent);
+        TMP_Text t    = go.AddComponent<TextMeshProUGUI>();
+
+        t.text      = content;
+        t.color     = color;
+        t.fontSize  = fontSize;
+        t.fontStyle = style;
+        t.alignment = TextAlignmentOptions.Center;
+        t.enableWordWrapping = true;
+
+        RectTransform rt = go.GetComponent<RectTransform>();
+        rt.anchorMin  = anchorMin;
+        rt.anchorMax  = anchorMax;
+        rt.offsetMin  = Vector2.zero;
+        rt.offsetMax  = Vector2.zero;
+
+        return t;
+    }
+
+    // Stretches a RectTransform to fill its parent
+    private static void StretchFull(RectTransform rt)
+    {
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
     }
 
     private IEnumerator BlinkPrompt()
     {
         while (!dismissed)
         {
-            if (pressAnyKeyText != null)
-            {
-                pressAnyKeyText.alpha = 1f;
-                yield return new WaitForSecondsRealtime(0.6f);
-                pressAnyKeyText.alpha = 0f;
-                yield return new WaitForSecondsRealtime(0.4f);
-            }
-            else
-            {
-                yield return null;
-            }
+            if (pressAnyKeyText != null) pressAnyKeyText.alpha = 1f;
+            yield return new WaitForSecondsRealtime(0.6f);
+            if (pressAnyKeyText != null) pressAnyKeyText.alpha = 0f;
+            yield return new WaitForSecondsRealtime(0.4f);
         }
     }
 
@@ -125,8 +158,6 @@ public class Level4IntroScreen : MonoBehaviour
     {
         dismissed = true;
         Time.timeScale = 1f;
-
-        if (overlayPanel != null)
-            overlayPanel.SetActive(false);
+        if (panel != null) panel.SetActive(false);
     }
 }
