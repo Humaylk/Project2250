@@ -18,17 +18,20 @@ public class Level4IntroScreen : MonoBehaviour
     public TMP_Text controlsBodyText;
     public TMP_Text pressAnyKeyText;
 
-    [Header("Sky Theme Colors")]
-    public Color headerColor = new Color(0.45f, 0.85f, 1f,  1f); // sky blue
-    public Color bodyColor   = new Color(0.85f, 0.95f, 1f,  1f); // cloud white-blue
-    public Color promptColor = new Color(1f,    1f,    1f,  1f);  // white
+    [Header("Colors")]
+    // Orange-yellow headers + cyan body to match Level 3 style,
+    // over the deep purple space background of Level 4.
+    public Color headerColor  = new Color(1f,    0.75f, 0f,   1f); // orange-yellow
+    public Color bodyColor    = new Color(0.4f,  0.85f, 0.9f, 1f); // teal-cyan
+    public Color promptColor  = new Color(1f,    1f,    1f,   1f); // white
+    // Deep purple panel background to match the Level 4 space theme
+    public Color panelColor   = new Color(0.08f, 0.03f, 0.18f, 0.92f);
 
     private bool dismissed = false;
 
     void Awake()
     {
-        // Auto-find any TMP_Text children by their GameObject name
-        // so the fields don't need to be manually assigned in the Inspector.
+        // Auto-find TMP_Text children by GameObject name
         TMP_Text[] all = GetComponentsInChildren<TMP_Text>(true);
         foreach (TMP_Text t in all)
         {
@@ -38,6 +41,13 @@ public class Level4IntroScreen : MonoBehaviour
             if (controlsHeaderText == null && n.Contains("controlsheader")) controlsHeaderText = t;
             if (controlsBodyText   == null && n.Contains("controlsbody"))   controlsBodyText   = t;
             if (pressAnyKeyText    == null && n.Contains("pressanykey"))    pressAnyKeyText    = t;
+        }
+
+        // Apply deep-purple background to the panel Image
+        if (overlayPanel != null)
+        {
+            Image img = overlayPanel.GetComponent<Image>();
+            if (img != null) img.color = panelColor;
         }
     }
 
@@ -64,7 +74,7 @@ public class Level4IntroScreen : MonoBehaviour
 
     private void ApplyText()
     {
-        if (aboutHeaderText    != null) aboutHeaderText.text    = "Objective";
+        if (aboutHeaderText    != null) aboutHeaderText.text    = "OBJECTIVE";
         if (controlsHeaderText != null) controlsHeaderText.text = "CONTROLS";
 
         if (aboutBodyText != null)
