@@ -1,7 +1,9 @@
 using UnityEngine;
+using System.Collections;
 
 // Munadir: Full Level 5 boss with dragon animations, 3 phases, IDamageable
 // Munadir: Uses Rigidbody2D.MovePosition in FixedUpdate for physics-safe movement
+// Munadir: Flashes white when hit for visual damage feedback
 public class ElementalBoss : MonoBehaviour, IDamageable
 {
     [Header("Boss Stats")]
@@ -22,6 +24,11 @@ public class ElementalBoss : MonoBehaviour, IDamageable
     public Color phase2Color = new Color(1f, 0.6f, 0.2f);
     public Color phase3Color = new Color(1f, 0.1f, 0.1f);
 
+    [Header("Audio")]
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+    public AudioClip phaseChangeSound;
+
     [Header("References")]
     public LaserSystem laserSystem;
     public UIManager uiManager;
@@ -34,6 +41,9 @@ public class ElementalBoss : MonoBehaviour, IDamageable
     private int currentPhase = 1;
     private Animator animator;
     private Rigidbody2D rb;
+    private AudioSource audioSource;
+    private Color currentPhaseColor;
+    private bool isFlashing = false;
 
     public void Initialize()
     {
@@ -52,12 +62,22 @@ public class ElementalBoss : MonoBehaviour, IDamageable
         bossRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        if (rb != null) 
+        // Munadir: Audio setup
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
         {
-            rb.gravityScale = 0;
-            rb.interpolation = RigidbodyInterpolation2D.Interpolate; // Munadir: Extra smoothness
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0f;
         }
 
+        if (rb != null)
+        {
+            rb.gravityScale = 0;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        }
+
+        currentPhaseColor = phase1Color;
         if (bossRenderer != null)
             bossRenderer.color = phase1Color;
 
@@ -66,21 +86,18 @@ public class ElementalBoss : MonoBehaviour, IDamageable
             animator.SetBool("isIdle", true);
             Invoke("WakeUp", 2f);
         }
-
-        UpdateBossUI();
     }
 
     void WakeUp()
     {
         if (animator != null) animator.SetBool("isIdle", false);
-        uiManager?.ShowHint("The Elemental Dragon awakens! Defeat it before time runs out!");
+        uiManager?.ShowHint("The Elemental Dragon awakens!");
     }
 
     void Update()
     {
         if (isDefeated || playerTransform == null) return;
-        
-        // Attack logic
+
         float dist = Vector2.Distance(transform.position, playerTransform.position);
         bool inRange = dist <= stopDistance;
 
@@ -92,14 +109,13 @@ public class ElementalBoss : MonoBehaviour, IDamageable
             lastAttackTime = Time.time;
         }
 
-        // Face player
+        // Munadir: Face player
         if (bossRenderer != null)
             bossRenderer.flipX = playerTransform.position.x > transform.position.x;
 
         CheckPhaseTransition();
     }
 
-    // Munadir: Rigidbody movement happens here for physics consistency
     void FixedUpdate()
     {
         if (isDefeated || playerTransform == null || rb == null) return;
@@ -123,19 +139,25 @@ public class ElementalBoss : MonoBehaviour, IDamageable
     private void EnterPhase(int phase)
     {
         currentPhase = phase;
+
+        if (phaseChangeSound != null && audioSource != null)
+            audioSource.PlayOneShot(phaseChangeSound);
+
         switch (phase)
         {
             case 2:
                 moveSpeed = 1.8f;
                 contactDamage = 25;
-                if (bossRenderer != null) bossRenderer.color = phase2Color;
+                currentPhaseColor = phase2Color;
+                if (bossRenderer != null && !isFlashing) bossRenderer.color = phase2Color;
                 laserSystem?.IncreaseIntensity();
-                uiManager?.ShowHint("The Dragon grows stronger! Watch out for more lasers!");
+                uiManager?.ShowHint("The Dragon grows stronger!");
                 break;
             case 3:
                 moveSpeed = 2.8f;
                 contactDamage = 35;
-                if (bossRenderer != null) bossRenderer.color = phase3Color;
+                currentPhaseColor = phase3Color;
+                if (bossRenderer != null && !isFlashing) bossRenderer.color = phase3Color;
                 laserSystem?.MaxIntensity();
                 uiManager?.ShowHint("FINAL PHASE - The Dragon is enraged!");
                 break;
@@ -147,13 +169,32 @@ public class ElementalBoss : MonoBehaviour, IDamageable
         if (isDefeated) return;
         currentHP -= amount;
         currentHP = Mathf.Max(currentHP, 0);
-        UpdateBossUI();
+
+        // Munadir: Visual damage flash
+        StartCoroutine(DamageFlash());
+
+        // Munadir: Sound
+        if (hitSound != null && audioSource != null)
+            audioSource.PlayOneShot(hitSound);
+
+        GameManager.Instance?.progressionSystem?.AddCombatXP(5);
+
         if (currentHP <= 0) Die();
     }
 
-    // Munadir: Helper methods for other scripts
+    // Munadir: Flash boss white briefly when taking damage
+    private IEnumerator DamageFlash()
+    {
+        if (bossRenderer == null) yield break;
+        isFlashing = true;
+        bossRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.12f);
+        bossRenderer.color = currentPhaseColor;
+        isFlashing = false;
+    }
+
     public bool IsAlive() => !isDefeated;
-    public bool IsDefeated() => isDefeated; // Munadir: Needed for AetherNexusLevel.cs
+    public bool IsDefeated() => isDefeated;
 
     public void TriggerFireAnimation()
     {
@@ -169,12 +210,15 @@ public class ElementalBoss : MonoBehaviour, IDamageable
     private void Die()
     {
         isDefeated = true;
-        gameObject.SetActive(false);
-    }
 
-    private void UpdateBossUI()
-    {
-        if (uiManager != null)
-            uiManager.ShowHint("Dragon HP: " + currentHP + "/" + maxHP + "  |  Phase " + currentPhase);
+        if (deathSound != null && audioSource != null)
+            audioSource.PlayOneShot(deathSound);
+
+        // Munadir: Disable boss visually but don't destroy (win screen needs to check IsDefeated)
+        if (bossRenderer != null) bossRenderer.enabled = false;
+        if (rb != null) rb.simulated = false;
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
     }
 }

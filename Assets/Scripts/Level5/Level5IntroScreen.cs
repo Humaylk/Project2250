@@ -3,22 +3,17 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-// Builds and displays a full-screen intro overlay for Level 5 - Aether Nexus.
-// Attach to a Level5IntroCanvas GameObject — builds every UI element at runtime.
+// Munadir: Builds and displays a full-screen intro overlay for Level 5 - Aether Nexus.
+// Munadir: Attach to a Level5IntroCanvas GameObject — builds every UI element at runtime.
 public class Level5IntroScreen : MonoBehaviour
 {
-    // Arcane / aether color theme derived from the Aether Nexus scene
-    private static readonly Color PanelColor  = new Color(0.06f, 0.01f, 0.12f, 0.93f); // deep dark purple
-    private static readonly Color HeaderColor = new Color(0.95f, 0.15f, 0.90f, 1f);    // vivid magenta-pink
-    private static readonly Color BodyColor   = new Color(0.78f, 0.55f, 1.0f,  1f);    // soft lavender
-    private static readonly Color PromptColor = new Color(1f,    1f,    1f,    1f);    // white
+    private static readonly Color PanelColor  = new Color(0.06f, 0.01f, 0.12f, 0.93f);
+    private static readonly Color HeaderColor = new Color(0.95f, 0.15f, 0.90f, 1f);
+    private static readonly Color BodyColor   = new Color(0.78f, 0.55f, 1.0f,  1f);
+    private static readonly Color PromptColor = new Color(1f,    1f,    1f,    1f);
 
     private Canvas     canvas;
     private GameObject panel;
-    private TMP_Text   aboutHeaderText;
-    private TMP_Text   aboutBodyText;
-    private TMP_Text   controlsHeaderText;
-    private TMP_Text   controlsBodyText;
     private TMP_Text   pressAnyKeyText;
 
     private bool dismissed = false;
@@ -58,44 +53,45 @@ public class Level5IntroScreen : MonoBehaviour
 
     private void BuildUI()
     {
-        // Full-screen dark panel
         panel = CreateObject("Panel", transform);
         Image bg = panel.AddComponent<Image>();
         bg.color = PanelColor;
         StretchFull(panel.GetComponent<RectTransform>());
 
-        // OBJECTIVE header
-        aboutHeaderText = CreateText("AboutHeaderText", panel.transform,
-            "OBJECTIVE", HeaderColor, 72, FontStyles.Bold,
-            new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.84f));
+        // Munadir: Level title
+        CreateText("TitleText", panel.transform,
+            "LEVEL 5 — AETHER NEXUS", HeaderColor, 80, FontStyles.Bold,
+            new Vector2(0.1f, 0.82f), new Vector2(0.9f, 0.95f));
 
-        // Objective body
-        aboutBodyText = CreateText("AboutBodyText", panel.transform,
-            "You have entered the Aether Nexus — the final island.\n" +
-            "The Elemental Dragon awaits. Defeat it before time runs out.\n" +
-            "Dodge the laser cannons in the corners.\n" +
-            "This is your last stand — free the realm!",
-            BodyColor, 40, FontStyles.Normal,
-            new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f));
+        // Munadir: Objective
+        CreateText("ObjectiveHeader", panel.transform,
+            "OBJECTIVE", HeaderColor, 56, FontStyles.Bold,
+            new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.82f));
 
-        // CONTROLS header
-        controlsHeaderText = CreateText("ControlsHeaderText", panel.transform,
-            "CONTROLS", HeaderColor, 72, FontStyles.Bold,
-            new Vector2(0.1f, 0.36f), new Vector2(0.9f, 0.50f));
+        CreateText("ObjectiveBody", panel.transform,
+            "The Elemental Dragon guards the final island.\n" +
+            "Defeat it before time runs out to restore balance.\n" +
+            "Dodge the laser cannons firing from the corners!",
+            BodyColor, 36, FontStyles.Normal,
+            new Vector2(0.1f, 0.54f), new Vector2(0.9f, 0.72f));
 
-        // Controls body
-        controlsBodyText = CreateText("ControlsBodyText", panel.transform,
-            "Press G to attack\n" +
-            "Press F to use Fire ability\n" +
-            "Press P for Heavy Attack\n" +
-            "Press H to advance to the next level",
-            BodyColor, 40, FontStyles.Normal,
-            new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f));
+        // Munadir: Controls
+        CreateText("ControlsHeader", panel.transform,
+            "CONTROLS", HeaderColor, 56, FontStyles.Bold,
+            new Vector2(0.1f, 0.44f), new Vector2(0.9f, 0.54f));
 
-        // Press any key prompt
+        CreateText("ControlsBody", panel.transform,
+            "G  —  Sword Attack  (melee combo)\n" +
+            "F  —  Fireball  (ranged, 3s cooldown)\n" +
+            "P  —  Heavy Attack  (close range, 2s cooldown)\n" +
+            "Arrow Keys / WASD  —  Move",
+            BodyColor, 36, FontStyles.Normal,
+            new Vector2(0.1f, 0.20f), new Vector2(0.9f, 0.44f));
+
+        // Munadir: Press any key prompt
         pressAnyKeyText = CreateText("PressAnyKeyText", panel.transform,
             "PRESS ANY KEY TO FACE THE DRAGON", PromptColor, 44, FontStyles.Bold,
-            new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.14f));
+            new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.16f));
     }
 
     private static GameObject CreateObject(string name, Transform parent)
