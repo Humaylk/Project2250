@@ -3,24 +3,23 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-// Builds and displays a full-screen intro overlay for Level 4 - Sky Realm.
-// Attach this script to the Level4IntroCanvas GameObject — it creates every
-// UI element at runtime so no manual Inspector wiring is needed.
-public class Level4IntroScreen : MonoBehaviour
+// Builds and displays a full-screen intro overlay for Level 1 - Cracked Forest.
+// Attach to a Level1IntroCanvas GameObject — builds every UI element at runtime.
+public class Level1IntroScreen : MonoBehaviour
 {
-    // Space / nebula color theme derived from the Sky Realm scene
-    private static readonly Color PanelColor   = new Color(0.04f, 0.01f, 0.12f, 0.93f); // deep space purple-black
-    private static readonly Color HeaderColor  = new Color(0.15f, 0.80f, 1.0f,  1f);    // electric cyan-blue
-    private static readonly Color BodyColor    = new Color(0.72f, 0.55f, 0.95f, 1f);    // soft lavender-violet
-    private static readonly Color PromptColor  = new Color(1f,    1f,    1f,    1f);    // white
+    // Forest / earth color theme derived from the Cracked Forest scene
+    private static readonly Color PanelColor  = new Color(0.04f, 0.10f, 0.03f, 0.93f); // dark forest green
+    private static readonly Color HeaderColor = new Color(0.55f, 0.90f, 0.15f, 1f);    // bright lime-green
+    private static readonly Color BodyColor   = new Color(0.85f, 0.95f, 0.65f, 1f);    // pale yellow-green
+    private static readonly Color PromptColor = new Color(1f,    1f,    1f,    1f);    // white
 
-    private Canvas        canvas;
-    private GameObject    panel;
-    private TMP_Text      aboutHeaderText;
-    private TMP_Text      aboutBodyText;
-    private TMP_Text      controlsHeaderText;
-    private TMP_Text      controlsBodyText;
-    private TMP_Text      pressAnyKeyText;
+    private Canvas     canvas;
+    private GameObject panel;
+    private TMP_Text   aboutHeaderText;
+    private TMP_Text   aboutBodyText;
+    private TMP_Text   controlsHeaderText;
+    private TMP_Text   controlsBodyText;
+    private TMP_Text   pressAnyKeyText;
 
     private bool dismissed = false;
 
@@ -28,12 +27,12 @@ public class Level4IntroScreen : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         if (canvas == null) canvas = gameObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.renderMode   = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 100;
 
         if (GetComponent<CanvasScaler>() == null)
         {
-            CanvasScaler cs = gameObject.AddComponent<CanvasScaler>();
+            CanvasScaler cs        = gameObject.AddComponent<CanvasScaler>();
             cs.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             cs.referenceResolution = new Vector2(1920, 1080);
             cs.matchWidthOrHeight  = 0.5f;
@@ -57,51 +56,47 @@ public class Level4IntroScreen : MonoBehaviour
             Dismiss();
     }
 
-    // ---------------------------------------------------------------
-    // Build every UI element the same way Level 3's canvas is laid out
-    // ---------------------------------------------------------------
     private void BuildUI()
     {
-        // --- Full-screen dark panel ---
+        // Full-screen dark panel
         panel = CreateObject("Panel", transform);
         Image bg = panel.AddComponent<Image>();
         bg.color = PanelColor;
         StretchFull(panel.GetComponent<RectTransform>());
 
-        // --- OBJECTIVE header ---
+        // OBJECTIVE header
         aboutHeaderText = CreateText("AboutHeaderText", panel.transform,
             "OBJECTIVE", HeaderColor, 72, FontStyles.Bold,
             new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.84f));
 
-        // --- Objective body ---
+        // Objective body
         aboutBodyText = CreateText("AboutBodyText", panel.transform,
-            "You have entered the Sky Realm.\n" +
-            "Collect all 3 energy cores to unlock the portal.\n" +
-            "Watch out for the Golem guardians.\n" +
-            "Complete before the timer runs out!",
+            "You have arrived at the Cracked Forest — Earth Island.\n" +
+            "Rotate the three stone pillars to align the ancient beam.\n" +
+            "Defeat the Golem guardians blocking your path.\n" +
+            "Solve the puzzle to open the gate and escape!",
             BodyColor, 40, FontStyles.Normal,
             new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f));
 
-        // --- CONTROLS header ---
+        // CONTROLS header
         controlsHeaderText = CreateText("ControlsHeaderText", panel.transform,
             "CONTROLS", HeaderColor, 72, FontStyles.Bold,
             new Vector2(0.1f, 0.36f), new Vector2(0.9f, 0.50f));
 
-        // --- Controls body ---
+        // Controls body
         controlsBodyText = CreateText("ControlsBodyText", panel.transform,
+            "Press E near a pillar to rotate it\n" +
             "Press G to attack\n" +
-            "Collect glowing triangles for energy cores\n" +
-            "Press H to advance to next level",
+            "Press H to advance to the next level",
             BodyColor, 40, FontStyles.Normal,
             new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f));
 
-        // --- Press any key prompt ---
+        // Press any key prompt
         pressAnyKeyText = CreateText("PressAnyKeyText", panel.transform,
-            "PRESS ANY KEY TO BEGIN", PromptColor, 44, FontStyles.Bold,
+            "PRESS ANY KEY TO ENTER THE FOREST", PromptColor, 44, FontStyles.Bold,
             new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.14f));
     }
 
-    // Creates a child GameObject
     private static GameObject CreateObject(string name, Transform parent)
     {
         GameObject go = new GameObject(name, typeof(RectTransform));
@@ -109,7 +104,6 @@ public class Level4IntroScreen : MonoBehaviour
         return go;
     }
 
-    // Creates a TMP_Text anchored by min/max in 0-1 canvas space
     private static TMP_Text CreateText(string name, Transform parent,
         string content, Color color, float fontSize, FontStyles style,
         Vector2 anchorMin, Vector2 anchorMax)
@@ -117,23 +111,22 @@ public class Level4IntroScreen : MonoBehaviour
         GameObject go = CreateObject(name, parent);
         TMP_Text t    = go.AddComponent<TextMeshProUGUI>();
 
-        t.text      = content;
-        t.color     = color;
-        t.fontSize  = fontSize;
-        t.fontStyle = style;
-        t.alignment = TextAlignmentOptions.Center;
+        t.text               = content;
+        t.color              = color;
+        t.fontSize           = fontSize;
+        t.fontStyle          = style;
+        t.alignment          = TextAlignmentOptions.Center;
         t.enableWordWrapping = true;
 
         RectTransform rt = go.GetComponent<RectTransform>();
-        rt.anchorMin  = anchorMin;
-        rt.anchorMax  = anchorMax;
-        rt.offsetMin  = Vector2.zero;
-        rt.offsetMax  = Vector2.zero;
+        rt.anchorMin = anchorMin;
+        rt.anchorMax = anchorMax;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
 
         return t;
     }
 
-    // Stretches a RectTransform to fill its parent
     private static void StretchFull(RectTransform rt)
     {
         rt.anchorMin = Vector2.zero;
