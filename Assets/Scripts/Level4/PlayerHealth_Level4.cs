@@ -7,6 +7,7 @@ public class PlayerHealth_Level4 : MonoBehaviour
     private int currentHealth;
 
     public TextMeshProUGUI healthText;
+    public DeathScreen deathScreen;
 
     void Start()
     {
@@ -19,11 +20,16 @@ public class PlayerHealth_Level4 : MonoBehaviour
         currentHealth -= damage;
         UpdateUI();
 
+        DamageFlashCanvas.Instance?.Flash();
+
         if (currentHealth <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(
-                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-            );
+            if (deathScreen != null)
+                deathScreen.Show();
+            else
+                UnityEngine.SceneManagement.SceneManager.LoadScene(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+                );
         }
     }
 
