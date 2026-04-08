@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class CrackedForestLevel : LevelBase
 {
-    [Header("Level 1 Specific References")]
-    public RotatingPillar[] pillars = new RotatingPillar[3];
+    [Header("Level 1 References")]
+    public SummoningPuzzle summoningPuzzle;
     public EnemyHealth[] golems;
-    public BeamPuzzle puzzle;
     public Gate gate;
     public UIManager uiManager;
 
@@ -14,39 +13,32 @@ public class CrackedForestLevel : LevelBase
 
     void Awake()
     {
-        player = FindFirstObjectByType<PlayerController>();
+        player       = FindFirstObjectByType<PlayerController>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
     }
 
     public override void InitializeLevel()
     {
-        isActive = true;
+        isActive   = true;
         isComplete = false;
         Debug.Log("=== Cracked Forest - Level 1 Initialized ===");
 
-        if (player != null)
-            player.transform.position = new Vector3(-6f, 0f, 0f);
-
-        puzzle?.ResetPuzzle();
         gate?.ResetGate();
         SpawnEnemies();
 
-        uiManager?.DisplayObjective("Rotate the three stone pillars to align them!");
-        uiManager?.ShowHint("Press E near a pillar to rotate it. Watch out for Golems!");
     }
 
     public override void UpdateLevel()
     {
-        if (puzzle != null && puzzle.IsSolved() && gate != null && !gate.isOpen)
+        if (summoningPuzzle != null && summoningPuzzle.IsSolved && gate != null && !gate.isOpen)
         {
             gate.OpenGate();
-            uiManager?.UpdateObjective("Puzzle solved! Head to the gate!");
         }
     }
 
     public override bool CheckWinCondition()
     {
-        return puzzle != null && puzzle.IsSolved() && gate != null && gate.isOpen;
+        return summoningPuzzle != null && summoningPuzzle.IsSolved && gate != null && gate.isOpen;
     }
 
     public override bool CheckLoseCondition()
@@ -60,20 +52,15 @@ public class CrackedForestLevel : LevelBase
         isComplete = true;
         Debug.Log("Level 1 - Cracked Forest COMPLETE!");
         GameManager.Instance?.progressionSystem?.AddPuzzleXP(30);
-    
-        // Munadir: Show level complete message to player
-        uiManager?.DisplayObjective("LEVEL COMPLETE! Earth island restored!");
-        uiManager?.ShowHint("You obtained the Metal Sword! Press H at the gate to advance.");
+
     }
 
     public void SpawnEnemies()
     {
         if (golems == null) return;
         foreach (EnemyHealth g in golems)
-        {
             if (g != null)
                 g.gameObject.SetActive(true);
-        }
     }
 
     public void ResetLevel() => InitializeLevel();

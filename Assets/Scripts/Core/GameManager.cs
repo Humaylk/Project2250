@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     {
         if (currentLevel != null)
             currentLevel.InitializeLevel();
-        uiManager?.DisplayObjective("Find your way through the corrupted island.");
         Debug.Log("Level " + currentLevelIndex + " loaded.");
     }
 
@@ -76,8 +75,6 @@ public class GameManager : MonoBehaviour
     public void ResetOnDeath()
     {
         Debug.Log("Player died - resetting level.");
-        if (player != null)
-            player.transform.position = Vector3.zero;
 
         PlayerHealth ph = player?.GetComponent<PlayerHealth>();
         if (ph != null) ph.health = 100;

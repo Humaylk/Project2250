@@ -1,8 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 100;
+    public int health    = 100;
+    public int maxHealth = 100;
+
+    [Header("Health Bar UI")]
+    public Image    healthBarFill;
+    public TMP_Text healthText;
 
     // Subscribe to respond to player death (used by death screen)
     public static event System.Action OnDeath;
@@ -14,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead   = false;
         animator = GetComponentInChildren<Animator>();
+        UpdateHealthBar();
         GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
     }
 
@@ -24,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         health  = Mathf.Max(0, health);
 
+        UpdateHealthBar();
         GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
         DamageFlashCanvas.Instance?.Flash();
 
@@ -53,5 +62,13 @@ public class PlayerHealth : MonoBehaviour
         if (pa != null) pa.enabled = false;
 
         OnDeath?.Invoke();
+    }
+
+    void UpdateHealthBar()
+    {
+        if (healthBarFill != null)
+            healthBarFill.fillAmount = (float)health / maxHealth;
+        if (healthText != null)
+            healthText.text = health + "/" + maxHealth;
     }
 }

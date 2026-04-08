@@ -12,6 +12,16 @@ public class DeathScreen : MonoBehaviour
         if (deathPanel != null) deathPanel.SetActive(false);
     }
 
+    void OnEnable()
+    {
+        PlayerHealth.OnDeath += Show;
+    }
+
+    void OnDisable()
+    {
+        PlayerHealth.OnDeath -= Show;
+    }
+
     public void Show()
     {
         if (deathPanel != null) deathPanel.SetActive(true);
