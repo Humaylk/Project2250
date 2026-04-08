@@ -6,6 +6,7 @@ using System.Collections;
 // Munadir: Post-victory handler for Level 5
 // Munadir: After boss dies, shows hint to go to gate
 // Munadir: When player presses H at gate, Star Wars style credits scroll plays
+// Munadir: Uses ThaleahFat font to match other levels
 public class Level5WinScreen : MonoBehaviour
 {
     private static readonly Color PanelColor  = new Color(0.0f, 0.0f, 0.02f, 0.95f);
@@ -20,11 +21,20 @@ public class Level5WinScreen : MonoBehaviour
 
     public static Level5WinScreen Instance { get; private set; }
 
-    // Munadir: Load TMP font — required when creating TMP text at runtime
+    // Munadir: Font loader — tries ThaleahFat first (matches other levels)
     private static TMP_FontAsset _cachedFont;
     private static TMP_FontAsset GetFont()
     {
-        if (_cachedFont == null) _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont != null) return _cachedFont;
+        foreach (var txt in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+        {
+            if (txt.font != null && txt.font.name.Contains("Thaleah"))
+            {
+                _cachedFont = txt.font;
+                return _cachedFont;
+            }
+        }
+        _cachedFont = TMP_Settings.defaultFontAsset;
         if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
         return _cachedFont;
     }
@@ -51,13 +61,11 @@ public class Level5WinScreen : MonoBehaviour
     }
 
     // Munadir: Called by AetherNexusLevel when boss is defeated
-    // Munadir: Shows hint to walk to gate - doesn't freeze the game yet
     public void ShowWinScreen()
     {
         if (isShowing) return;
         isShowing = true;
 
-        // Munadir: Show gate hint via UIManager
         GameManager.Instance?.uiManager?.DisplayObjective("VICTORY! Walk to the gate and press H!");
         GameManager.Instance?.uiManager?.ShowHint("The Dragon is defeated! Head to the gate on the right!");
     }
@@ -120,44 +128,49 @@ public class Level5WinScreen : MonoBehaviour
         // Munadir: Mask so text clips at screen edges
         panel.AddComponent<RectMask2D>();
 
-        // Munadir: Scrolling lore text
+        // Munadir: Scrolling lore text — POST-VICTORY lore (what happens after the boss is defeated)
         GameObject textGO = new GameObject("ScrollText", typeof(RectTransform));
         textGO.transform.SetParent(panel.transform, false);
         scrollText = textGO.AddComponent<TextMeshProUGUI>();
         scrollText.font = GetFont();
         scrollText.text =
             "<size=72><color=#FFD700>ELEMENTAL DOMINION</color></size>\n\n\n" +
-            "<size=44><color=#C8A0FF>CHAPTER V — THE AETHER NEXUS</color></size>\n\n\n" +
+            "<size=44><color=#C8A0FF>THE AFTERMATH</color></size>\n\n\n" +
             "<size=34>" +
-            "Long ago, the five islands of Quaziadore\n" +
-            "existed in perfect harmony, each guarded\n" +
-            "by an elemental force of nature.\n\n" +
-            "But when the Elemental Dragon awakened\n" +
-            "from its ancient slumber, corruption\n" +
-            "spread across every island — twisting\n" +
-            "creatures and shattering the balance.\n\n" +
-            "A lone warrior named Alex set forth\n" +
-            "on a journey across the five islands,\n" +
-            "facing golems in the Cracked Forest,\n" +
-            "wolves in the Shadow Swamp,\n" +
-            "assassins in the Drowned Vault,\n" +
-            "and sky beasts above the clouds.\n\n" +
-            "With each island restored, Alex grew\n" +
-            "stronger — earning new weapons, armor,\n" +
-            "and the elemental abilities needed\n" +
-            "to face the Dragon itself.\n\n" +
-            "In the Aether Nexus, the final battle\n" +
-            "raged beneath swirling purple skies.\n" +
-            "Laser cannons fired. The Dragon roared.\n" +
-            "But Alex stood firm.\n\n" +
-            "With sword, fire, and heavy strikes,\n" +
-            "the Elemental Dragon was defeated.\n" +
-            "Balance was restored to Quaziadore.\n\n" +
-            "The Elemental Armor, forged from the\n" +
-            "Dragon's own power, now protects\n" +
-            "the islands forevermore.\n\n\n" +
+            "With the Elemental Dragon defeated,\n" +
+            "its corrupted energy dissipated\n" +
+            "into the swirling skies above.\n\n" +
+            "The Aether Nexus, once pulsing\n" +
+            "with dark power, grew silent.\n" +
+            "The ground stopped trembling.\n" +
+            "The laser cannons powered down.\n\n" +
+            "One by one, the five islands\n" +
+            "began to heal.\n\n" +
+            "The Cracked Forest's trees\n" +
+            "bloomed once more.\n" +
+            "The Shadow Swamp's waters cleared.\n" +
+            "The Drowned Vault rose\n" +
+            "from the depths.\n" +
+            "The Sky Kingdom's storms calmed.\n\n" +
+            "Alex stood at the edge of the Nexus,\n" +
+            "watching as light returned\n" +
+            "to Quaziadore.\n\n" +
+            "The Elemental Armor, forged from\n" +
+            "the Dragon's own essence,\n" +
+            "would protect these lands\n" +
+            "for generations to come.\n\n" +
+            "The warriors who once fought alone\n" +
+            "now stood together — guardians\n" +
+            "of a world reborn.\n\n" +
+            "Balance was restored.\n" +
+            "Not through destruction,\n" +
+            "but through courage, unity,\n" +
+            "and the will to never surrender.\n\n" +
+            "The five islands of Quaziadore\n" +
+            "would know peace...\n" +
+            "forevermore.\n\n\n" +
             "</size>" +
-            "<size=44><color=#FFD700>PEACE HAS RETURNED</color></size>\n\n\n\n" +
+            "<size=44><color=#FFD700>PEACE HAS BEEN RESTORED</color></size>\n\n\n\n" +
             "<size=30>" +
             "Developed by:\n\n" +
             "Munadir\n" +

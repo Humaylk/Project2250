@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 // Munadir: Level 5 — Aether Nexus boss level extending LevelBase
 // Munadir: Owns the boss, laser system, timer, and ability manager
-// Munadir: Win = boss defeated. Lose = timer runs out OR player dies.
+// Munadir: Auto-wires Neelash's HealthBar and OxygenText for consistent visuals
 // Munadir: After boss dies, opens gate and H key triggers Star Wars credits
 public class AetherNexusLevel : LevelBase
 {
@@ -25,14 +26,6 @@ public class AetherNexusLevel : LevelBase
     private bool creditsTriggered = false;
     private Gate exitGate;
 
-    private static TMP_FontAsset _cachedFont;
-    private static TMP_FontAsset GetFont()
-    {
-        if (_cachedFont == null) _cachedFont = TMP_Settings.defaultFontAsset;
-        if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
-        return _cachedFont;
-    }
-
     void Awake()
     {
         player = FindFirstObjectByType<PlayerController>();
@@ -51,8 +44,14 @@ public class AetherNexusLevel : LevelBase
         if (player != null)
             player.transform.position = new Vector3(-5f, 0f, 0f);
 
-        // Munadir: Create timer display at top-right of screen
-        CreateTimerUI();
+        // Munadir: Auto-wire Neelash's HealthBar to PlayerHealth
+        WireHealthBar();
+
+        // Munadir: Use existing OxygenText for timer display (same style as other levels)
+        WireTimerToOxygenText();
+
+        // Munadir: Hide old UIManager HPText since we use the visual HealthBar now
+        HideOldHPText();
 
         if (battleTimer != null)
             battleTimer.StartTimer(battleDuration);
@@ -63,7 +62,7 @@ public class AetherNexusLevel : LevelBase
         if (boss != null)
             boss.Initialize();
 
-        // Munadir: Delay objective text so it overrides GameManager's default message
+        // Munadir: Clear default objective text — intro screen already shows objective/controls
         StartCoroutine(SetObjectiveDelayed());
     }
 
@@ -72,6 +71,66 @@ public class AetherNexusLevel : LevelBase
         yield return new WaitForSeconds(0.5f);
         // Munadir: Clear the default white objective text — intro screen already shows objective/controls
         uiManager?.DisplayObjective("");
+    }
+
+    // Munadir: Find Neelash's HealthBar in Canvas and wire it to PlayerHealth
+    private void WireHealthBar()
+    {
+        if (playerHealth == null) return;
+
+        // Munadir: Find the HealthBar's Fill image and HP Text
+        GameObject healthBar = GameObject.Find("HealthBar");
+        if (healthBar != null)
+        {
+            // Munadir: Find Fill image for the bar
+            Transform fillTransform = healthBar.transform.Find("Fill");
+            if (fillTransform != null)
+            {
+                Image fillImage = fillTransform.GetComponent<Image>();
+                if (fillImage != null)
+                    playerHealth.healthBarFill = fillImage;
+            }
+
+            // Munadir: Find HP Text for the numbers
+            Transform hpTextTransform = healthBar.transform.Find("HP Text");
+            if (hpTextTransform != null)
+            {
+                TMP_Text hpText = hpTextTransform.GetComponent<TMP_Text>();
+                if (hpText != null)
+                    playerHealth.healthText = hpText;
+            }
+
+            Debug.Log("HealthBar wired to PlayerHealth successfully.");
+        }
+    }
+
+    // Munadir: Use the existing OxygenText for the battle timer (same font/style as other levels)
+    private void WireTimerToOxygenText()
+    {
+        GameObject oxygenGO = GameObject.Find("OxygenText");
+        if (oxygenGO != null)
+        {
+            timerText = oxygenGO.GetComponent<TMP_Text>();
+            if (timerText != null)
+            {
+                timerText.text = "TIME: 03:00";
+                timerText.gameObject.SetActive(true);
+                Debug.Log("Timer wired to OxygenText.");
+            }
+        }
+        else
+        {
+            // Munadir: Fallback — create timer UI if OxygenText not found
+            CreateTimerUI();
+        }
+    }
+
+    // Munadir: Hide the old red "HP:150" text from UIManager
+    private void HideOldHPText()
+    {
+        GameObject oldHP = GameObject.Find("HPText");
+        if (oldHP != null)
+            oldHP.SetActive(false);
     }
 
     // Munadir: Override Update to keep gate detection running after boss defeat
@@ -96,7 +155,6 @@ public class AetherNexusLevel : LevelBase
                 {
                     exitGate.OpenGate();
                     // Munadir: Disable Gate script so it doesn't call AdvanceLevel on H key
-                    // Munadir: We handle H key ourselves to trigger credits instead
                     exitGate.enabled = false;
                 }
             }
@@ -113,7 +171,6 @@ public class AetherNexusLevel : LevelBase
                 }
                 else
                 {
-                    // Munadir: No gate in scene — H key works from anywhere
                     canTrigger = true;
                 }
 
@@ -135,7 +192,6 @@ public class AetherNexusLevel : LevelBase
         {
             timerText.text = "TIME: " + battleTimer.GetFormattedTime();
 
-            // Munadir: Flash red when under 30 seconds
             if (battleTimer.timeRemaining <= 30f)
                 timerText.color = new Color(1f, 0.2f, 0.2f, 1f);
             else
@@ -166,7 +222,6 @@ public class AetherNexusLevel : LevelBase
             GameManager.Instance?.progressionSystem?.AddCombatXP(100);
             GameManager.Instance?.progressionSystem?.GrantReward("Elemental Armor");
 
-            // Munadir: Show win screen hint (walk to gate and press H)
             Level5WinScreen winScreen = FindFirstObjectByType<Level5WinScreen>();
             if (winScreen != null)
                 winScreen.ShowWinScreen();
@@ -187,12 +242,11 @@ public class AetherNexusLevel : LevelBase
         }
     }
 
+    // Munadir: Fallback timer UI if OxygenText not in scene
     private void CreateTimerUI()
     {
-        // Munadir: Check if timer UI already exists
         if (timerText != null) return;
 
-        // Munadir: Find existing canvas or create one
         Canvas existingCanvas = FindFirstObjectByType<Canvas>();
         Transform canvasParent = existingCanvas != null ? existingCanvas.transform : null;
 
@@ -221,5 +275,22 @@ public class AetherNexusLevel : LevelBase
         rt.anchorMax = new Vector2(0.98f, 0.97f);
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
+    }
+
+    // Munadir: Font loader — tries ThaleahFat first, falls back to default
+    private static TMP_FontAsset _cachedFont;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_cachedFont != null) return _cachedFont;
+        foreach (var txt in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+        {
+            if (txt.font != null && txt.font.name.Contains("Thaleah"))
+            {
+                _cachedFont = txt.font;
+                return _cachedFont;
+            }
+        }
+        _cachedFont = TMP_Settings.defaultFontAsset;
+        return _cachedFont;
     }
 }

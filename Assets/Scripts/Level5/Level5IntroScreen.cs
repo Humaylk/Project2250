@@ -4,7 +4,7 @@ using TMPro;
 using System.Collections;
 
 // Munadir: Builds and displays a full-screen intro overlay for Level 5 - Aether Nexus.
-// Munadir: Attach to a Level5IntroCanvas GameObject — builds every UI element at runtime.
+// Munadir: Uses ThaleahFat font to match other levels
 public class Level5IntroScreen : MonoBehaviour
 {
     private static readonly Color PanelColor  = new Color(0.06f, 0.01f, 0.12f, 0.93f);
@@ -17,10 +17,20 @@ public class Level5IntroScreen : MonoBehaviour
     private TMP_Text   pressAnyKeyText;
     private bool dismissed = false;
 
+    // Munadir: Font loader — tries ThaleahFat first (matches other levels)
     private static TMP_FontAsset _cachedFont;
     private static TMP_FontAsset GetFont()
     {
-        if (_cachedFont == null) _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont != null) return _cachedFont;
+        foreach (var txt in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+        {
+            if (txt.font != null && txt.font.name.Contains("Thaleah"))
+            {
+                _cachedFont = txt.font;
+                return _cachedFont;
+            }
+        }
+        _cachedFont = TMP_Settings.defaultFontAsset;
         if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
         return _cachedFont;
     }
@@ -65,12 +75,10 @@ public class Level5IntroScreen : MonoBehaviour
         bg.color = PanelColor;
         StretchFull(panel.GetComponent<RectTransform>());
 
-        // Munadir: Level title
         CreateText("TitleText", panel.transform,
             "LEVEL 5 — AETHER NEXUS", HeaderColor, 80, FontStyles.Bold,
             new Vector2(0.1f, 0.82f), new Vector2(0.9f, 0.95f));
 
-        // Munadir: Objective
         CreateText("ObjectiveHeader", panel.transform,
             "OBJECTIVE", HeaderColor, 56, FontStyles.Bold,
             new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.82f));
@@ -82,7 +90,6 @@ public class Level5IntroScreen : MonoBehaviour
             BodyColor, 36, FontStyles.Normal,
             new Vector2(0.1f, 0.54f), new Vector2(0.9f, 0.72f));
 
-        // Munadir: Controls
         CreateText("ControlsHeader", panel.transform,
             "CONTROLS", HeaderColor, 56, FontStyles.Bold,
             new Vector2(0.1f, 0.44f), new Vector2(0.9f, 0.54f));
@@ -95,7 +102,6 @@ public class Level5IntroScreen : MonoBehaviour
             BodyColor, 36, FontStyles.Normal,
             new Vector2(0.1f, 0.20f), new Vector2(0.9f, 0.44f));
 
-        // Munadir: Press any key prompt
         pressAnyKeyText = CreateText("PressAnyKeyText", panel.transform,
             "PRESS ANY KEY TO FACE THE DRAGON", PromptColor, 44, FontStyles.Bold,
             new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.16f));
