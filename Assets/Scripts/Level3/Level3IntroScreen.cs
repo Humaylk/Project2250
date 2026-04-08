@@ -18,6 +18,20 @@ public class Level3IntroScreen : MonoBehaviour
     public TMP_Text controlsBodyText;
     public TMP_Text pressAnyKeyText;
 
+    [Header("Text Content")]
+    [TextArea(3,6)] public string aboutBodyContent =
+        "You are now in the drowned vault.\n" +
+        "Eliminate the killer fishes and defuse the mines\n" +
+        "within the time to escape alive.\n" +
+        "Pick up the scuba helmet to help you.";
+    [TextArea(3,6)] public string controlsBodyContent =
+        "Press G to attack\n" +
+        "Press E to open chest or pickup items\n" +
+        "Hold E to defuse a mine\n" +
+        "Press H to advance to next level";
+    [TextArea(1,2)] public string pressAnyKeyContent = "PRESS ANY KEY TO DIVE IN";
+    [TextArea(1,2)] public string aboutHeaderContent = "Objective";
+
     [Header("Colors")]
     public Color headerColor  = new Color(1f, 0.75f, 0f, 1f);    // orange-yellow
     public Color bodyColor    = new Color(0.4f, 0.85f, 0.9f, 1f); // teal-cyan
@@ -50,25 +64,11 @@ public class Level3IntroScreen : MonoBehaviour
 
     private void ApplyText()
     {
-        if (aboutHeaderText  != null) aboutHeaderText.text  = "Objective";
+        if (aboutHeaderText    != null) aboutHeaderText.text    = aboutHeaderContent;
         if (controlsHeaderText != null) controlsHeaderText.text = "CONTROLS";
-
-        if (aboutBodyText != null)
-            aboutBodyText.text =
-                "You are now in the drowned vault.\n" +
-                "Eliminate the killer fishes and defuse the mines\n" +
-                "within the time to escape alive.\n" +
-                "Pick up the scuba helmet to help you.";
-
-        if (controlsBodyText != null)
-            controlsBodyText.text =
-                "Press G to attack\n" +
-                "Press E to open chest or pickup items\n" +
-                "Hold E to defuse a mine\n" +
-                "Press H to advance to next level";
-
-        if (pressAnyKeyText != null)
-            pressAnyKeyText.text = "PRESS ANY KEY TO DIVE IN";
+        if (aboutBodyText      != null) aboutBodyText.text      = aboutBodyContent;
+        if (controlsBodyText   != null) controlsBodyText.text   = controlsBodyContent;
+        if (pressAnyKeyText    != null) pressAnyKeyText.text    = pressAnyKeyContent;
     }
 
     private void ApplyColors()

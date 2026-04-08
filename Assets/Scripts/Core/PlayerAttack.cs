@@ -62,7 +62,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void DealDamage()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
+        Vector2 center = (Vector2)transform.position + new Vector2(0f, 0.5f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(center, attackRange);
         foreach (Collider2D hit in hits)
         {
             if (!hit.CompareTag("Enemy")) continue;
@@ -79,6 +80,6 @@ public class PlayerAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0f, 0.5f, 0f), attackRange);
     }
 }

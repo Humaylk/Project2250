@@ -8,13 +8,27 @@ public class CrackedForestLevel : LevelBase
     public Gate gate;
     public UIManager uiManager;
 
+    [Header("Audio")]
+    public AudioClip backgroundMusic;
+
     private PlayerController player;
     private PlayerHealth playerHealth;
+    private AudioSource _bgSource;
 
     void Awake()
     {
         player       = FindFirstObjectByType<PlayerController>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+
+        if (backgroundMusic != null)
+        {
+            _bgSource = gameObject.AddComponent<AudioSource>();
+            _bgSource.clip        = backgroundMusic;
+            _bgSource.loop        = true;
+            _bgSource.playOnAwake = false;
+            _bgSource.spatialBlend = 0f;
+            _bgSource.volume      = 0.5f;
+        }
     }
 
     void Start()
@@ -26,6 +40,8 @@ public class CrackedForestLevel : LevelBase
 
         gate?.HideGate();    // invisible at level start
         isActive = true;
+
+        if (_bgSource != null) _bgSource.Play();
     }
 
     private void OnAllStatuesSummoned()

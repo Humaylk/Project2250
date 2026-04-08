@@ -4,8 +4,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health    = 105;
-    public int maxHealth = 105;
+    public int health    = 100;
+    public int maxHealth = 100;
 
     [Header("Health Bar UI")]
     public Image    healthBarFill;
@@ -19,9 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
-        // Force 105/105 regardless of serialized scene values
-        health    = 105;
-        maxHealth = 105;
+        // Use serialized values so each level can set its own max health
+        health = maxHealth;
     }
 
     void Start()

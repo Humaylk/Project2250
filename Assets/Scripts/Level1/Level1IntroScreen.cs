@@ -71,10 +71,9 @@ public class Level1IntroScreen : MonoBehaviour
 
         // Objective body
         aboutBodyText = CreateText("AboutBodyText", panel.transform,
-            "You have arrived at the Cracked Forest — Earth Island.\n" +
-            "Rotate the three stone pillars to align the ancient beam.\n" +
-            "Defeat the Golem guardians blocking your path.\n" +
-            "Solve the puzzle to open the gate and escape!",
+            "Defeat the Gollum's and summon all 3 elemental Gods to restore balance to the Cracked Forest realm. " +
+            "Elemental Gods are ancient and may only appear from Stone! " +
+            "Click on Cosmos if you wish for a hint!",
             BodyColor, 40, FontStyles.Normal,
             new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f));
 
@@ -85,9 +84,10 @@ public class Level1IntroScreen : MonoBehaviour
 
         // Controls body
         controlsBodyText = CreateText("ControlsBodyText", panel.transform,
-            "Press E near a pillar to rotate it\n" +
+            "Press W, A, S, D to move\n" +
             "Press G to attack\n" +
-            "Press H to advance to the next level",
+            "Press or hold E to interact\n" +
+            "Press H at the gate to go to next level.",
             BodyColor, 40, FontStyles.Normal,
             new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f));
 
