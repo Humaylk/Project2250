@@ -17,6 +17,14 @@ public class Level5DeathScreen : MonoBehaviour
     private TMP_Text   retryText;
     private bool       isShowing = false;
 
+    private static TMP_FontAsset _cachedFont;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_cachedFont == null) _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
+        return _cachedFont;
+    }
+
     void OnEnable()
     {
         PlayerHealth.OnDeath += ShowDeathScreen;
@@ -72,6 +80,8 @@ public class Level5DeathScreen : MonoBehaviour
 
     private void BuildUI()
     {
+        TMP_FontAsset font = GetFont();
+
         panel = new GameObject("DeathPanel", typeof(RectTransform));
         panel.transform.SetParent(transform, false);
         Image bg = panel.AddComponent<Image>();
@@ -86,6 +96,7 @@ public class Level5DeathScreen : MonoBehaviour
         GameObject header = new GameObject("DeathHeader", typeof(RectTransform));
         header.transform.SetParent(panel.transform, false);
         TMP_Text headerText = header.AddComponent<TextMeshProUGUI>();
+        headerText.font      = font;
         headerText.text      = "YOU DIED";
         headerText.color     = HeaderColor;
         headerText.fontSize  = 120;
@@ -101,6 +112,7 @@ public class Level5DeathScreen : MonoBehaviour
         GameObject sub = new GameObject("DeathSub", typeof(RectTransform));
         sub.transform.SetParent(panel.transform, false);
         TMP_Text subText = sub.AddComponent<TextMeshProUGUI>();
+        subText.font      = font;
         subText.text      = "The Elemental Dragon has defeated you...";
         subText.color     = BodyColor;
         subText.fontSize  = 40;
@@ -116,6 +128,7 @@ public class Level5DeathScreen : MonoBehaviour
         GameObject retry = new GameObject("RetryPrompt", typeof(RectTransform));
         retry.transform.SetParent(panel.transform, false);
         retryText = retry.AddComponent<TextMeshProUGUI>();
+        retryText.font      = font;
         retryText.text      = "PRESS R TO RETRY";
         retryText.color     = Color.white;
         retryText.fontSize  = 48;

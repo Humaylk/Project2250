@@ -12,8 +12,9 @@ public class LaserCannon : MonoBehaviour
     public float bulletSpeed = 4f;
     public int damage = 5;
 
-    [Header("Bullet Visual")]
+    [Header("Visuals — drag sprites here from Project window")]
     public Sprite bulletSprite;
+    public Sprite cannonSprite;
 
     private float startAngle;
     private bool isRunning = false;
@@ -22,8 +23,13 @@ public class LaserCannon : MonoBehaviour
     {
         startAngle = transform.eulerAngles.z;
 
+        // Munadir: Use assigned cannon sprite, or fallback to purple tint
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.color = new Color(0.8f, 0f, 0.8f, 1f);
+        if (sr != null)
+        {
+            if (cannonSprite != null) sr.sprite = cannonSprite;
+            else sr.color = new Color(0.8f, 0f, 0.8f, 1f);
+        }
     }
 
     public void StartFiring()

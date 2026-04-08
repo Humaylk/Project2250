@@ -15,8 +15,15 @@ public class Level5IntroScreen : MonoBehaviour
     private Canvas     canvas;
     private GameObject panel;
     private TMP_Text   pressAnyKeyText;
-
     private bool dismissed = false;
+
+    private static TMP_FontAsset _cachedFont;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_cachedFont == null) _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
+        return _cachedFont;
+    }
 
     void Awake()
     {
@@ -107,7 +114,7 @@ public class Level5IntroScreen : MonoBehaviour
     {
         GameObject go = CreateObject(name, parent);
         TMP_Text t    = go.AddComponent<TextMeshProUGUI>();
-
+        t.font               = GetFont();
         t.text               = content;
         t.color              = color;
         t.fontSize           = fontSize;
