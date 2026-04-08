@@ -12,8 +12,10 @@ public class LaserCannon : MonoBehaviour
     public float bulletSpeed = 4f;
     public int damage = 5;
 
-    [Header("Bullet Visual")]
+    [Header("Visuals — drag sprites here from Project window")]
     public Sprite bulletSprite;
+    public Sprite cannonSprite;
+    public float bulletScale = 1.5f;
 
     private float startAngle;
     private bool isRunning = false;
@@ -22,8 +24,13 @@ public class LaserCannon : MonoBehaviour
     {
         startAngle = transform.eulerAngles.z;
 
+        // Munadir: Use assigned cannon sprite, or fallback to purple tint
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.color = new Color(0.8f, 0f, 0.8f, 1f);
+        if (sr != null)
+        {
+            if (cannonSprite != null) sr.sprite = cannonSprite;
+            else sr.color = new Color(0.8f, 0f, 0.8f, 1f);
+        }
     }
 
     public void StartFiring()
@@ -80,14 +87,16 @@ public class LaserCannon : MonoBehaviour
             sr.sprite = MakeSprite();
         }
 
-        sr.color = new Color(1f, 0.2f, 1f, 1f);
+        // Munadir: Don't tint if using a custom sprite — only tint the fallback
+        if (bulletSprite == null)
+            sr.color = new Color(1f, 0.2f, 1f, 1f);
         sr.sortingOrder = 7;
         sr.material = new Material(Shader.Find("Sprites/Default"));
-        bullet.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+        bullet.transform.localScale = new Vector3(bulletScale, bulletScale, 1f);
 
         CircleCollider2D col = bullet.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
-        col.radius = 0.4f;
+        col.radius = 0.3f;
 
         Vector2 dir = transform.up;
 

@@ -1,24 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 
-// Munadir: Full-screen victory overlay for Level 5
-// Munadir: Shown when boss is defeated - displays congratulations message
-// Munadir: Press any key to return to Level 1
+// Munadir: Post-victory handler for Level 5
+// Munadir: After boss dies, shows hint to go to gate
+// Munadir: When player presses H at gate, Star Wars style credits scroll plays
+// Munadir: Uses ThaleahFat font to match other levels
 public class Level5WinScreen : MonoBehaviour
 {
-    private static readonly Color PanelColor  = new Color(0.02f, 0.0f, 0.08f, 0.93f);
+    private static readonly Color PanelColor  = new Color(0.0f, 0.0f, 0.02f, 0.95f);
     private static readonly Color HeaderColor = new Color(1f, 0.85f, 0.1f, 1f);
-    private static readonly Color BodyColor   = new Color(0.8f, 0.9f, 1f, 1f);
+    private static readonly Color BodyColor   = new Color(0.75f, 0.82f, 1f, 1f);
 
     private GameObject panel;
-    private TMP_Text   promptText;
+    private TMP_Text   scrollText;
+    private RectTransform scrollRect;
     private bool isShowing = false;
-    private bool canDismiss = false;
+    private bool creditsStarted = false;
 
     public static Level5WinScreen Instance { get; private set; }
+
+    // Munadir: Font loader — tries ThaleahFat first (matches other levels)
+    private static TMP_FontAsset _cachedFont;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_cachedFont != null) return _cachedFont;
+        foreach (var txt in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+        {
+            if (txt.font != null && txt.font.name.Contains("Thaleah"))
+            {
+                _cachedFont = txt.font;
+                return _cachedFont;
+            }
+        }
+        _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
+        return _cachedFont;
+    }
 
     void Awake()
     {
@@ -41,35 +60,62 @@ public class Level5WinScreen : MonoBehaviour
         panel.SetActive(false);
     }
 
-    void Update()
-    {
-        if (canDismiss && Input.anyKeyDown)
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("Level1_CrackedForest");
-        }
-    }
-
+    // Munadir: Called by AetherNexusLevel when boss is defeated
     public void ShowWinScreen()
     {
         if (isShowing) return;
         isShowing = true;
-        panel.SetActive(true);
-        StartCoroutine(EnableDismissAfterDelay());
+
+        GameManager.Instance?.uiManager?.DisplayObjective("VICTORY! Walk to the gate and press H!");
+        GameManager.Instance?.uiManager?.ShowHint("The Dragon is defeated! Head to the gate on the right!");
     }
 
-    private IEnumerator EnableDismissAfterDelay()
+    // Munadir: Called when player reaches gate and presses H
+    public void StartCreditsScroll()
     {
-        // Munadir: Show victory for 3 seconds before allowing dismiss
+        if (creditsStarted) return;
+        creditsStarted = true;
+        panel.SetActive(true);
+        StartCoroutine(ScrollCredits());
+    }
+
+    private IEnumerator ScrollCredits()
+    {
+        // Munadir: Freeze gameplay
+        PlayerController pc = FindFirstObjectByType<PlayerController>();
+        if (pc != null) pc.enabled = false;
+
+        // Munadir: Start text off screen at the bottom
+        scrollRect.anchoredPosition = new Vector2(0f, -1200f);
+
+        float scrollSpeed = 40f;
+        float totalDistance = 3500f;
+        float traveled = 0f;
+
+        while (traveled < totalDistance)
+        {
+            float delta = scrollSpeed * Time.deltaTime;
+            scrollRect.anchoredPosition += new Vector2(0f, delta);
+            traveled += delta;
+            yield return null;
+        }
+
+        // Munadir: Hold for a moment then show "THE END"
         yield return new WaitForSeconds(2f);
+
+        scrollText.text = "\n\n\n\nTHE END\n\n\nThank you for playing\nElemental Dominion";
+        scrollText.alignment = TextAlignmentOptions.Center;
+        scrollText.fontSize = 60;
+        scrollRect.anchoredPosition = Vector2.zero;
+
+        yield return new WaitForSeconds(3f);
         Time.timeScale = 0f;
-        canDismiss = true;
-        StartCoroutine(BlinkPrompt());
     }
 
     private void BuildUI()
     {
-        panel = new GameObject("WinPanel", typeof(RectTransform));
+        // Munadir: Full black background
+        panel = new GameObject("CreditsPanel", typeof(RectTransform));
         panel.transform.SetParent(transform, false);
         Image bg = panel.AddComponent<Image>();
         bg.color = PanelColor;
@@ -79,64 +125,75 @@ public class Level5WinScreen : MonoBehaviour
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
 
-        // Munadir: VICTORY header
-        GameObject header = new GameObject("WinHeader", typeof(RectTransform));
-        header.transform.SetParent(panel.transform, false);
-        TMP_Text headerText = header.AddComponent<TextMeshProUGUI>();
-        headerText.text      = "VICTORY";
-        headerText.color     = HeaderColor;
-        headerText.fontSize  = 120;
-        headerText.fontStyle = FontStyles.Bold;
-        headerText.alignment = TextAlignmentOptions.Center;
-        RectTransform hrt = header.GetComponent<RectTransform>();
-        hrt.anchorMin = new Vector2(0.1f, 0.60f);
-        hrt.anchorMax = new Vector2(0.9f, 0.85f);
-        hrt.offsetMin = Vector2.zero;
-        hrt.offsetMax = Vector2.zero;
+        // Munadir: Mask so text clips at screen edges
+        panel.AddComponent<RectMask2D>();
 
-        // Munadir: Congratulations text
-        GameObject body = new GameObject("WinBody", typeof(RectTransform));
-        body.transform.SetParent(panel.transform, false);
-        TMP_Text bodyText = body.AddComponent<TextMeshProUGUI>();
-        bodyText.text = "The Elemental Dragon has been defeated!\n\n" +
-                        "Balance has been restored to the realm.\n" +
-                        "Elemental Armor unlocked!\n\n" +
-                        "Alex has saved Quaziadore.";
-        bodyText.color     = BodyColor;
-        bodyText.fontSize  = 40;
-        bodyText.fontStyle = FontStyles.Normal;
-        bodyText.alignment = TextAlignmentOptions.Center;
-        bodyText.enableWordWrapping = true;
-        RectTransform brt = body.GetComponent<RectTransform>();
-        brt.anchorMin = new Vector2(0.1f, 0.25f);
-        brt.anchorMax = new Vector2(0.9f, 0.58f);
-        brt.offsetMin = Vector2.zero;
-        brt.offsetMax = Vector2.zero;
+        // Munadir: Scrolling lore text — POST-VICTORY lore (what happens after the boss is defeated)
+        GameObject textGO = new GameObject("ScrollText", typeof(RectTransform));
+        textGO.transform.SetParent(panel.transform, false);
+        scrollText = textGO.AddComponent<TextMeshProUGUI>();
+        scrollText.font = GetFont();
+        scrollText.text =
+            "<size=72><color=#FFD700>ELEMENTAL DOMINION</color></size>\n\n\n" +
+            "<size=44><color=#C8A0FF>THE AFTERMATH</color></size>\n\n\n" +
+            "<size=34>" +
+            "With the Elemental Dragon defeated,\n" +
+            "its corrupted energy dissipated\n" +
+            "into the swirling skies above.\n\n" +
+            "The Aether Nexus, once pulsing\n" +
+            "with dark power, grew silent.\n" +
+            "The ground stopped trembling.\n" +
+            "The laser cannons powered down.\n\n" +
+            "One by one, the five islands\n" +
+            "began to heal.\n\n" +
+            "The Cracked Forest's trees\n" +
+            "bloomed once more.\n" +
+            "The Shadow Swamp's waters cleared.\n" +
+            "The Drowned Vault rose\n" +
+            "from the depths.\n" +
+            "The Sky Kingdom's storms calmed.\n\n" +
+            "Alex stood at the edge of the Nexus,\n" +
+            "watching as light returned\n" +
+            "to Quaziadore.\n\n" +
+            "The Elemental Armor, forged from\n" +
+            "the Dragon's own essence,\n" +
+            "would protect these lands\n" +
+            "for generations to come.\n\n" +
+            "The warriors who once fought alone\n" +
+            "now stood together — guardians\n" +
+            "of a world reborn.\n\n" +
+            "Balance was restored.\n" +
+            "Not through destruction,\n" +
+            "but through courage, unity,\n" +
+            "and the will to never surrender.\n\n" +
+            "The five islands of Quaziadore\n" +
+            "would know peace...\n" +
+            "forevermore.\n\n\n" +
+            "</size>" +
+            "<size=44><color=#FFD700>PEACE HAS BEEN RESTORED</color></size>\n\n\n\n" +
+            "<size=30>" +
+            "Developed by:\n\n" +
+            "Munadir\n" +
+            "Humayl\n" +
+            "Yoseph\n" +
+            "Neelesh\n" +
+            "Shaan\n\n\n" +
+            "SE2250B — Software Construction\n" +
+            "Western University\n" +
+            "2026\n\n\n\n\n" +
+            "</size>";
 
-        // Munadir: Press any key prompt
-        GameObject prompt = new GameObject("WinPrompt", typeof(RectTransform));
-        prompt.transform.SetParent(panel.transform, false);
-        promptText = prompt.AddComponent<TextMeshProUGUI>();
-        promptText.text      = "PRESS ANY KEY TO CONTINUE";
-        promptText.color     = Color.white;
-        promptText.fontSize  = 44;
-        promptText.fontStyle = FontStyles.Bold;
-        promptText.alignment = TextAlignmentOptions.Center;
-        RectTransform prt = prompt.GetComponent<RectTransform>();
-        prt.anchorMin = new Vector2(0.1f, 0.08f);
-        prt.anchorMax = new Vector2(0.9f, 0.20f);
-        prt.offsetMin = Vector2.zero;
-        prt.offsetMax = Vector2.zero;
-    }
+        scrollText.color     = BodyColor;
+        scrollText.fontSize  = 34;
+        scrollText.fontStyle = FontStyles.Normal;
+        scrollText.alignment = TextAlignmentOptions.Center;
+        scrollText.enableWordWrapping = true;
+        scrollText.richText = true;
 
-    private IEnumerator BlinkPrompt()
-    {
-        while (isShowing)
-        {
-            if (promptText != null) promptText.alpha = 1f;
-            yield return new WaitForSecondsRealtime(0.6f);
-            if (promptText != null) promptText.alpha = 0f;
-            yield return new WaitForSecondsRealtime(0.4f);
-        }
+        scrollRect = textGO.GetComponent<RectTransform>();
+        scrollRect.anchorMin = new Vector2(0.1f, 0f);
+        scrollRect.anchorMax = new Vector2(0.9f, 1f);
+        scrollRect.sizeDelta = new Vector2(0f, 2500f);
+        scrollRect.anchoredPosition = new Vector2(0f, -1200f);
     }
 }

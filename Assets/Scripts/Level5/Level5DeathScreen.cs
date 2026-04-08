@@ -6,7 +6,7 @@ using System.Collections;
 
 // Munadir: Full-screen death overlay for Level 5
 // Munadir: Listens for PlayerHealth.OnDeath event and shows retry prompt
-// Munadir: Press R to restart the level
+// Munadir: Uses ThaleahFat font to match other levels
 public class Level5DeathScreen : MonoBehaviour
 {
     private static readonly Color PanelColor  = new Color(0.15f, 0.0f, 0.0f, 0.92f);
@@ -16,6 +16,24 @@ public class Level5DeathScreen : MonoBehaviour
     private GameObject panel;
     private TMP_Text   retryText;
     private bool       isShowing = false;
+
+    // Munadir: Font loader — tries ThaleahFat first (matches other levels)
+    private static TMP_FontAsset _cachedFont;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_cachedFont != null) return _cachedFont;
+        foreach (var txt in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+        {
+            if (txt.font != null && txt.font.name.Contains("Thaleah"))
+            {
+                _cachedFont = txt.font;
+                return _cachedFont;
+            }
+        }
+        _cachedFont = TMP_Settings.defaultFontAsset;
+        if (_cachedFont == null) _cachedFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF - Fallback");
+        return _cachedFont;
+    }
 
     void OnEnable()
     {
@@ -64,7 +82,6 @@ public class Level5DeathScreen : MonoBehaviour
 
     private IEnumerator PauseAfterDelay()
     {
-        // Munadir: Let death animation play for 1 second before freezing
         yield return new WaitForSeconds(1f);
         Time.timeScale = 0f;
         StartCoroutine(BlinkRetry());
@@ -72,6 +89,8 @@ public class Level5DeathScreen : MonoBehaviour
 
     private void BuildUI()
     {
+        TMP_FontAsset font = GetFont();
+
         panel = new GameObject("DeathPanel", typeof(RectTransform));
         panel.transform.SetParent(transform, false);
         Image bg = panel.AddComponent<Image>();
@@ -82,10 +101,10 @@ public class Level5DeathScreen : MonoBehaviour
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
 
-        // Munadir: YOU DIED header
         GameObject header = new GameObject("DeathHeader", typeof(RectTransform));
         header.transform.SetParent(panel.transform, false);
         TMP_Text headerText = header.AddComponent<TextMeshProUGUI>();
+        headerText.font      = font;
         headerText.text      = "YOU DIED";
         headerText.color     = HeaderColor;
         headerText.fontSize  = 120;
@@ -97,10 +116,10 @@ public class Level5DeathScreen : MonoBehaviour
         hrt.offsetMin = Vector2.zero;
         hrt.offsetMax = Vector2.zero;
 
-        // Munadir: Subtitle
         GameObject sub = new GameObject("DeathSub", typeof(RectTransform));
         sub.transform.SetParent(panel.transform, false);
         TMP_Text subText = sub.AddComponent<TextMeshProUGUI>();
+        subText.font      = font;
         subText.text      = "The Elemental Dragon has defeated you...";
         subText.color     = BodyColor;
         subText.fontSize  = 40;
@@ -112,10 +131,10 @@ public class Level5DeathScreen : MonoBehaviour
         srt.offsetMin = Vector2.zero;
         srt.offsetMax = Vector2.zero;
 
-        // Munadir: Retry prompt
         GameObject retry = new GameObject("RetryPrompt", typeof(RectTransform));
         retry.transform.SetParent(panel.transform, false);
         retryText = retry.AddComponent<TextMeshProUGUI>();
+        retryText.font      = font;
         retryText.text      = "PRESS R TO RETRY";
         retryText.color     = Color.white;
         retryText.fontSize  = 48;
