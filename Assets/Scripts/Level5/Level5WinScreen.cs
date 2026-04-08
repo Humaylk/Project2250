@@ -176,7 +176,7 @@ public class Level5WinScreen : MonoBehaviour
             "Munadir\n" +
             "Humayl\n" +
             "Yoseph\n" +
-            "Neelash\n" +
+            "Neelesh\n" +
             "Shaan\n\n\n" +
             "SE2250B — Software Construction\n" +
             "Western University\n" +
