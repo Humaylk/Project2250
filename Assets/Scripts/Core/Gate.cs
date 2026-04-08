@@ -90,6 +90,31 @@ public class Gate : MonoBehaviour, IInteractable
     public virtual void ResetGate() => CloseGate();
     public bool CanPassThrough() => isOpen;
 
+    /// <summary>Hide the gate completely at level start — invisible and no collision.</summary>
+    public virtual void HideGate()
+    {
+        isOpen = false;
+        foreach (var sr in GetComponentsInChildren<SpriteRenderer>())
+            sr.enabled = false;
+        if (gateCollider != null) gateCollider.enabled = false;
+        if (animator != null) animator.SetBool("IsOpen", false);
+    }
+
+    /// <summary>Make the gate appear and open once all statues are summoned.</summary>
+    public virtual void ShowAndOpenGate()
+    {
+        foreach (var sr in GetComponentsInChildren<SpriteRenderer>())
+            sr.enabled = true;
+        if (gateCollider != null)
+        {
+            gateCollider.enabled  = true;
+            gateCollider.isTrigger = true;   // open = player can walk through
+        }
+        isOpen = true;
+        if (animator != null) animator.SetBool("IsOpen", true);
+        Debug.Log(gameObject.name + ": Gate appeared — OPEN. Press H to advance!");
+    }
+
     // Munadir: IInteractable implementation - called by InteractionSystem
     public void Interact()
     {

@@ -33,9 +33,12 @@ public class SummoningPuzzle : MonoBehaviour
         foreach (var p in pillars)
             if (p != null && p.IsSummoned) count++;
 
-        int total = pillars.Length;
+        // Count only non-null slots so a stray null entry can never block completion
+        int total = 0;
+        foreach (var p in pillars)
+            if (p != null) total++;
 
-        if (count == total)
+        if (total > 0 && count == total)
         {
             IsSolved = true;
             Debug.Log("[SummoningPuzzle] All statues summoned! Puzzle complete.");

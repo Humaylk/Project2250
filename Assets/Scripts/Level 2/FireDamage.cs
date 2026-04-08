@@ -3,7 +3,7 @@ using UnityEngine;
 public class FireDamage : MonoBehaviour
 {
     public int damageAmount = 5;
-    public float damageInterval = 1f;
+    public float damageInterval = 2.5f;
 
     private bool playerInside = false;
     private float timer = 0f;

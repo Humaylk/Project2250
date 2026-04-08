@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(unity|cs\\)$\")",
+      "Bash(tr '\\\\n' '|')",
+      "Bash(python3 -:*)",
+      "Bash(python build_map.py)",
+      "Bash(python3:*)",
+      "Bash(awk -F: 'NR>=1')",
+      "Bash(find /c/Users/neele/Downloads/Project2250 -type f -name *Death* -o -name *death*)",
+      "Bash(grep -r \"Level2\\\\|EmberDepths\" C:UsersneeleDownloadsProject2250Assets --include=*.cs --include=*.unity)",
+      "Bash(xargs grep:*)",
+      "Bash(del \"C:\\\\Users\\\\neele\\\\Downloads\\\\Project2250\\\\Assets\\\\Scripts\\\\Level2\\\\MazeWalls.cs.meta\")"
+    ]
+  }
+}

@@ -17,23 +17,42 @@ public class CrackedForestLevel : LevelBase
         playerHealth = FindFirstObjectByType<PlayerHealth>();
     }
 
+    void Start()
+    {
+        // Subscribe directly to the puzzle event so the gate shows
+        // the moment all 3 statues are summoned, regardless of isActive.
+        if (summoningPuzzle != null)
+            summoningPuzzle.OnAllSummoned += OnAllStatuesSummoned;
+
+        gate?.HideGate();    // invisible at level start
+        isActive = true;
+    }
+
+    private void OnAllStatuesSummoned()
+    {
+        gate?.ShowAndOpenGate();
+    }
+
+    void OnDestroy()
+    {
+        if (summoningPuzzle != null)
+            summoningPuzzle.OnAllSummoned -= OnAllStatuesSummoned;
+    }
+
     public override void InitializeLevel()
     {
         isActive   = true;
         isComplete = false;
         Debug.Log("=== Cracked Forest - Level 1 Initialized ===");
 
-        gate?.ResetGate();
+        gate?.HideGate();    // invisible until all 3 statues are summoned
         SpawnEnemies();
 
     }
 
     public override void UpdateLevel()
     {
-        if (summoningPuzzle != null && summoningPuzzle.IsSolved && gate != null && !gate.isOpen)
-        {
-            gate.OpenGate();
-        }
+        // Gate is now handled via OnAllStatuesSummoned event — nothing needed here.
     }
 
     public override bool CheckWinCondition()
