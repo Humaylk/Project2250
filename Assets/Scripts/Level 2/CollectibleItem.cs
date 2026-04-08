@@ -12,7 +12,26 @@ public class CollectibleItem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("[CollectibleItem] Picked up: " + itemType);
+            // Find the player — prefer HeroKnight component search (tag may not be set)
+            GameObject player = null;
+            HeroKnight hk = FindFirstObjectByType<HeroKnight>();
+            if (hk != null)
+                player = hk.gameObject;
+            if (player == null)
+                player = GameObject.FindWithTag("Player");
+
+            if (player != null)
+            {
+                Inventory inv = player.GetComponent<Inventory>();
+                if (inv != null)
+                {
+                    inv.AddItem(itemType);
+                    Debug.Log("[CollectibleItem] Picked up and registered: " + itemType);
+                }
+                else
+                    Debug.LogWarning("[CollectibleItem] No Inventory found on player!");
+            }
+
             Destroy(gameObject);
         }
     }
@@ -21,8 +40,11 @@ public class CollectibleItem : MonoBehaviour
     {
         if (_playerNearby) return;
 
-        // Accept by tag OR by having a PlayerController component (covers any player name)
-        if (!other.CompareTag("Player") && other.GetComponent<PlayerController>() == null) return;
+        // Accept by tag OR by having a known player component
+        if (!other.CompareTag("Player")
+            && other.GetComponent<PlayerController>()         == null
+            && other.GetComponent<HeroKnight>()               == null
+            && other.GetComponentInParent<HeroKnight>()       == null) return;
 
         _playerNearby = true;
         Debug.Log("[CollectibleItem] Player near " + itemType + " - press E to pick up");
@@ -30,7 +52,10 @@ public class CollectibleItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player") && other.GetComponent<PlayerController>() == null) return;
+        if (!other.CompareTag("Player")
+            && other.GetComponent<PlayerController>()   == null
+            && other.GetComponent<HeroKnight>()         == null
+            && other.GetComponentInParent<HeroKnight>() == null) return;
 
         _playerNearby = false;
     }

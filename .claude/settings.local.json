@@ -10,7 +10,8 @@
       "Bash(find /c/Users/neele/Downloads/Project2250 -type f -name *Death* -o -name *death*)",
       "Bash(grep -r \"Level2\\\\|EmberDepths\" C:UsersneeleDownloadsProject2250Assets --include=*.cs --include=*.unity)",
       "Bash(xargs grep:*)",
-      "Bash(del \"C:\\\\Users\\\\neele\\\\Downloads\\\\Project2250\\\\Assets\\\\Scripts\\\\Level2\\\\MazeWalls.cs.meta\")"
+      "Bash(del \"C:\\\\Users\\\\neele\\\\Downloads\\\\Project2250\\\\Assets\\\\Scripts\\\\Level2\\\\MazeWalls.cs.meta\")",
+      "Bash(git add:*)"
     ]
   }
 }

@@ -4,8 +4,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health    = 100;
-    public int maxHealth = 100;
+    public int health    = 105;
+    public int maxHealth = 105;
 
     [Header("Health Bar UI")]
     public Image    healthBarFill;
@@ -16,6 +16,13 @@ public class PlayerHealth : MonoBehaviour
 
     private bool     isDead = false;
     private Animator animator;
+
+    void Awake()
+    {
+        // Force 105/105 regardless of serialized scene values
+        health    = 105;
+        maxHealth = 105;
+    }
 
     void Start()
     {
@@ -36,8 +43,10 @@ public class PlayerHealth : MonoBehaviour
         GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
         DamageFlashCanvas.Instance?.Flash();
 
-        // Play hurt animation
-        animator?.SetTrigger("Hurt");
+        // Play hurt animation — use Level3PlayerAnimator if present, else direct
+        Level3PlayerAnimator l3anim = GetComponent<Level3PlayerAnimator>();
+        if (l3anim != null) l3anim.TriggerHurt();
+        else animator?.SetTrigger("Hurt");
 
         if (health <= 0)
             Die();
@@ -47,8 +56,10 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        // Play death animation
-        if (animator != null)
+        // Play death animation — use Level3PlayerAnimator if present, else direct
+        Level3PlayerAnimator l3anim = GetComponent<Level3PlayerAnimator>();
+        if (l3anim != null) l3anim.TriggerDeath();
+        else if (animator != null)
         {
             animator.SetBool("noBlood", false);
             animator.SetTrigger("Death");

@@ -5,10 +5,11 @@ public class QuestManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
     [Header("Quest Objects")]
-    public GameObject       invisibleWall;
     public DragonInteraction dragon;
-    public Gate             gate;
+    public Gate              gate;
+
     private Inventory _inventory;
+
     private void Start()
     {
         if (player == null)
@@ -21,22 +22,31 @@ public class QuestManager : MonoBehaviour
         _inventory = player.GetComponent<Inventory>();
         if (_inventory == null)
         {
-            Debug.LogError("[QuestManager] No Inventory on Player!");
-            return;
+            // Auto-add Inventory if it's missing — no manual setup needed
+            _inventory = player.AddComponent<Inventory>();
+            Debug.Log("[QuestManager] Inventory component added to player automatically.");
         }
         _inventory.OnAllItemsCollected += OnAllItemsCollected;
+
+        // Hide the gate at the start — it appears only when all items are collected
+        if (gate != null) gate.HideGate();
+
         Debug.Log("[QuestManager] Ready.");
     }
+
     private void OnDestroy()
     {
         if (_inventory != null)
             _inventory.OnAllItemsCollected -= OnAllItemsCollected;
     }
+
     private void OnAllItemsCollected()
     {
-        Debug.Log("[QuestManager] All items collected!");
-        if (invisibleWall != null) invisibleWall.SetActive(false);
-        if (dragon != null)        dragon.hasAllItems = true;
-        if (gate != null)          gate.OpenGate();
+        Debug.Log("[QuestManager] All items collected — waiting for dragon dialogue.");
+        if (dragon != null)
+        {
+            dragon.hasAllItems = true;
+            dragon.gateToReveal = gate; // dragon will open the gate after its dialogue
+        }
     }
 }

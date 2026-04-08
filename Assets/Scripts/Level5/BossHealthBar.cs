@@ -131,7 +131,7 @@ public class BossHealthBar : MonoBehaviour
         hpGO.transform.SetParent(bgGO.transform, false);
         bossHPText = hpGO.AddComponent<TextMeshProUGUI>();
         bossHPText.font      = font;
-        bossHPText.text      = "300 / 300";
+        bossHPText.text      = "400 / 400";
         bossHPText.color     = Color.white;
         bossHPText.fontSize  = 22;
         bossHPText.outlineWidth = 0.3f;

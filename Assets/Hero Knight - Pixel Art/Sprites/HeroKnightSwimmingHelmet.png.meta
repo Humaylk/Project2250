@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 3ad346536b541214dab84c2b5c6c6ae3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7662922905868542436
+    second: HeroKnightSwimmingHelmet_0
+  - first:
+      213: -2531714830914123372
+    second: HeroKnightSwimmingHelmet_1
+  - first:
+      213: 9094206773742961828
+    second: HeroKnightSwimmingHelmet_2
+  - first:
+      213: -756816756770228206
+    second: HeroKnightSwimmingHelmet_3
+  - first:
+      213: -1410208993000355631
+    second: HeroKnightSwimmingHelmet_4
+  - first:
+      213: -5448347501703708328
+    second: HeroKnightSwimmingHelmet_5
+  - first:
+      213: -6575768034265952464
+    second: HeroKnightSwimmingHelmet_6
+  - first:
+      213: 8457540371216976965
+    second: HeroKnightSwimmingHelmet_7
+  - first:
+      213: 229050825066736516
+    second: HeroKnightSwimmingHelmet_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 445
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e508e8734d7a590800000000000000
+      internalID: -7662922905868542436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 443
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49986ce56ca8ddcd0800000000000000
+      internalID: -2531714830914123372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 444
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a486e6a0ec153e70800000000000000
+      internalID: 9094206773742961828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 444
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218b5a46b2f3f75f0800000000000000
+      internalID: -756816756770228206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 445
+        width: 55
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d80729746eed6ce0800000000000000
+      internalID: -1410208993000355631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_5
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 443
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851401450d49364b0800000000000000
+      internalID: -5448347501703708328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 444
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f853010dd2eb4a0800000000000000
+      internalID: -6575768034265952464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_7
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 444
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cc9eb58283f5570800000000000000
+      internalID: 8457540371216976965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightSwimmingHelmet_8
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 445
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bec970380cd2300800000000000000
+      internalID: 229050825066736516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HeroKnightSwimmingHelmet_0: -7662922905868542436
+      HeroKnightSwimmingHelmet_1: -2531714830914123372
+      HeroKnightSwimmingHelmet_2: 9094206773742961828
+      HeroKnightSwimmingHelmet_3: -756816756770228206
+      HeroKnightSwimmingHelmet_4: -1410208993000355631
+      HeroKnightSwimmingHelmet_5: -5448347501703708328
+      HeroKnightSwimmingHelmet_6: -6575768034265952464
+      HeroKnightSwimmingHelmet_7: 8457540371216976965
+      HeroKnightSwimmingHelmet_8: 229050825066736516
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

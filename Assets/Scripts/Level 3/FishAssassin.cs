@@ -52,39 +52,34 @@ public class FishAssassin : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.position);
 
-        if (distance > attackRange)
+        // Always move towards the player — never stop on contact
+        float dir = player.position.x - transform.position.x;
+        if (dir != 0f)
         {
-            // Flip sprite to face the player horizontally
-            float dir = player.position.x - transform.position.x;
-            if (dir != 0f)
-            {
-                Vector3 s = transform.localScale;
-                s.x = Mathf.Abs(s.x) * Mathf.Sign(dir);
-                transform.localScale = s;
-            }
-
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                player.position,
-                speed * Time.deltaTime
-            );
-
-            if (animator != null && hasIsWalking) animator.SetBool("isWalking", true);
+            Vector3 s = transform.localScale;
+            s.x = Mathf.Abs(s.x) * Mathf.Sign(dir);
+            transform.localScale = s;
         }
-        else
+
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            player.position,
+            speed * Time.deltaTime
+        );
+
+        if (animator != null && hasIsWalking) animator.SetBool("isWalking", true);
+
+        // Deal damage when close enough, on cooldown
+        if (distance <= attackRange && Time.time >= lastAttackTime + attackCooldown)
         {
-            if (animator != null && hasIsWalking) animator.SetBool("isWalking", false);
+            if (animator != null && hasAttack) animator.SetTrigger("Attack");
 
-            if (Time.time >= lastAttackTime + attackCooldown)
-            {
-                if (animator != null && hasAttack) animator.SetTrigger("Attack");
+            PlayerHealth ph = player.GetComponent<PlayerHealth>();
+            if (ph == null) ph = FindFirstObjectByType<PlayerHealth>();
+            if (ph != null)
+                ph.TakeDamage(damage);
 
-                PlayerHealth ph = player.GetComponent<PlayerHealth>();
-                if (ph != null)
-                    ph.TakeDamage(damage);
-
-                lastAttackTime = Time.time;
-            }
+            lastAttackTime = Time.time;
         }
     }
 

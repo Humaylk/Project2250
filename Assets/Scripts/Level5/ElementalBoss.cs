@@ -7,7 +7,7 @@ using System.Collections;
 public class ElementalBoss : MonoBehaviour, IDamageable
 {
     [Header("Boss Stats")]
-    public int maxHP = 300;
+    public int maxHP = 400;
     public int currentHP;
     public float moveSpeed = 1f;
     public int contactDamage = 20;
