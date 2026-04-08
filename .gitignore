@@ -24,3 +24,6 @@ Thumbs.db
 *.sln
 *.unityproj
 ExportedObj/
+
+# Claude Code
+.claude/
