@@ -3,27 +3,46 @@ using UnityEngine;
 public class GolemAI_Level4 : MonoBehaviour
 {
     public Transform player;
-    public float speed = 2f;
+    public float speed = 4f;
     public float attackRange = 1.8f;
     public int damage = 10;
 
-    float attackCooldown = 1.5f;
+    float attackCooldown = 0.7f;
     float lastAttackTime = 0f;
 
-    Animator animator;
+    Animator        animator;
+    SpriteRenderer  sr;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        sr       = GetComponent<SpriteRenderer>();
+
+        // Auto-find the player if not assigned in Inspector
+        if (player == null)
+        {
+            SkyPlayerController spc = FindFirstObjectByType<SkyPlayerController>();
+            if (spc != null) player = spc.transform;
+        }
     }
 
     void Update()
     {
-        if (player == null) return;
+        // Retry finding player each frame until found
+        if (player == null)
+        {
+            SkyPlayerController spc = FindFirstObjectByType<SkyPlayerController>();
+            if (spc != null) player = spc.transform;
+            return;
+        }
 
         float distance = Vector2.Distance(transform.position, player.position);
 
-        // 🔁 MOVE TOWARD PLAYER
+        // Flip sprite to always face the player
+        if (sr != null)
+            sr.flipX = player.position.x < transform.position.x;
+
+        // MOVE TOWARD PLAYER
         if (distance > attackRange)
         {
             transform.position = Vector2.MoveTowards(
@@ -40,20 +59,15 @@ public class GolemAI_Level4 : MonoBehaviour
             if (animator != null)
                 animator.SetBool("isWalking", false);
 
-            // ⚔️ ATTACK
+            // ATTACK aggressively
             if (Time.time >= lastAttackTime + attackCooldown)
             {
                 if (animator != null)
                     animator.SetTrigger("Attack");
 
-                // IMPORTANT FIX
                 PlayerHealth_Level4 ph = player.GetComponent<PlayerHealth_Level4>();
-
                 if (ph != null)
-                {
                     ph.TakeDamage(damage);
-                    Debug.Log("Golem hit player!");
-                }
 
                 lastAttackTime = Time.time;
             }

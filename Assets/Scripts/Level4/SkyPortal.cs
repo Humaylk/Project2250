@@ -28,8 +28,7 @@ public class SkyPortal : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.H))
             {
-                Debug.Log("[SkyPortal] Loading Level5_AetherNexus");
-                SceneManager.LoadScene("Level5_AetherNexus");
+                SceneManager.LoadScene("Level5_AetherNexus1");
             }
         }
     }

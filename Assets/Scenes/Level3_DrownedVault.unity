@@ -2738,7 +2738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -614, y: 326}
+  m_AnchoredPosition: {x: -614, y: 269}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094664906
@@ -3087,6 +3087,7 @@ MonoBehaviour:
   maxHealth: 110
   healthBarFill: {fileID: 404480733}
   healthText: {fileID: 2026224831}
+  hurtSound: {fileID: 0}
 --- !u!114 &1115119935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,6 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 5
+  constantDrift: {x: 0, y: 0}
 --- !u!212 &1115119936
 SpriteRenderer:
   serializedVersion: 2
@@ -4804,6 +4806,25 @@ MonoBehaviour:
   controlsHeaderText: {fileID: 1560157070}
   controlsBodyText: {fileID: 300786336}
   pressAnyKeyText: {fileID: 639988697}
+  aboutBodyContent: 'You are now in the drowned vault.
+
+    Eliminate the killer
+    fishes and defuse the mines
+
+    within the time to escape alive.
+
+    Pick up
+    the scuba helmet to help you.'
+  controlsBodyContent: 'Press G to attack
+
+    Press E to open chest or pickup items
+
+    Hold
+    E to defuse a mine
+
+    Press H to advance to next level'
+  pressAnyKeyContent: PRESS ANY KEY TO DIVE IN
+  aboutHeaderContent: Objective
   headerColor: {r: 1, g: 0.75, b: 0, a: 1}
   bodyColor: {r: 0.4, g: 0.85, b: 0.9, a: 1}
   promptColor: {r: 1, g: 1, b: 1, a: 1}

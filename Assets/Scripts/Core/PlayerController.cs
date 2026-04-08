@@ -4,9 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
+    // Optional constant drift applied every frame (used by Level 3 underwater effect)
+    [HideInInspector] public Vector2 constantDrift = Vector2.zero;
+
     private Animator        animator;
     private SpriteRenderer  spriteRenderer;
     private Rigidbody2D     rb;
+    private float           _driftTime = 0f;
 
     void Start()
     {
@@ -44,8 +48,20 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // MovePosition respects physics colliders — player can't walk through golems, bridges, walls
-        if (rb != null)
-            rb.MovePosition(rb.position + _moveInput * speed * Time.fixedDeltaTime);
+        if (rb == null) return;
+
+        Vector2 move = _moveInput * speed;
+
+        if (constantDrift != Vector2.zero)
+        {
+            _driftTime += Time.fixedDeltaTime;
+            // Slight sine-wave oscillation on the downward drift — varies between 60% and 100%
+            // of the base drift speed to mimic gentle underwater current fluctuation.
+            float wave = 0.8f + Mathf.Sin(_driftTime * 1.2f) * 0.2f;
+            move += constantDrift * wave;
+        }
+
+        // MovePosition respects physics colliders — player can't walk through walls
+        rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
     }
 }

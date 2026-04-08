@@ -24,6 +24,21 @@ public class Level4IntroScreen : MonoBehaviour
 
     private bool dismissed = false;
 
+    private static TMP_FontAsset _font;
+    private static TMP_FontAsset GetFont()
+    {
+        if (_font != null) return _font;
+        _font = Resources.Load<TMP_FontAsset>("Fonts & Materials/ThaleahFat_TTF SDF");
+        if (_font == null)
+        {
+            // Fallback: find any TMP_Text in the scene that already uses Thaleah
+            foreach (var t in FindObjectsByType<TMP_Text>(FindObjectsSortMode.None))
+                if (t.font != null && t.font.name.Contains("Thaleah"))
+                    { _font = t.font; return _font; }
+        }
+        return _font;
+    }
+
     void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -62,6 +77,8 @@ public class Level4IntroScreen : MonoBehaviour
     // ---------------------------------------------------------------
     private void BuildUI()
     {
+        TMP_FontAsset font = GetFont();
+
         // --- Full-screen dark panel ---
         panel = CreateObject("Panel", transform);
         Image bg = panel.AddComponent<Image>();
@@ -71,34 +88,34 @@ public class Level4IntroScreen : MonoBehaviour
         // --- OBJECTIVE header ---
         aboutHeaderText = CreateText("AboutHeaderText", panel.transform,
             "OBJECTIVE", HeaderColor, 72, FontStyles.Bold,
-            new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.84f));
+            new Vector2(0.1f, 0.72f), new Vector2(0.9f, 0.84f), font);
 
         // --- Objective body ---
         aboutBodyText = CreateText("AboutBodyText", panel.transform,
-            "You have entered the Sky Realm.\n" +
-            "Collect all 3 energy cores to unlock the portal.\n" +
-            "Watch out for the Golem guardians.\n" +
-            "Complete before the timer runs out!",
+            "You have entered space and gravity works differently here. " +
+            "Rotate the planets to restore balance to space level, " +
+            "but beware of the golems and dont get sucked away into space!",
             BodyColor, 40, FontStyles.Normal,
-            new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f));
+            new Vector2(0.1f, 0.50f), new Vector2(0.9f, 0.72f), font);
 
         // --- CONTROLS header ---
         controlsHeaderText = CreateText("ControlsHeaderText", panel.transform,
             "CONTROLS", HeaderColor, 72, FontStyles.Bold,
-            new Vector2(0.1f, 0.36f), new Vector2(0.9f, 0.50f));
+            new Vector2(0.1f, 0.36f), new Vector2(0.9f, 0.50f), font);
 
         // --- Controls body ---
         controlsBodyText = CreateText("ControlsBodyText", panel.transform,
+            "Press W, A, S, D to move\n" +
             "Press G to attack\n" +
-            "Collect glowing triangles for energy cores\n" +
-            "Press H to advance to next level",
+            "Press or hold E to interact\n" +
+            "Press H at the gate to go to next level.",
             BodyColor, 40, FontStyles.Normal,
-            new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f));
+            new Vector2(0.1f, 0.16f), new Vector2(0.9f, 0.36f), font);
 
         // --- Press any key prompt ---
         pressAnyKeyText = CreateText("PressAnyKeyText", panel.transform,
-            "PRESS ANY KEY TO BEGIN", PromptColor, 44, FontStyles.Bold,
-            new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.14f));
+            "PRESS ANY KEY TO ENTER SPACE", PromptColor, 44, FontStyles.Bold,
+            new Vector2(0.1f, 0.04f), new Vector2(0.9f, 0.14f), font);
     }
 
     // Creates a child GameObject
@@ -112,7 +129,7 @@ public class Level4IntroScreen : MonoBehaviour
     // Creates a TMP_Text anchored by min/max in 0-1 canvas space
     private static TMP_Text CreateText(string name, Transform parent,
         string content, Color color, float fontSize, FontStyles style,
-        Vector2 anchorMin, Vector2 anchorMax)
+        Vector2 anchorMin, Vector2 anchorMax, TMP_FontAsset font = null)
     {
         GameObject go = CreateObject(name, parent);
         TMP_Text t    = go.AddComponent<TextMeshProUGUI>();
@@ -123,6 +140,7 @@ public class Level4IntroScreen : MonoBehaviour
         t.fontStyle = style;
         t.alignment = TextAlignmentOptions.Center;
         t.enableWordWrapping = true;
+        if (font != null) t.font = font;
 
         RectTransform rt = go.GetComponent<RectTransform>();
         rt.anchorMin  = anchorMin;
@@ -157,6 +175,6 @@ public class Level4IntroScreen : MonoBehaviour
     {
         dismissed = true;
         Time.timeScale = 1f;
-        if (panel != null) panel.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

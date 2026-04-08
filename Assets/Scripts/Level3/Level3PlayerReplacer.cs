@@ -116,16 +116,17 @@ public class Level3PlayerReplacer : MonoBehaviour
         if (circle != null)
             circle.offset = new Vector2(0f, 0.55f);
 
-        // ── PlayerHealth (105/105) ────────────────────────────────────────────
+        // ── PlayerHealth (110/110) ────────────────────────────────────────────
         PlayerHealth ph = heroKnight.GetComponent<PlayerHealth>();
         if (ph == null) ph = heroKnight.AddComponent<PlayerHealth>();
-        ph.health    = 105;
-        ph.maxHealth = 105;
+        ph.health    = 110;
+        ph.maxHealth = 110;
 
         // ── PlayerController ──────────────────────────────────────────────────
         PlayerController pc = heroKnight.GetComponent<PlayerController>();
         if (pc == null) pc = heroKnight.AddComponent<PlayerController>();
-        pc.speed = 5f;
+        pc.speed         = 5f;
+        pc.constantDrift = new Vector2(0f, -0.4f); // subtle underwater downward pull
 
         // ── PlayerAttack ──────────────────────────────────────────────────────
         if (heroKnight.GetComponent<PlayerAttack>() == null)
@@ -162,8 +163,8 @@ public class Level3PlayerReplacer : MonoBehaviour
         // ── Level3PlayerHealth — mirrors health to the UI bar ─────────────────
         Level3PlayerHealth l3ph = heroKnight.GetComponent<Level3PlayerHealth>();
         if (l3ph == null) l3ph = heroKnight.AddComponent<Level3PlayerHealth>();
-        l3ph.maxHealth = 105;
-        l3ph.health    = 105;
+        l3ph.maxHealth = 110;
+        l3ph.health    = 110;
         if (fillImage != null) l3ph.healthBarFill = fillImage;
         if (hpText    != null) l3ph.hpText        = hpText as TextMeshProUGUI;
 

@@ -17,13 +17,19 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.clip = backgroundMusic;
             audioSource.loop = true;
-            audioSource.volume = volume;
             audioSource.playOnAwake = false;
         }
         else
         {
+            // A new scene has its own AudioManager — swap to the new clip
+            if (backgroundMusic != null && backgroundMusic != Instance.audioSource.clip)
+            {
+                Instance.audioSource.Stop();
+                Instance.audioSource.clip = backgroundMusic;
+                Instance.audioSource.volume = volume;
+                Instance.audioSource.Play();
+            }
             Destroy(gameObject);
             return;
         }
@@ -31,6 +37,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        audioSource.clip   = backgroundMusic;
+        audioSource.volume = volume;
         PlayMusic();
     }
 

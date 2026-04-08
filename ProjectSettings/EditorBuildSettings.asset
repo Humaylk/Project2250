@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level4_Sky.unity
     guid: 608d08d2d07ec1946924eb9c3c19d59a
   - enabled: 1
-    path: Assets/Scenes/Level5_AetherNexus.unity
+    path: Assets/Scenes/Level5_AetherNexus1.unity
     guid: 0ef88de2a7611d94a80093c45a373aa9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
