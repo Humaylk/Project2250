@@ -12263,7 +12263,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0784111, y: 0.5481257}
+  m_Offset: {x: 0.25953522, y: 0.027749985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12273,7 +12273,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7110653, y: 0.97445405}
+  m_Size: {x: 0.66919476, y: 0.84286517}
   m_EdgeRadius: 0
 --- !u!50 &821856021
 Rigidbody2D:
@@ -12330,7 +12330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   attackRange: 2
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 0f4a3436d188d3945899e734c40fd8dd, type: 3}
 --- !u!114 &821856024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12343,10 +12343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f877b920c4180147bbf71ad2764d8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  health: 100
-  maxHealth: 100
+  health: 105
+  maxHealth: 105
   healthBarFill: {fileID: 4404480733}
   healthText: {fileID: 4026224831}
+  hurtSound: {fileID: 8300000, guid: 5151cf4c75a9ab849a7e1c4ab986fbbb, type: 3}
 --- !u!114 &821856025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19612,6 +19613,19 @@ MonoBehaviour:
   controlsHeaderText: {fileID: 1587091640}
   controlsBodyText: {fileID: 2024025645}
   pressAnyKeyText: {fileID: 226012318}
+  aboutBodyContent: You must speak with the Master dragon to know the items you must
+    collect. Once all the items are collected, return to the Master dragon and deliver
+    them to him. Beware of the fire!
+  controlsBodyContent: 'Press W, A, S, D to move
+
+    Press G to attack
+
+    Press
+    or hold E to interact
+
+    Press H at the gate to go to next level.'
+  pressAnyKeyContent: PRESS ANY KEY TO DIVE IN
+  aboutHeaderContent: Objective
   headerColor: {r: 1, g: 0.42, b: 0, a: 1}
   bodyColor: {r: 1, g: 0.78, b: 0.25, a: 1}
   promptColor: {r: 1, g: 1, b: 1, a: 1}
@@ -19820,6 +19834,7 @@ MonoBehaviour:
   - {fileID: 0}
   gate: {fileID: 1274068950}
   uiManager: {fileID: 1649816426}
+  backgroundMusic: {fileID: 0}
 --- !u!4 &1281840736
 Transform:
   m_ObjectHideFlags: 0
@@ -31837,7 +31852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100/100
+  m_text: 105/105
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc31e7808811e324699484bc54b8b284, type: 2}
   m_sharedMaterial: {fileID: 7420722299413522228, guid: cc31e7808811e324699484bc54b8b284, type: 2}

@@ -311,14 +311,39 @@ public class DragonInteraction : MonoBehaviour
         hintRT.pivot     = new Vector2(1, 0);
         hintRT.offsetMin = new Vector2(-165, 6); hintRT.offsetMax = new Vector2(-10, 24);
 
-        // ── World-space "Press E to Talk" prompt above dragon ────────────────
+        // Scale compensation — child world-space canvases need inv of parent scale
+        float inv = (Mathf.Abs(transform.localScale.x) > 0.0001f)
+            ? 1f / transform.localScale.x : 1f;
+
+        // ── World-space "Dragon" name label (always visible) ──────────────────
+        GameObject nameWorldCanvas = new GameObject("DragonNameCanvas");
+        Canvas nameWC = nameWorldCanvas.AddComponent<Canvas>();
+        nameWC.renderMode   = RenderMode.WorldSpace;
+        nameWC.sortingOrder = 12;
+        nameWorldCanvas.transform.SetParent(transform, false);
+        nameWorldCanvas.transform.localPosition = new Vector3(0, -2.2f * inv, 0);
+        nameWorldCanvas.transform.localScale    = new Vector3(0.012f * inv, 0.012f * inv, 1f);
+
+        GameObject nameLabelGO = new GameObject("NameLabel");
+        nameLabelGO.transform.SetParent(nameWorldCanvas.transform, false);
+        TMP_Text nameLabelText = nameLabelGO.AddComponent<TextMeshProUGUI>();
+        nameLabelText.text = "Master Dragon";
+        nameLabelText.font = font;
+        nameLabelText.fontSize = 40;
+        nameLabelText.fontStyle = FontStyles.Bold;
+        nameLabelText.color = new Color(1f, 0.55f, 0.1f, 1f);
+        nameLabelText.alignment = TextAlignmentOptions.Center;
+        nameLabelText.enableWordWrapping = false;
+        nameLabelGO.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
+
+        // ── World-space "[ E ] Talk" prompt above dragon ──────────────────────
         _promptGO = new GameObject("TalkPromptCanvas");
         Canvas promptCanvas   = _promptGO.AddComponent<Canvas>();
         promptCanvas.renderMode   = RenderMode.WorldSpace;
         promptCanvas.sortingOrder = 10;
         _promptGO.transform.SetParent(transform, false);
-        _promptGO.transform.localPosition = new Vector3(0, 2.0f, 0);
-        _promptGO.transform.localScale    = new Vector3(0.012f, 0.012f, 1f);
+        _promptGO.transform.localPosition = new Vector3(0, -2.9f * inv, 0);
+        _promptGO.transform.localScale    = new Vector3(0.012f * inv, 0.012f * inv, 1f);
 
         GameObject promptTextGO    = new GameObject("PromptText");
         promptTextGO.transform.SetParent(_promptGO.transform, false);

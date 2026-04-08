@@ -11,6 +11,10 @@ public class PlayerHealth : MonoBehaviour
     public Image    healthBarFill;
     public TMP_Text healthText;
 
+    [Header("Audio")]
+    public AudioClip hurtSound;
+    private AudioSource _audioSource;
+
     // Subscribe to respond to player death (used by death screen)
     public static event System.Action OnDeath;
 
@@ -21,6 +25,10 @@ public class PlayerHealth : MonoBehaviour
     {
         // Use serialized values so each level can set its own max health
         health = maxHealth;
+
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.playOnAwake  = false;
+        _audioSource.spatialBlend = 0f;
     }
 
     void Start()
@@ -41,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
         GameManager.Instance?.uiManager?.UpdateHPDisplay(health);
         DamageFlashCanvas.Instance?.Flash();
+        if (hurtSound != null) _audioSource.PlayOneShot(hurtSound);
 
         // Play hurt animation — use Level3PlayerAnimator if present, else direct
         Level3PlayerAnimator l3anim = GetComponent<Level3PlayerAnimator>();
