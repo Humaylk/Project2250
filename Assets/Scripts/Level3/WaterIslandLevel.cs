@@ -14,6 +14,8 @@ public class WaterIslandLevel : LevelBase
     [Header("Level 3 Specific References")]
     public RockBarrier[] rockBarriers;
     public Level3ExitDoor exitDoor;
+    public Gate gate;
+    public GameObject visibleGate;
     public EnemyHealth[] fishAssassins;
     public CountdownTimer oxygenTimer;
     public WaterIslandStatus islandStatus;
@@ -121,6 +123,7 @@ public class WaterIslandLevel : LevelBase
 
         foreach (var rb in rockBarriers) rb?.ResetBarrier();
         if (exitDoor != null) exitDoor.isOpen = false;
+        if (visibleGate != null) visibleGate.SetActive(false);
         SpawnAssassins();
 
         // Entire level is underwater — start the oxygen timer immediately
@@ -141,10 +144,11 @@ public class WaterIslandLevel : LevelBase
     {
         if (player == null) return;
 
-        // Once ALL mines are defused, open the exit doorway
+        // Once ALL mines are defused, show the gate and open the exit doorway
         if (AllMinesCleared() && exitDoor != null && !exitDoor.isOpen)
         {
             exitDoor.Open();
+            if (visibleGate != null) visibleGate.SetActive(true);
             uiManager?.UpdateObjective("Exit opened! Escape through the doorway!");
         }
 

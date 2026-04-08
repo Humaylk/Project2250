@@ -2461,6 +2461,8 @@ MonoBehaviour:
   - {fileID: 259984851}
   - {fileID: 1845547271}
   exitDoor: {fileID: 1937608984}
+  gate: {fileID: 2063626736}
+  visibleGate: {fileID: 1937608979}
   fishAssassins:
   - {fileID: 79656287}
   - {fileID: 106795947}
@@ -2524,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c698b34a0ce3854780dd48d01b1a63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PlayerReplacer
-  baseController: {fileID: 0}
+  baseController: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   baseIdleClip: {fileID: 7400000, guid: e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6, type: 2}
   baseAttack1Clip: {fileID: 7400000, guid: f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6, type: 2}
   baseAttack2Clip: {fileID: 7400000, guid: aed3701ac0b14af7a2ee6c7502efd599, type: 2}
