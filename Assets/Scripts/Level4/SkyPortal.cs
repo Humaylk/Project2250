@@ -1,33 +1,35 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkyPortal : MonoBehaviour
 {
     public SkyGameManager manager;
     public Transform player;
-
     public float interactDistance = 2f;
 
     void Update()
     {
-        if (manager == null || player == null)
+        if (player == null)
         {
-            Debug.Log("Missing references");
-            return;
+            SkyPlayerController pc = FindFirstObjectByType<SkyPlayerController>();
+            if (pc != null) player = pc.transform;
         }
+
+        if (manager == null)
+            manager = FindFirstObjectByType<SkyGameManager>();
+
+        if (player == null || manager == null) return;
 
         float dist = Vector2.Distance(transform.position, player.position);
 
-        Debug.Log("Distance to portal: " + dist + 
-                  " | LevelComplete: " + manager.levelComplete);
-
-        if (dist < interactDistance && manager.levelComplete)
+        if (dist <= interactDistance && manager.levelComplete)
         {
-            Debug.Log("READY TO ENTER PORTAL");
+            GameManager.Instance?.uiManager?.ShowHint("Press H to enter Level 5!");
 
             if (Input.GetKeyDown(KeyCode.H))
             {
-                Debug.Log("LOADING NEXT LEVEL");
-                GameManager.Instance?.AdvanceLevel();
+                Debug.Log("[SkyPortal] Loading Level5_AetherNexus");
+                SceneManager.LoadScene("Level5_AetherNexus");
             }
         }
     }

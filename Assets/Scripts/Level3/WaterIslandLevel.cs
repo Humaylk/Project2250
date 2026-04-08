@@ -13,7 +13,7 @@ public class WaterIslandLevel : LevelBase
 {
     [Header("Level 3 Specific References")]
     public RockBarrier[] rockBarriers;
-    public Gate exitDoor;
+    public Level3ExitDoor exitDoor;
     public EnemyHealth[] fishAssassins;
     public CountdownTimer oxygenTimer;
     public WaterIslandStatus islandStatus;
@@ -120,7 +120,7 @@ public class WaterIslandLevel : LevelBase
             player.transform.position = spawnPosition;
 
         foreach (var rb in rockBarriers) rb?.ResetBarrier();
-        exitDoor?.ResetGate();
+        if (exitDoor != null) exitDoor.isOpen = false;
         SpawnAssassins();
 
         // Entire level is underwater — start the oxygen timer immediately
@@ -144,7 +144,7 @@ public class WaterIslandLevel : LevelBase
         // Once ALL mines are defused, open the exit doorway
         if (AllMinesCleared() && exitDoor != null && !exitDoor.isOpen)
         {
-            exitDoor.OpenGate();
+            exitDoor.Open();
             uiManager?.UpdateObjective("Exit opened! Escape through the doorway!");
         }
 
@@ -201,6 +201,7 @@ public class WaterIslandLevel : LevelBase
         return AllMinesCleared() && exitDoor != null && exitDoor.isOpen;
     }
 
+
     // Lose condition: player HP hits zero OR oxygen timer runs out
     public override bool CheckLoseCondition()
     {
@@ -225,9 +226,9 @@ public class WaterIslandLevel : LevelBase
         GameManager.Instance?.progressionSystem?.AddPuzzleXP(30);
 
         uiManager?.DisplayObjective("LEVEL COMPLETE! Water Island restored!");
-        uiManager?.ShowHint("You earned New Armor! Press H at the exit to advance.");
+        uiManager?.ShowHint("Exit is open! Go to the door and press H to advance.");
 
-        GameManager.Instance?.AdvanceLevel();
+        // Do NOT call AdvanceLevel() here — the Gate handles H key at the exit door.
     }
 
     // Activates all fish assassin GameObjects at level start

@@ -12,6 +12,20 @@ public class Level3PlayerReplacer : MonoBehaviour
     [Tooltip("Drag in: Assets/Hero Knight - Pixel Art/Animations/HeroKnight_AnimController.controller")]
     public RuntimeAnimatorController baseController;
 
+    [Header("Base (No Helmet) Clips")]
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Idle.anim")]
+    public AnimationClip baseIdleClip;
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Attack.anim")]
+    public AnimationClip baseAttack1Clip;
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Attack2.anim")]
+    public AnimationClip baseAttack2Clip;
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Attack3.anim")]
+    public AnimationClip baseAttack3Clip;
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Hurt.anim")]
+    public AnimationClip baseHurtClip;
+    [Tooltip("Drag in: Assets/Level_3Resources/Animations/L3_Death.anim")]
+    public AnimationClip baseDeathClip;
+
     [Header("Swimming Clips")]
     [Tooltip("Drag in: Assets/Level_3Resources/Animations/Swimming.anim")]
     public AnimationClip swimmingClip;
@@ -65,15 +79,21 @@ public class Level3PlayerReplacer : MonoBehaviour
         // ── Add Level3PlayerAnimator — pass base controller + all clips ────────
         Level3PlayerAnimator l3anim = heroKnight.GetComponent<Level3PlayerAnimator>();
         if (l3anim == null) l3anim = heroKnight.AddComponent<Level3PlayerAnimator>();
-        l3anim.baseController      = baseController;
-        l3anim.swimmingClip        = swimmingClip;
+        l3anim.baseController    = baseController;
+        l3anim.baseIdleClip      = baseIdleClip;
+        l3anim.baseAttack1Clip   = baseAttack1Clip;
+        l3anim.baseAttack2Clip   = baseAttack2Clip;
+        l3anim.baseAttack3Clip   = baseAttack3Clip;
+        l3anim.baseHurtClip      = baseHurtClip;
+        l3anim.baseDeathClip     = baseDeathClip;
+        l3anim.swimmingClip      = swimmingClip;
         l3anim.swimmingHelmetClip  = swimmingHelmetClip;
-        l3anim.helmetIdleClip      = helmetIdleClip;
-        l3anim.helmetHurtClip      = helmetHurtClip;
-        l3anim.helmetDeathClip     = helmetDeathClip;
-        l3anim.helmetAttack1Clip   = helmetAttack1Clip;
-        l3anim.helmetAttack2Clip   = helmetAttack2Clip;
-        l3anim.helmetAttack3Clip   = helmetAttack3Clip;
+        l3anim.helmetIdleClip    = helmetIdleClip;
+        l3anim.helmetHurtClip    = helmetHurtClip;
+        l3anim.helmetDeathClip   = helmetDeathClip;
+        l3anim.helmetAttack1Clip = helmetAttack1Clip;
+        l3anim.helmetAttack2Clip = helmetAttack2Clip;
+        l3anim.helmetAttack3Clip = helmetAttack3Clip;
 
         // ── Fix Rigidbody2D — top-down, no gravity ────────────────────────────
         Rigidbody2D rb = heroKnight.GetComponent<Rigidbody2D>();
@@ -84,7 +104,6 @@ public class Level3PlayerReplacer : MonoBehaviour
         }
 
         // ── Centre the BoxCollider2D on the body ──────────────────────────────
-        // HeroKnight's pivot is at the feet — offset Y moves the collider up
         BoxCollider2D box = heroKnight.GetComponent<BoxCollider2D>();
         if (box != null)
         {
@@ -124,7 +143,6 @@ public class Level3PlayerReplacer : MonoBehaviour
         }
 
         // ── Wire health bar UI ────────────────────────────────────────────────
-        // Find the existing HealthBar and HP Text in the Level 3 scene
         Image    fillImage = null;
         TMP_Text hpText    = null;
 

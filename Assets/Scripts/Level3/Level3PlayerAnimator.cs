@@ -1,43 +1,63 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 // Attached to HeroKnight in Level 3 by Level3PlayerReplacer.
-// Uses AnimatorOverrideController to keep the full HeroKnight state machine
-// (idle / attack / hurt / death all work) while swapping clips for
-// swimming and helmet variants.
+//
+// Movement (idle / swim) is driven directly via AnimationClip.SampleAnimation()
+// in LateUpdate — this writes sprites to the SpriteRenderer AFTER the Animator
+// has already run, so it always wins without needing any override controller
+// for the Run state.
+//
+// Attacks / Hurt / Death still go through the HeroKnight state machine
+// (triggers fire normally while the Animator stays in its Idle state).
 public class Level3PlayerAnimator : MonoBehaviour
 {
     [Header("Base Controller (HeroKnight_AnimController)")]
     public RuntimeAnimatorController baseController;
 
+    [Header("Base Clips — HeroKnight.png")]
+    [Tooltip("L3_Idle.anim  — frames 0-6")]
+    public AnimationClip baseIdleClip;
+    [Tooltip("L3_Attack.anim  — frames 18-23")]
+    public AnimationClip baseAttack1Clip;
+    [Tooltip("L3_Attack2.anim — frames 24-29")]
+    public AnimationClip baseAttack2Clip;
+    [Tooltip("L3_Attack3.anim — frames 30-37")]
+    public AnimationClip baseAttack3Clip;
+    [Tooltip("L3_Hurt.anim  — frames 45-47")]
+    public AnimationClip baseHurtClip;
+    [Tooltip("L3_Death.anim — frames 48-54")]
+    public AnimationClip baseDeathClip;
+
     [Header("Swimming Clips")]
-    [Tooltip("Assets/Level_3Resources/Animations/Swimming.anim")]
+    [Tooltip("L3_Swimming.anim — HeroKnightSwimming.png")]
     public AnimationClip swimmingClip;
-    [Tooltip("Assets/Level_3Resources/Animations/Swimming_Helmet.anim")]
+    [Tooltip("Swimming_Helmet.anim — HeroKnightSwimmingHelmet.png")]
     public AnimationClip swimmingHelmetClip;
 
-    [Header("Helmet Clips")]
-    [Tooltip("Assets/Level_3Resources/Animations/L3_Idle_Helmet.anim")]
+    [Header("Helmet Clips — HeroKnightHelmet.png")]
+    [Tooltip("L3_Idle_Helmet.anim — frames 0-6")]
     public AnimationClip helmetIdleClip;
-    [Tooltip("Assets/Level_3Resources/Animations/L3_Hurt_Helmet.anim")]
+    [Tooltip("L3_Hurt_Helmet.anim — frames 45-47")]
     public AnimationClip helmetHurtClip;
-    [Tooltip("Assets/Level_3Resources/Animations/HeroDeathHelmet.anim")]
+    [Tooltip("HeroDeathHelmet.anim — frames 48-54")]
     public AnimationClip helmetDeathClip;
-    [Tooltip("Assets/Level_3Resources/Animations/L3_Attack_Helmet.anim (frames 18-23)")]
+    [Tooltip("L3_Attack_Helmet.anim — frames 18-23")]
     public AnimationClip helmetAttack1Clip;
-    [Tooltip("Assets/Level_3Resources/Animations/L3_Attack2_Helmet.anim (frames 24-29)")]
+    [Tooltip("L3_Attack2_Helmet.anim — frames 24-29")]
     public AnimationClip helmetAttack2Clip;
-    [Tooltip("Assets/Level_3Resources/Animations/L3_Attack3_Helmet.anim (frames 30-37)")]
+    [Tooltip("L3_Attack3_Helmet.anim — frames 30-37")]
     public AnimationClip helmetAttack3Clip;
 
-    private Animator                  _animator;
-    private SpriteRenderer            _sr;
+    private Animator                   _animator;
+    private SpriteRenderer             _sr;
     private AnimatorOverrideController _overrideCtrl;
 
-    private bool _isMoving  = false;
-    private bool _helmetOn  = false;
+    private bool  _helmetOn  = false;
+    private bool  _isDead    = false;
+    private bool  _isMoving  = false;
+    private float _swimTime  = 0f;
 
-    // Clip name keys used in HeroKnight_AnimController
+    // Clip name keys that exist in HeroKnight_AnimController
     private const string CLIP_IDLE    = "HeroKnight_Idle";
     private const string CLIP_RUN     = "HeroKnight_Run";
     private const string CLIP_HURT    = "HeroKnight_Hurt";
@@ -57,38 +77,70 @@ public class Level3PlayerAnimator : MonoBehaviour
             return;
         }
 
-        // Build override controller on top of the full HeroKnight state machine
+        // Build override controller for idle / attack / hurt / death clips
         _overrideCtrl = new AnimatorOverrideController(baseController);
         _animator.runtimeAnimatorController = _overrideCtrl;
 
-        // Always use swimming clip for the Run state (we're always underwater)
-        if (swimmingClip != null)
-            _overrideCtrl[CLIP_RUN] = swimmingClip;
+        if (baseIdleClip    != null) _overrideCtrl[CLIP_IDLE]    = baseIdleClip;
+        if (baseAttack1Clip != null) _overrideCtrl[CLIP_ATTACK1] = baseAttack1Clip;
+        if (baseAttack2Clip != null) _overrideCtrl[CLIP_ATTACK2] = baseAttack2Clip;
+        if (baseAttack3Clip != null) _overrideCtrl[CLIP_ATTACK3] = baseAttack3Clip;
+        if (baseHurtClip    != null) _overrideCtrl[CLIP_HURT]    = baseHurtClip;
+        if (baseDeathClip   != null) _overrideCtrl[CLIP_DEATH]   = baseDeathClip;
 
-        // Force idle state
+        // Keep the state machine in Idle at all times.
+        // Swimming is handled in LateUpdate via SampleAnimation — no Run state needed.
         _animator.SetBool("Grounded", true);
         _animator.SetInteger("AnimState", 0);
     }
 
     void Update()
     {
-        if (_animator == null) return;
+        if (_animator == null || _isDead) return;
 
-        float moveX   = Input.GetAxisRaw("Horizontal");
-        float moveY   = Input.GetAxisRaw("Vertical");
-        bool isMoving = Mathf.Abs(moveX) > 0.01f || Mathf.Abs(moveY) > 0.01f;
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        _isMoving = Mathf.Abs(moveX) > 0.01f || Mathf.Abs(moveY) > 0.01f;
 
-        // Flip sprite
+        // Flip sprite to face movement direction
         if (_sr != null)
         {
             if      (moveX > 0.01f)  _sr.flipX = false;
             else if (moveX < -0.01f) _sr.flipX = true;
         }
 
-        // AnimState drives idle (0) vs swimming/run (1)
-        int animState = isMoving ? 1 : 0;
-        _animator.SetInteger("AnimState", animState);
-        _isMoving = isMoving;
+        // Always keep AnimState = 0 so the state machine stays in Idle.
+        // Swimming is applied in LateUpdate after the Animator has already run.
+        _animator.SetInteger("AnimState", 0);
+    }
+
+    void LateUpdate()
+    {
+        if (_animator == null || _isDead) return;
+
+        // Only override with swimming if we are moving AND the Animator is in a
+        // movement state (Idle/Run), not mid-attack or mid-hurt.
+        if (_isMoving && IsInMovementState())
+        {
+            AnimationClip clip = _helmetOn ? swimmingHelmetClip : swimmingClip;
+            if (clip != null)
+            {
+                _swimTime  = (_swimTime + Time.deltaTime) % clip.length;
+                // SampleAnimation runs after Animator.Update, so it always wins.
+                clip.SampleAnimation(gameObject, _swimTime);
+            }
+        }
+        else if (!_isMoving)
+        {
+            _swimTime = 0f;   // Reset so swim restarts cleanly from frame 0
+        }
+    }
+
+    // Returns true when the Animator is in a movement state (not attacking/hurt/dead).
+    private bool IsInMovementState()
+    {
+        var info = _animator.GetCurrentAnimatorStateInfo(0);
+        return info.IsName("Idle") || info.IsName("Run");
     }
 
     // ── Called by PlayerHealth ────────────────────────────────────────────────
@@ -99,6 +151,7 @@ public class Level3PlayerAnimator : MonoBehaviour
 
     public void TriggerDeath()
     {
+        _isDead = true;
         if (_animator != null)
         {
             _animator.SetBool("noBlood", false);
@@ -113,18 +166,13 @@ public class Level3PlayerAnimator : MonoBehaviour
 
         if (_overrideCtrl == null) return;
 
-        // Swap run (swimming) clip to helmet swimming version
-        if (swimmingHelmetClip != null)
-            _overrideCtrl[CLIP_RUN] = swimmingHelmetClip;
-
-        // Swap idle/hurt/death/attack clips to helmet versions
-        if (helmetIdleClip   != null) _overrideCtrl[CLIP_IDLE]    = helmetIdleClip;
-        if (helmetHurtClip   != null) _overrideCtrl[CLIP_HURT]    = helmetHurtClip;
-        if (helmetDeathClip  != null) _overrideCtrl[CLIP_DEATH]   = helmetDeathClip;
+        if (helmetIdleClip    != null) _overrideCtrl[CLIP_IDLE]    = helmetIdleClip;
+        if (helmetHurtClip    != null) _overrideCtrl[CLIP_HURT]    = helmetHurtClip;
+        if (helmetDeathClip   != null) _overrideCtrl[CLIP_DEATH]   = helmetDeathClip;
         if (helmetAttack1Clip != null) _overrideCtrl[CLIP_ATTACK1] = helmetAttack1Clip;
         if (helmetAttack2Clip != null) _overrideCtrl[CLIP_ATTACK2] = helmetAttack2Clip;
         if (helmetAttack3Clip != null) _overrideCtrl[CLIP_ATTACK3] = helmetAttack3Clip;
 
-        Debug.Log("[Level3PlayerAnimator] Helmet clips applied via override controller.");
+        Debug.Log("[Level3PlayerAnimator] Helmet clips applied.");
     }
 }
